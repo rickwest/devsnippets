@@ -6,3 +6,4 @@
 /vendor/
 .DS_Store
 .idea
+/source/assets/build/
