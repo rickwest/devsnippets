@@ -35,7 +35,7 @@
 
                 <h3 class="text-2xl text-blue-darkest mb-0">Copy/Paste Driven Development</h3>
 
-                <p>We're only human, we can't remember everything, and now we don't need to! Copy/Paste programming has never felt so good.</p>
+                <p>You're only human, you can't remember everything and now you don't need to! Copy/Paste programming has never felt so good.</p>
             </div>
 
             <div class="mx-3 px-2 md:w-1/3">
