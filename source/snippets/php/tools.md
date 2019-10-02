@@ -1,11 +1,15 @@
 ---
-title: PHP Quality
-description: PHP Quality Snippets
+title: PHP - Tooling
+description: PHP Tooling Snippets
 extends: _layouts.documentation
 section: content
 ---
 
-# PHP Stan
+# PHP Tooling
+
+## PHP Stan
+
+https://github.com/phpstan/phpstan
 
 ### Install PHPStan with Composer
 
@@ -13,13 +17,15 @@ section: content
 composer require --dev phpstan/phpstan
 ```
 
-## Analyse
+### Analyse
 
 ```bash
 vendor/bin/phpstan analyse {directories to analyse}
 ```
 
-## Config
+### Config
+
+Basic `phpstan.neon` config
 
 ```neon
 parameters:
@@ -29,15 +35,26 @@ parameters:
         - tests
 ```
 
-# PHP CS Fixer tool
+--- 
+
+## PHP CS Fixer
+
 https://cs.symfony.com/
 
-Install globally with composer
+### Install globally with composer
 
+```bash
 composer global require friendsofphp/php-cs-fixer
+```
 
 Then make sure you have the global Composer binaries directory in your PATH
+
+```bash
 export PATH="$PATH:$HOME/.composer/vendor/bin"
+```
+
+### Config
+
 ```php
 <?php
 

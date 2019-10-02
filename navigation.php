@@ -1,12 +1,13 @@
 <?php
 
 return [
-    'Getting Started' => 'snippets/getting-started',
+    'Welcome' => 'snippets/welcome',
     'Git' => 'snippets/git',
     'PHP' => [
-        'url' => 'snippets/php',
         'children' => [
-            'DateTime' => 'snippets/php/datetime'
+            'DateTime' => 'snippets/php/datetime',
+            'Tooling' => 'snippets/php/tools',
         ]
     ],
+    'React' => 'snippets/react'
 ];
