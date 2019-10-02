@@ -23,5 +23,8 @@
         "tailwindcss": "^0.7.2",
         "vue-template-compiler": "^2.5.21",
         "yargs": "^4.6.0"
+    },
+    "dependencies": {
+        "clipboard": "^2.0.4"
     }
 }

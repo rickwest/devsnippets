@@ -1,14 +1,13 @@
 <?php
 
 return [
-    'Getting Started' => [
-        'url' => 'docs/getting-started',
+    'Welcome' => 'snippets/welcome',
+    'Git' => 'snippets/git',
+    'PHP' => [
         'children' => [
-            'Customizing Your Site' => 'docs/customizing-your-site',
-            'Navigation' => 'docs/navigation',
-            'Algolia DocSearch' => 'docs/algolia-docsearch',
-            'Custom 404 Page' => 'docs/custom-404-page',
-        ],
+            'DateTime' => 'snippets/php/datetime',
+            'Tooling' => 'snippets/php/tools',
+        ]
     ],
-    'Jigsaw Docs' => 'https://jigsaw.tighten.co/docs/installation',
+    'React' => 'snippets/react'
 ];

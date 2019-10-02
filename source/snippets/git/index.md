@@ -1,13 +1,17 @@
 ---
 title: Git
-description: Git Snippets
+description: Git Dev Snippets
 extends: _layouts.documentation
 section: content
 ---
 
 # Git
 
-### Create a new repository on the command line
+## Repositories
+
+### Create a new repository 
+
+Create a new repository on the command line
 
 ```bash
 echo "# devsnippets" >> README.md
@@ -18,10 +22,23 @@ git remote add origin https://github.com/rickwest/devsnippets.git
 git push -u origin master
 ```
 
-### Push an existing repository from the command line
+### Push an existing repository
+
+Push and existing repository from the command line
 
 ```bash
 git remote add origin https://github.com/rickwest/devsnippets.git
 git push -u origin master
 ```
 
+---
+
+## Branches
+
+### List branches
+
+List existing branches. Current branch will be highlighted with an asterisk.
+
+```bash
+git branch --list
+```

@@ -1,6 +1,6 @@
 ---
-title: PHP
-description: PHP - DateTime
+title: PHP - DateTime
+description: PHP DateTime Dev Snippets
 extends: _layouts.documentation
 section: content
 ---
@@ -16,7 +16,7 @@ Get current date time:
 $now = new DateTime();
 ```
 
-### sub:
+### sub
 Subtracts an amount of days, months, years, hours, minutes and seconds from a DateTime object
 
 ```php
