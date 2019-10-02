@@ -11,7 +11,7 @@
                 <p class="text-lg">Having to Google the same thing over and over? <br> Sick of searching Stack Overflow for that obscure answer you found the other week? <br class="hidden sm:block">There's probably a snippet for that (and if there isn't, there should be)!</p>
 
                 <div class="flex my-10">
-                    <a href="/snippets/getting-started" title="{{ $page->siteName }} getting started" class="bg-blue hover:bg-blue-dark font-normal text-white hover:text-white rounded mr-4 py-2 px-6">To the snippets 👉</a>
+                    <a href="/snippets/welcome" title="{{ $page->siteName }} getting started" class="bg-blue hover:bg-blue-dark font-normal text-white hover:text-white rounded mr-4 py-2 px-6">To the snippets 👉</a>
                 </div>
             </div>
 
