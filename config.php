@@ -4,7 +4,7 @@ return [
     'baseUrl' => '',
     'production' => false,
     'siteName' => 'Dev Snippets',
-    'siteDescription' => 'A collection of useful code snippets for developers!',
+    'siteDescription' => 'A collection of useful code snippets for new developers!',
 
     // Algolia DocSearch credentials
     'docsearchApiKey' => '',
