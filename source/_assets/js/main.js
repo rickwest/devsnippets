@@ -15,3 +15,31 @@ hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'));
 document.querySelectorAll('pre code').forEach((block) => {
     hljs.highlightBlock(block);
 });
+
+import ClipboardJS from 'clipboard';
+
+document.querySelectorAll('pre').forEach((block) => {
+    block.classList = 'relative';
+    let copyBtn = document.createElement('button');
+    copyBtn.textContent = 'Copy';
+    copyBtn.classList = 'bg-grey-light hover:bg-grey-dark text-grey-darkest font-normal hover:text-white rounded py-2 px-6 absolute pin-r mr-4';
+    block.prepend(copyBtn);
+});
+
+let btns = document.querySelectorAll('pre button');
+
+let clipboard = new ClipboardJS(btns, {
+    target: function(trigger) {
+        return trigger.nextElementSibling;
+    },
+    text: function (trigger) {
+        trigger.textContent = 'Copied 👍';
+        setTimeout(function() {
+            trigger.textContent = 'Copy'
+        }, 3000);
+    }
+});
+
+clipboard.on('success', (event) => {
+    event.clearSelection();
+});
