@@ -19,4 +19,6 @@ There are no hard and fast rules here, so please feel free to [contribute](https
 
 ...And if you're still not sure, or you need some help, just [open an issue](https://github.com/rickwest/devsnippets/issues/new) or drop me a message [@rick_west8](https://twitter.com/rick_west8) and I'll do my best to guide you through it! 
 
-> That pain when you spend hours searching for an answer on Stack Overflow, strike gold, but then accidentally close the window and struggle to find it again. 😩
+---
+
+*That pain when you spend hours searching for an answer on Stack Overflow, strike gold, but then accidentally close the window and struggle to find it again.* 😩
