@@ -7,8 +7,8 @@ return [
     'siteDescription' => 'A collection of useful code snippets for new developers!',
 
     // Algolia DocSearch credentials
-    'docsearchApiKey' => '',
-    'docsearchIndexName' => '',
+    'docsearchApiKey' => '3fab51cde0f6a11ce324c7decd2b14c7',
+    'docsearchIndexName' => 'devsnippets',
 
     // navigation menu
     'navigation' => require_once('navigation.php'),
