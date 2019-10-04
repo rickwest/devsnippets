@@ -9,5 +9,6 @@ return [
             'Tooling' => 'snippets/php/tools',
         ]
     ],
-    'React' => 'snippets/react'
+    'React' => 'snippets/react',
+    'Vue' => 'snippets/vue',
 ];
