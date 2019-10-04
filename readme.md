@@ -69,7 +69,7 @@ description: An interesting Dev Snippet and also my first Open Source contributi
 Your snippet content
 ```
 
-You will also need to add your new page to the navigation array specified in `navigation.php`.
+You will also need to add your new page to the navigation array specified in `navigation.php` and don't forget to add your name to `CONTRIBUTORS.md`.
 
 ---
 
