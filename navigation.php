@@ -8,6 +8,7 @@ return [
         'children' => [
             'DateTime' => 'snippets/php/datetime',
             'Tooling' => 'snippets/php/tools',
+            'Arrays' => 'snippets/php/arrays'
         ]
     ],
     'React' => 'snippets/react',

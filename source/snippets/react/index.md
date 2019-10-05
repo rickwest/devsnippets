@@ -70,3 +70,59 @@ ReactDOM.render(
 );
 
 ```
+
+### setState() Best Practices
+
+The most common confusion in using React is `setState()` function, Here's some tips on how to use `setState()` properly.
+
+```javascript
+
+class Lock extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { locked: false };
+  }
+
+  unlock = () => {
+    // we can access previous state via passing function
+    this.setState(state => ({
+      locked: !state.locked
+    }));
+  }
+
+  lock = () => {
+    // setState is an asynchronous function, so that there are times that, it can't return the mutate state 
+    // immediately, but using the second parameter in setState(), you can now access the new state value.
+    this.setState({locked: true}, () => {
+      console.log(this.state.locked);
+    })
+  }
+  
+  combinedSetState = () => {
+    // We can actually combined this ways :)  
+    this.setState(state => ({
+      locked: !state.locked
+    }), () => {
+      console.log(this.state.locked);
+    })
+  }
+
+  componentDidMount() {
+    this.unlock()
+  }
+
+  render() {
+    return (
+      <div>
+        Is locked: {this.state.locked}
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Lock />,
+  document.getElementById('lock')
+);
+
+```
