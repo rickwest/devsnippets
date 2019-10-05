@@ -70,3 +70,40 @@ ReactDOM.render(
 );
 
 ```
+
+### UseEffect & UseState Hook
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class. The Effect Hook lets you perform side effects in function components. The State Hook lets you manage state in a functional component.
+
+Here is the above code snippet, using Hooks:
+
+```javascript
+function Timer(props) {
+
+  // declare your state variable, a function to modify it, and set an initial value
+  const [seconds, setSeconds] = useState(0);
+
+  const tick = () => {
+    setSeconds(seconds + 1);
+  }
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // this will run every second!
+      tick();
+    }, 1000);
+    // you can return a 'clean up' function which will run when the component unmounts
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      Seconds: {seconds}
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <Timer />,
+  document.getElementById('timer-example')
+);
