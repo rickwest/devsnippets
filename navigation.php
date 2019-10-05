@@ -10,6 +10,7 @@ return [
             'Tooling' => 'snippets/php/tools',
         ]
     ],
+    'Python' => 'snippets/python',
     'React' => 'snippets/react',
     'Vue' => 'snippets/vue',
 ];
