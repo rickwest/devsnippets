@@ -43,6 +43,22 @@ List existing branches. Current branch will be highlighted with an asterisk.
 git branch --list
 ```
 
+List existing remote branches.
+
+```bash
+git branch -r
+# or
+git branch --remote
+```
+
+List all existing branches (local and remote).
+
+```bash
+git branch -a
+# or
+git branch --all
+```
+
 ### Create a new branch
 
 Creates a new branch and switches to it
