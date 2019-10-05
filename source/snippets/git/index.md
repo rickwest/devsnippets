@@ -59,18 +59,18 @@ git branch -a
 git branch --all
 ```
 
-Creates and switches to a new branch.
+### Create a new branch
+
+Creates a new branch and switches to it
 
 ```bash
-git checkout -b new-branch
+git checkout -b branchname
 ```
 
+### Switch to a branch
 
+Changes to a branch based on name
 
-
-
-
-
-
-
-
+```bash
+git checkout branchname
+```
