@@ -16,11 +16,7 @@ React components implement a render() method that takes input data and returns w
 ```javascript
 class HelloMessage extends React.Component {
   render() {
-    return (
-      <div>
-        Hello {this.props.name}
-      </div>
-    );
+    return <div>Hello {this.props.name}</div>;
   }
 }
 
@@ -56,17 +52,76 @@ class Timer extends React.Component {
   }
 
   render() {
+    return <div>Seconds: {this.state.seconds}</div>;
+  }
+}
+
+ReactDOM.render(<Timer />, document.getElementById('timer-example'));
+```
+
+### Context Provider Component
+
+Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. A Context Provider Component allows all components rendered inside to access the value passed.
+
+```javascript
+import React, { createContext } from 'react';
+
+const MyContext = React.createContext(defaultValue);
+
+class ContextProvider extends React.Component {
+  state = {
+    key: 'value'
+  };
+  render() {
     return (
-      <div>
-        Seconds: {this.state.seconds}
-      </div>
+      <MyContext.Provider value={this.state}>
+        {this.props.children} // all children can access value using a consumer
+        or useContext
+      </MyContext.Provider>
     );
   }
 }
 
-ReactDOM.render(
-  <Timer />,
-  document.getElementById('timer-example')
-);
+export default ContextProvider;
+```
 
+### Context Consumer Component
+
+Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The Context Consumer component allows access to the value in the provider via a 'render prop' pattern.
+
+```javascript
+import React from 'react';
+
+import MyContext from '../ContextProvider';
+
+class AnyComponent extends React.Component {
+  render() {
+    return (
+      <MyContext.Consumer>
+        {value => {
+          return <p>now we can render the {value}</p>;
+        }}
+      </MyContext.Consumer>
+    );
+  }
+}
+
+export default AnyComponent;
+```
+
+### useContext Hook
+
+Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The useContext hook allows access to the value in function components.
+
+```javascript
+import React, { useContext } from 'react';
+
+import MyContext from '../ContextProvider';
+
+const AnyFunctionComponent = () => {
+  const value = useContext(MyContext);
+  return <p>now we can render the {value}</p>;
+};
+
+export default AnyFunctionComponent;
 ```
