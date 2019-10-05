@@ -48,8 +48,8 @@ Dev Snippets is built with [Jigsaw](https://jigsaw.tighten.co), so you need to h
 
 Now that you have everything installed, you can serve the site using PHP `./vendor/bin/jigsaw serve` or alternatively, using Browsersync `yarn run watch`
 
-Navigate to `http://localhost:3000/snippets/welcome/` and you should now see the website!
-  
+Navigate to [http://localhost:3000/snippets/welcome/](http://localhost:3000/snippets/welcome/) and you should now see the website!
+
 For more help [getting started](https://jigsaw.tighten.co/docs/installation/), be sure to check out the official documentation. It really is good!
 
 ---
