@@ -84,3 +84,20 @@ Changes to a branch based on name
 ```bash
 git checkout branchname
 ```
+
+### Create a commit
+ 
+Create a commit 
+
+```bash
+git commit -m "Put your mesagge here"
+```
+
+### Create  aliases
+
+one little tip that can make your Git experience simpler and easier
+
+```bash
+git config --global alias.co checkout
+```
+
