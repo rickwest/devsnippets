@@ -107,3 +107,58 @@ ReactDOM.render(
   <Timer />,
   document.getElementById('timer-example')
 );
+```
+
+### Functional Components
+
+Functional components are the simplest way to write components in React. They don't hold state, they don't fire lifecycle events; they simply take props and render a React Element.
+
+```javascript
+function MyComponent ({ name }) {
+  return <div className='message-box'>
+    Hello {name}
+  </div>
+}
+```
+Functional Components can be written with arraow functions.
+
+```javascript
+const Greeting = (props) => 
+  <h1> Hello {props.name} </h1>;
+  
+ReactDOM.render() {
+  <Greeting name="xyz" />;
+  document.getElementById("root");
+};
+```
+
+### User Input Components
+
+As the user types into the input field, we will store the input in our Component State and display it on the screen.
+
+```javascript
+import React, { Component } from 'react';
+
+class InputField extends Component {
+  state = {
+    userInput: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      userInput: e.target.value
+    })
+  }
+
+  render() {
+    return (
+      <div style={{paddingLeft: '5%'}}>
+       <input onChange={(e) => this.handleChange(e)}type="text" />
+       <p><strong>You have typed:</strong> {this.state.userInput}</p>
+      </div>
+    );
+  }
+}
+
+export default InputField;
+```
