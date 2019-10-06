@@ -7,6 +7,16 @@ section: content
 
 # Git
 
+### Create a Directory
+```bash
+mkdir <folder-name>
+```
+
+### Create Empty File
+```bash
+touch <file-name-with-type>
+```
+
 ## Repositories
 
 ### Create a new repository

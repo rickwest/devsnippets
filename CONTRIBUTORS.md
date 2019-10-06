@@ -7,3 +7,5 @@
 - [Paskalouis Patressi](https://github.com/Paskalouis)
 - [Hegar Garcia](https://github.com/hegargarcia)
 - [Jesus Mava](https://github.com/jesusMava)
+- [Mikee Ramirez](https://github.com/mikeermz)
+- [Giovane da Silva Sobrinho](https://github.com/silvasobrinho)
