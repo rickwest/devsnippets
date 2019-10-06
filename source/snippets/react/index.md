@@ -16,17 +16,13 @@ React components implement a render() method that takes input data and returns w
 ```javascript
 class HelloMessage extends React.Component {
   render() {
-    return (
-      <div>
-        Hello {this.props.name}
-      </div>
-    );
+    return <div>Hello {this.props.name}</div>;
   }
 }
 
 ReactDOM.render(
   <HelloMessage name="Rick" />,
-  document.getElementById('hello-example')
+  document.getElementById("hello-example")
 );
 ```
 
@@ -56,19 +52,11 @@ class Timer extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        Seconds: {this.state.seconds}
-      </div>
-    );
+    return <div>Seconds: {this.state.seconds}</div>;
   }
 }
 
-ReactDOM.render(
-  <Timer />,
-  document.getElementById('timer-example')
-);
-
+ReactDOM.render(<Timer />, document.getElementById("timer-example"));
 ```
 
 ### User Input Components
@@ -76,28 +64,57 @@ ReactDOM.render(
 As the user types into the input field, we will store the input in our Component State and display it on the screen.
 
 ```javascript
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class InputField extends Component {
   state = {
-    userInput: ''
-  }
+    userInput: ""
+  };
 
-  handleChange = (e) => {
+  handleChange = e => {
     this.setState({
       userInput: e.target.value
-    })
-  }
+    });
+  };
 
   render() {
     return (
-      <div style={{paddingLeft: '5%'}}>
-       <input onChange={(e) => this.handleChange(e)}type="text" />
-       <p><strong>You have typed:</strong> {this.state.userInput}</p>
+      <div style={{ paddingLeft: "5%" }}>
+        <input onChange={e => this.handleChange(e)} type="text" />
+        <p>
+          <strong>You have typed:</strong> {this.state.userInput}
+        </p>
       </div>
     );
   }
 }
 
 export default InputField;
+```
+
+## Higher Order Component
+
+A higher-order component (HOC) transforms a component into another component.
+
+```javascript
+import React from "react";
+
+class CopyRight extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { date: new Date() };
+  }
+
+  render() {
+    return (
+      <div>
+        &#9426; <Year date={this.state.date} />
+      </div>
+    );
+  }
+}
+
+function Year(props) {
+  return <span>{`${props.date.getFullYear()}`}</span>;
+}
 ```
