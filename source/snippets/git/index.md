@@ -74,3 +74,35 @@ Changes to a branch based on name
 ```bash
 git checkout branchname
 ```
+
+### Switch to a branch
+
+Changes to a branch based on name
+
+```bash
+git checkout branchname
+```
+
+### Show the working tree status
+
+Check the status of the repository
+
+```bash
+git status
+```
+
+### Add file contents to the index
+
+Prepare the content staged for the next commit.
+
+```bash
+git add .
+```
+
+### Record changes to the repository
+
+Use the given <msg> as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs.
+
+```bash
+git commit -m"your commit message"
+```
