@@ -70,3 +70,39 @@ ReactDOM.render(
 );
 
 ```
+
+### Hooks in Combination with setInterval()
+
+In comparison to stateful components in React, hooks let you use features like state without the neccessity of writing a class compoent.  
+
+```javascript
+function useInterval(callback) {
+  const savedCallback = useRef();
+
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    const id = setInterval(() => savedCallback.current(), 1000);
+    return () => clearInterval(id);
+  });
+}
+
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
+
+  useInterval(() => setSeconds(seconds + 1));
+
+  return (
+    <div>
+      Seconds: {seconds}
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <Timer />, 
+  document.getElementById("timer-example")
+);
+```
