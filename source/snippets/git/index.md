@@ -7,6 +7,16 @@ section: content
 
 # Git
 
+### Create a Directory
+```bash
+mkdir <folder-name>
+```
+
+### Create Empty File
+```bash
+touch <file-name-with-type>
+```
+
 ## Repositories
 
 ### Create a new repository
@@ -94,5 +104,21 @@ Deletes a branch thats no longer required (eg after a merge)
 
 ```bash
 git branch -d branchname 
+```
+
+### Create a commit
+ 
+Create a commit 
+
+```bash
+git commit -m "Put your mesagge here"
+```
+
+### Create  aliases
+
+one little tip that can make your Git experience simpler and easier
+
+```bash
+git config --global alias.co checkout
 ```
 
