@@ -5,6 +5,7 @@ return [
     'C++' => 'snippets/c',
     'Docker' => 'snippets/docker',
     'Git' => 'snippets/git',
+    'Javascript' => 'snippets/javascript',
     'PHP' => [
         'children' => [
             'DateTime' => 'snippets/php/datetime',
