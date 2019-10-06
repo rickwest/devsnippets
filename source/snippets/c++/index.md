@@ -7,7 +7,7 @@ description: C++ Dev Snippets
 
 # C++
 
-## Frist steps with C++
+## First steps with C++
 
 Let us look at a simple code that would print the words Hello World.
 
