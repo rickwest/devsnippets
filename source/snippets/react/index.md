@@ -106,3 +106,34 @@ ReactDOM.render(
   document.getElementById("timer-example")
 );
 ```
+
+### User Input Components
+
+As the user types into the input field, we will store the input in our Component State and display it on the screen.
+
+```javascript
+import React, { Component } from 'react';
+
+class InputField extends Component {
+  state = {
+    userInput: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      userInput: e.target.value
+    })
+  }
+
+  render() {
+    return (
+      <div style={{paddingLeft: '5%'}}>
+       <input onChange={(e) => this.handleChange(e)}type="text" />
+       <p><strong>You have typed:</strong> {this.state.userInput}</p>
+      </div>
+    );
+  }
+}
+
+export default InputField;
+```

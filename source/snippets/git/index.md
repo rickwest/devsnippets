@@ -9,7 +9,7 @@ section: content
 
 ## Repositories
 
-### Create a new repository 
+### Create a new repository
 
 Create a new repository on the command line
 
@@ -41,4 +41,36 @@ List existing branches. Current branch will be highlighted with an asterisk.
 
 ```bash
 git branch --list
+```
+
+List existing remote branches.
+
+```bash
+git branch -r
+# or
+git branch --remote
+```
+
+List all existing branches (local and remote).
+
+```bash
+git branch -a
+# or
+git branch --all
+```
+
+### Create a new branch
+
+Creates a new branch and switches to it
+
+```bash
+git checkout -b branchname
+```
+
+### Switch to a branch
+
+Changes to a branch based on name
+
+```bash
+git checkout branchname
 ```
