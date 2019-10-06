@@ -2,6 +2,7 @@
 
 return [
     'Welcome' => 'snippets/welcome',
+    'C++' => 'snippets/c',
     'Docker' => 'snippets/docker',
     'Git' => 'snippets/git',
     'PHP' => [
@@ -13,4 +14,5 @@ return [
     'Python' => 'snippets/python',
     'React' => 'snippets/react',
     'Vue' => 'snippets/vue',
+    'Vim' => 'snippets/vim',
 ];

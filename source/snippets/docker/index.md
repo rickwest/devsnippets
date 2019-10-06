@@ -58,6 +58,14 @@ Removes all:
 docker system prune
 ```
 
+## Clear docker logs
+
+Finds all `.log` files in `/var/lib/docker/containers/` and truncates their size to 0.
+
+```bash
+sudo find /var/lib/docker/containers/ -name "*.log*" -exec truncate -s 0 {} \;
+```
+
 ## Get IP Address of a container
 
 Remember to change the container name or id

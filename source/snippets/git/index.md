@@ -7,6 +7,16 @@ section: content
 
 # Git
 
+### Create a Directory
+```bash
+mkdir <folder-name>
+```
+
+### Create Empty File
+```bash
+touch <file-name-with-type>
+```
+
 ## Repositories
 
 ### Create a new repository
@@ -97,4 +107,39 @@ Use the given <msg> as the commit message. If multiple -m options are given, the
 
 ```bash
 git commit -m"your commit message"
+```
+### Merge a branch
+
+To merge a branch into another, you need to do the following
+
+1. **Checkout** the branch/master you wish to merge _into_
+2. Merge the required branch into this one
+
+```bash
+git checkout branchname
+git merge my-new-function
+```
+
+### Delete a branch
+
+Deletes a branch thats no longer required (eg after a merge)
+
+```bash
+git branch -d branchname 
+```
+
+### Create a commit
+ 
+Create a commit 
+
+```bash
+git commit -m "Put your mesagge here"
+```
+
+### Create  aliases
+
+one little tip that can make your Git experience simpler and easier
+
+```bash
+git config --global alias.co checkout
 ```
