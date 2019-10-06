@@ -47,6 +47,8 @@ Use the given <msg> as the commit message. If multiple -m options are given, the
 git commit -m"your commit message"
 ```
 
+--- 
+
 ## Repositories
 
 ### Create a new repository
