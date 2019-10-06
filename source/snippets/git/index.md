@@ -85,6 +85,27 @@ Changes to a branch based on name
 git checkout branchname
 ```
 
+### Merge a branch
+
+To merge a branch into another, you need to do the following
+
+1. **Checkout** the branch/master you wish to merge _into_
+2. Merge the required branch into this one
+
+```bash
+git checkout branchname
+git merge my-new-function
+```
+
+
+### Delete a branch
+
+Deletes a branch thats no longer required (eg after a merge)
+
+```bash
+git branch -d branchname 
+```
+
 ### Create a commit
  
 Create a commit 

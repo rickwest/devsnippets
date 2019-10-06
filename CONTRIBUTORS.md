@@ -9,3 +9,4 @@
 - [Jesus Mava](https://github.com/jesusMava)
 - [Mikee Ramirez](https://github.com/mikeermz)
 - [Giovane da Silva Sobrinho](https://github.com/silvasobrinho)
+- [Craig Ramsden](https://github.com/crammers)
