@@ -11,3 +11,4 @@
 - [Giovane da Silva Sobrinho](https://github.com/silvasobrinho)
 - [Craig Ramsden](https://github.com/crammers)
 - [Cem Ugur Karacam](https://github.com/cemuka)
+- [Erica Perry](https://github.com/comealongerica)

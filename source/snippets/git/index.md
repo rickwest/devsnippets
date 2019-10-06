@@ -143,3 +143,33 @@ one little tip that can make your Git experience simpler and easier
 ```bash
 git config --global alias.co checkout
 ```
+## Stashing
+
+### Stash
+
+When you want to switch branches but aren't ready to commit your changes, you can stash them away.
+
+```bash
+git stash
+```
+
+### Stash List
+
+To see a list of the stashes you've stored.
+
+```bash
+git stash list
+```
+### Apply Stash 
+
+To reapply your last stash
+
+```bash
+git stash apply
+```
+
+To apply an older stash, use your <code>git stash list</code> and append the stash number you want to apply to <code>git stash apply</code>.
+
+```bash
+git stash apply stash@{1}
+```
