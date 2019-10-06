@@ -11,7 +11,7 @@ section: content
 
 ### Create a new repository
 
-Create a new repository on the command line
+Create a new repository on the command line.
 
 ```bash
 echo "# devsnippets" >> README.md
@@ -24,7 +24,7 @@ git push -u origin master
 
 ### Push an existing repository
 
-Push and existing repository from the command line
+Push an existing repository to a remote location from the command line.
 
 ```bash
 git remote add origin https://github.com/rickwest/devsnippets.git
@@ -57,6 +57,14 @@ List all existing branches (local and remote).
 git branch -a
 # or
 git branch --all
+```
+
+### Compare branches
+
+Lists the differences between two different branches.
+
+```bash
+git diff branchname1 branchname2
 ```
 
 ### Create a new branch
