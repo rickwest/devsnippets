@@ -2,6 +2,7 @@
 
 return [
     'Welcome' => 'snippets/welcome',
+    'C++' => 'snippets/C++'
     'Docker' => 'snippets/docker',
     'Git' => 'snippets/git',
     'PHP' => [
