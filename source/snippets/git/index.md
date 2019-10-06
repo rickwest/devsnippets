@@ -75,14 +75,6 @@ Changes to a branch based on name
 git checkout branchname
 ```
 
-### Switch to a branch
-
-Changes to a branch based on name
-
-```bash
-git checkout branchname
-```
-
 ### Show the working tree status
 
 Check the status of the repository
