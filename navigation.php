@@ -14,4 +14,5 @@ return [
     'Python' => 'snippets/python',
     'React' => 'snippets/react',
     'Vue' => 'snippets/vue',
+    'Vim' => 'snippets/vim',
 ];
