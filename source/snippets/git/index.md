@@ -83,8 +83,8 @@ To merge a branch into another, you need to do the following
 2. Merge the required branch into this one
 
 ```bash
-  git checkout branchname
-  git merge my-new-function
+git checkout branchname
+git merge my-new-function
 ```
 
 
@@ -93,6 +93,6 @@ To merge a branch into another, you need to do the following
 Deletes a branch thats no longer required (eg after a merge)
 
 ```bash
-git git branch -d branchname 
+git branch -d branchname 
 ```
 
