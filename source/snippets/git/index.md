@@ -102,7 +102,7 @@ To reapply your last stash
 git stash apply
 ```
 
-To apply an older stash, use your <code>git stash list</code> and append the <code>stash@{num}</code> you want to apply to <code>git stash apply</code>.
+To apply an older stash, use your <code>git stash list</code> and append the stash number you want to apply to <code>git stash apply</code>.
 
 ```bash
 git stash apply stash@{1}
