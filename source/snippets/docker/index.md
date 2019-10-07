@@ -4,8 +4,12 @@ section: content
 title: Install Docker-CE on Ubuntu Linux 18.04
 description: Docker Dev Snippets
 ---
-# Install Docker-CE on Ubuntu Linux 18.04 
-(should be the same for most current versions)
+
+# Docker
+
+## Installing Docker-CE on Ubuntu Linux 18.04
+
+(Should be the same for most current versions)
 
 ```bash
 # Update the apt package list.
@@ -37,5 +41,35 @@ sudo apt-get update -y
 sudo apt-get install -y docker-ce
 
 # Allow your user to access the Docker CLI without needing root access.
+# You need to log out and log back in so that your group membership is re-evaluated
 sudo usermod -aG docker $USER
+```
+
+## Clean unused data
+
+Removes all:
+
+- Stoped containers
+- Unused networks
+- Dangling images
+- Dangling build cache
+
+```bash
+docker system prune
+```
+
+## Clear docker logs
+
+Finds all `.log` files in `/var/lib/docker/containers/` and truncates their size to 0.
+
+```bash
+sudo find /var/lib/docker/containers/ -name "*.log*" -exec truncate -s 0 {} \;
+```
+
+## Get IP Address of a container
+
+Remember to change the container name or id
+
+```bash
+docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
 ```

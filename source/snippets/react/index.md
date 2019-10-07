@@ -16,11 +16,7 @@ React components implement a render() method that takes input data and returns w
 ```javascript
 class HelloMessage extends React.Component {
   render() {
-    return (
-      <div>
-        Hello {this.props.name}
-      </div>
-    );
+    return <div>Hello {this.props.name}</div>;
   }
 }
 
@@ -56,19 +52,206 @@ class Timer extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        Seconds: {this.state.seconds}
-      </div>
-    );
+    return <div>Seconds: {this.state.seconds}</div>;
   }
+}
+
+ReactDOM.render(<Timer />, document.getElementById('timer-example'));
+```
+
+### UseEffect & UseState Hook
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class. The Effect Hook lets you perform side effects in function components. The State Hook lets you manage state in a functional component.
+
+Here is the above code snippet, using Hooks:
+
+```javascript
+function Timer(props) {
+
+  // declare your state variable, a function to modify it, and set an initial value
+  const [seconds, setSeconds] = useState(0);
+
+  const tick = () => {
+    setSeconds(seconds + 1);
+  }
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // this will run every second!
+      tick();
+    }, 1000);
+    // you can return a 'clean up' function which will run when the component unmounts
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      Seconds: {seconds}
+    </div>
+  );
 }
 
 ReactDOM.render(
   <Timer />,
   document.getElementById('timer-example')
 );
+```
 
+### Context Provider Component
+
+Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. A Context Provider Component allows all components rendered inside to access the value passed.
+
+```javascript
+import React, { createContext } from 'react';
+
+const MyContext = React.createContext(defaultValue);
+
+class ContextProvider extends React.Component {
+  state = {
+    key: 'value'
+  };
+  render() {
+    return (
+      <MyContext.Provider value={this.state}>
+        {this.props.children} // all children can access value using a consumer
+        or useContext
+      </MyContext.Provider>
+    );
+  }
+}
+
+export default ContextProvider;
+```
+
+### Context Consumer Component
+
+Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The Context Consumer component allows access to the value in the provider via a 'render prop' pattern.
+
+```javascript
+import React from 'react';
+
+import MyContext from '../ContextProvider';
+
+class AnyComponent extends React.Component {
+  render() {
+    return (
+      <MyContext.Consumer>
+        {value => {
+          return <p>now we can render the {value}</p>;
+        }}
+      </MyContext.Consumer>
+    );
+  }
+}
+
+export default AnyComponent;
+```
+
+### useContext Hook
+
+Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The useContext hook allows access to the value in function components.
+
+```javascript
+import React, { useContext } from 'react';
+
+import MyContext from '../ContextProvider';
+
+const AnyFunctionComponent = () => {
+  const value = useContext(MyContext);
+  return <p>now we can render the {value}</p>;
+};
+
+export default AnyFunctionComponent;
+```
+
+### Functional Components
+
+Functional components are the simplest way to write components in React. They don't hold state, they don't fire lifecycle events; they simply take props and render a React Element.
+
+```javascript
+function MyComponent ({ name }) {
+  return <div className='message-box'>
+    Hello {name}
+  </div>
+}
+```
+Functional Components can be written with arraow functions.
+
+```javascript
+const Greeting = (props) => 
+  <h1> Hello {props.name} </h1>;
+  
+ReactDOM.render() {
+  <Greeting name="xyz" />;
+  document.getElementById("root");
+};
+```
+
+### Hooks in Combination with setInterval()
+
+In comparison to stateful components in React, hooks let you use features like state without the neccessity of writing a class compoent.  
+
+```javascript
+function useInterval(callback) {
+  const savedCallback = useRef();
+
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    const id = setInterval(() => savedCallback.current(), 1000);
+    return () => clearInterval(id);
+  });
+}
+
+function Timer() {
+  const [seconds, setSeconds] = useState(0);
+
+  useInterval(() => setSeconds(seconds + 1));
+
+  return (
+    <div>
+      Seconds: {seconds}
+    </div>
+  );
+}
+
+ReactDOM.render(
+  <Timer />, 
+  document.getElementById("timer-example")
+);
+```
+
+### User Input Components
+
+As the user types into the input field, we will store the input in our Component State and display it on the screen.
+
+```javascript
+import React, { Component } from 'react';
+
+class InputField extends Component {
+  state = {
+    userInput: ''
+  }
+
+  handleChange = (e) => {
+    this.setState({
+      userInput: e.target.value
+    })
+  }
+
+  render() {
+    return (
+      <div style={{paddingLeft: '5%'}}>
+       <input onChange={(e) => this.handleChange(e)}type="text" />
+       <p><strong>You have typed:</strong> {this.state.userInput}</p>
+      </div>
+    );
+  }
+}
+
+export default InputField;
 ```
 
 ### setState() Best Practices
@@ -76,20 +259,17 @@ ReactDOM.render(
 The most common confusion in using React is `setState()` function, Here's some tips on how to use `setState()` properly.
 
 ```javascript
-
 class Lock extends React.Component {
   constructor(props) {
     super(props);
     this.state = { locked: false };
   }
-
   unlock = () => {
     // we can access previous state via passing function
     this.setState(state => ({
       locked: !state.locked
     }));
   }
-
   lock = () => {
     // setState is an asynchronous function, so that there are times that, it can't return the mutate state 
     // immediately, but using the second parameter in setState(), you can now access the new state value.
@@ -106,11 +286,9 @@ class Lock extends React.Component {
       console.log(this.state.locked);
     })
   }
-
   componentDidMount() {
     this.unlock()
   }
-
   render() {
     return (
       <div>
@@ -119,7 +297,6 @@ class Lock extends React.Component {
     );
   }
 }
-
 ReactDOM.render(
   <Lock />,
   document.getElementById('lock')

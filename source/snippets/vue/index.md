@@ -57,3 +57,42 @@ Basic Vue Component Scaffold.
   }
 </script>
 ```
+
+### Component with loop template
+
+```html
+<template>
+  <div id="app">
+    <div v-for="student in studentList" :key="student.id">
+      Hi, I am {{student.name}} from {{student.currentClass}}.
+    </div>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'App',
+    data() {
+      return {
+        studentList: [
+          {
+            id: 1,
+            name: 'Alpha',
+            currentClass: 'XII-A'
+          },
+          {
+            id: 2,
+            name: 'Bravo',
+            currentClass: 'XII-B'
+          },
+          {
+            id: 3,
+            name: 'Charlie',
+            currentClass: 'XII-C'
+          }
+        ]
+      };
+    }
+  }
+</script>
+```
