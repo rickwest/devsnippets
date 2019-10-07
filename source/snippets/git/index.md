@@ -38,6 +38,13 @@ Prepare the content staged for the next commit.
 ```bash
 git add .
 ```
+or 
+
+
+```bash
+git add -A
+```
+A stands for All
 
 ### Record changes to the repository
 
@@ -116,6 +123,12 @@ Creates a new branch and switches to it
 ```bash
 git checkout -b branchname
 ```
+
+Just create a new branch
+```bash
+git branch branchname
+```
+
 
 ### Switch to a branch
 
