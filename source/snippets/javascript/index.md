@@ -60,3 +60,17 @@ const findTask = (arrayTodo, value) => {
 console.log(findTask(todoList,'record new array using map'))
 
 ```
+
+#### map() method
+
+Array.map() is a built in JavaScript function and normally a developers first introduction to 'declarative' programming in JavaScript.
+It runs a callback function on each element in the array, passing the element and index values to the callback, and returns a new array with all the values returned by the callback function.
+
+##### Code
+Lets write a function that takes an array of values, and returns a new array, wherein all the values from the original array have doubled.
+```javascript
+const original = [1, 2, 3, 4];
+
+const double = original.map(val => val * 2);
+console.log(double); // [2, 4, 6, 8]
+```
