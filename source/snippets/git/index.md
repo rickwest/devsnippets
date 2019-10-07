@@ -61,6 +61,11 @@ git branch --all
 
 ### Create a new branch
 
+Creates a new branch 
+
+```bash
+git branch branchname
+```
 Creates a new branch and switches to it
 
 ```bash
