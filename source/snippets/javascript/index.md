@@ -96,3 +96,82 @@ const secondPromise = new Promise((res, rej) => {
 
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
+
+#### split() method
+
+This method is used to split a string into an array of substrings. It takes two optional parameters, the *separator* and the *limit*. If the *separator* parameter is not given, the method will return the entire string. A *separator* parameter of an empty string ("") will split the string between each character.
+
+##### Code
+Here are some examples of a string being split using different separators. The first example also uses the limit parameter.
+```javascript
+const str = "A very interesting string!";
+
+const arr = str.split(" ", 3);
+console.log(arr); //["A", "very", "interesting"]
+
+const arr2 = string.split("r");
+console.log(arr2); //["A ve", "y inte", "esting st", "ing!"]
+```
+
+#### reverse() method
+
+The reverse() method will reverse the order of an array. It changes the original array, it does not return a new array.
+
+##### Code
+```javascript
+const arr = ["goldfish", "cats", "dogs"];
+
+arr.reverse();
+
+console.log(arr); //["dogs", "cats", "goldfish"]
+```
+
+#### join() method
+
+The join() method will join all the elements of an array into a string. It has an optional *separator* parameter. If no parameter is given, the elements are separated with a comma.
+
+##### Code
+
+```javascript
+const arr = ["Lions", "tigers", "bears."];
+
+const str = arr.join(" and ");
+
+console.log(str); //"Lions and tigers and bears."
+
+```
+
+#### Using split(), reverse() and join() to reverse the letters of a string.
+
+##### Code
+
+```javascript
+const str = "abcde";
+
+const rev = str.split("").reverse().join("");
+
+console.log(rev); //"edcba"
+```
+
+#### Using map(), split(), reverse() and join() to reverse the letters of each word in a string.
+
+##### Code
+```JavaScript
+const str = "All work and no play makes Jack a dull boy"
+
+// First the string is split into an array:
+const arr = str.split(" ");
+
+// Then the letters of each word/element in the array are reversed
+const arr2 = arr.map((x) => x.split("").reverse().join(""));
+
+console.log(arr2); // ["llA", "krow", "dna", "on", "yalp", "sekam", "kcaJ", "a", "llud", "yob"]
+
+// Then join each element together again, making sure to use a separator.
+
+const newStr = arr2.join(" ");
+
+console.log(newStr); // "llA krow dna on yalp sekam kcaJ a llud yob"
+
+// Then go watch The Shining.
+```
