@@ -74,3 +74,25 @@ const original = [1, 2, 3, 4];
 const double = original.map(val => val * 2);
 console.log(double); // [2, 4, 6, 8]
 ```
+
+### Promise
+
+#### Using Promise.race() method
+
+When we pass multiple promises to the Promise.race method, it resolves/rejects the first promise that resolves/rejects. 
+To the setTimeout method, we pass a timer: 500ms for the first promise (firstPromise), and 100ms for the second promise (secondPromise). 
+This means that the secondPromise resolves first with the value of 'two'. res now holds the value of 'two', which gets logged.
+
+#### Code Sample
+
+```
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, "one");
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, "two");
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
