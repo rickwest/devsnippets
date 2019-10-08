@@ -75,6 +75,64 @@ const double = original.map(val => val * 2);
 console.log(double); // [2, 4, 6, 8]
 ```
 
+#### filter() method
+
+Array.filter() is a built in JavaScript function, pretty similar to map. Filter receives the same arguments as map, and works very similarly. The only difference is that the callback needs to return either true or false. If it returns true then the array keeps that element and if it returns false the element is filtered out. Map always return the same length of array Whether it's meet the condition or not where filter return only filtered values.
+
+#### When to use the Filter Method
+When you want only items that meet a required condition in an array.
+
+##### Code
+Lets filtered even numbers & returns new array.
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const evenNumbers = numbers.filter(x => x % 2 === 0) // filter only even values
+console.log(evenNumbers); // [2, 4, 6, 8]
+```
+
+#### reduce() method
+
+Just like .map(), .reduce() also runs a callback for each element of an array. What’s different here is that reduce passes the result of this callback (the accumulator) from one array element to the other.
+The accumulator can be pretty much anything (integer, string, object, etc.) and must be instantiated or passed when calling .reduce().
+It can easily turn an array of arrays into a single one.
+
+##### Code
+for example, Say you have an array with these students and their respective score & We need to know the total score of all of them for an average. With .reduce(), it’s pretty straightforward:
+```javascript
+const students = [
+  {
+    id: 10,
+    name: "Poe Dameron",
+    score: 75,
+  },
+  {
+    id: 2,
+    name: "Temmin 'Snap' Wexley",
+    score: 30,
+  },
+  {
+    id: 4,
+    name: "Tallissan Lintra",
+    score: 50,
+  },
+  {
+    id: 19,
+    name: "Ello Asty",
+    score: 10,
+  }
+];
+
+const totalScore = students.reduce(function (accumulator, student) {
+  return accumulator + student.score;
+}, 0);
+
+const totalScore = students.reduce((acc, student) => acc + student.score, 0); // or with ES6’s arrow functions
+```
+Notice that I’ve set the starting value as 0. I could have also used an existing variable if necessary. After running the callback for each element of the array, reduce will return the final value of our accumulator (in our case: 165).
+
+
+
 ### Promise
 
 #### Using Promise.race() method
