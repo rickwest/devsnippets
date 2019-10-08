@@ -13,3 +13,4 @@
 - [Cem Ugur Karacam](https://github.com/cemuka)
 - [Erica Perry](https://github.com/comealongerica)
 - [Grant Glidewell](https://github.com/grantglidewell)
+- [Amir Kiumarsi](https://github.com/codacy20)
