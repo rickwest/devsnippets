@@ -13,8 +13,8 @@ Create new array in PHP
 // Usage
 
 $array = []; // recommended
-$array = array();
-$array = ['foo' => 'bar'];
+$array = array(); //array() function
+$array = ['foo' => 'bar']; 
 ```
 
 ### Destructure arrays in PHP
@@ -54,4 +54,27 @@ $array = [
 
 ['c' => $c, 'a' => $a] = $array;
 
+```
+
+### Length of an array
+```php
+$array = ["Car", "Bike", "Train"];
+
+count($array); //count() function
+
+```
+
+### Sort an array in Ascending Order
+```php
+$array = ["Train", "Car", "Bike"];
+
+sort($array); //sort() function
+
+```
+
+### Sort an array in Descending Order
+```php
+$array = ["Car", "Bike", "Train"];
+
+rsort($array); //rsort() function
 ```
