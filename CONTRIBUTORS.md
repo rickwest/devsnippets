@@ -9,6 +9,7 @@
 - [Jesus Mava](https://github.com/jesusMava)
 - [Quazi Hasan](https://github.com/quazihasan)
 - [Mikee Ramirez](https://github.com/mikeermz)
+- [Qazi Wahaj](https://github.com/Wahaj26)
 - [Giovane da Silva Sobrinho](https://github.com/silvasobrinho)
 - [Craig Ramsden](https://github.com/crammers)
 - [Cem Ugur Karacam](https://github.com/cemuka)
