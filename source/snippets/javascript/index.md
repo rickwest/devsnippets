@@ -175,3 +175,22 @@ console.log(newStr); // "llA krow dna on yalp sekam kcaJ a llud yob"
 
 // Then go watch The Shining.
 ```
+
+#### Using replace() to strip off any html tag from a given html text.
+
+replace(pattern|matchString, replaceString|function) where the first parameter "pattern" can be a regular expression, or a string and the second parameter can be a string that you want to replace with or a function that can be called for a matched pattern/string.
+
+##### Code
+```JavaScript
+
+function stripHtmlTags(htmlText){
+	if(htmlText && htmlText.length){
+		return htmlText.replace(/<(?:.|\n)*?>/gi, ''); // g is for global replace, i for ignore case.
+	}
+	return htmlText;
+}
+const str = "<h1>replace() method in javascript is really powerful.</h1>";
+
+console.log(stripHtmlTags(str)); // "replace() method in javascript is really powerful."
+
+```

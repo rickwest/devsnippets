@@ -7,6 +7,7 @@
 - [Paskalouis Patressi](https://github.com/Paskalouis)
 - [Hegar Garcia](https://github.com/hegargarcia)
 - [Jesus Mava](https://github.com/jesusMava)
+- [Quazi Hasan](https://github.com/quazihasan)
 - [Mikee Ramirez](https://github.com/mikeermz)
 - [Giovane da Silva Sobrinho](https://github.com/silvasobrinho)
 - [Craig Ramsden](https://github.com/crammers)
