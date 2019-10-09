@@ -252,3 +252,15 @@ const str = "<h1>replace() method in javascript is really powerful.</h1>";
 console.log(stripHtmlTags(str)); // "replace() method in javascript is really powerful."
 
 ```
+### List items from an array until a specific string is found. JS
+
+
+let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
+
+let currentCard = 'Heart';
+
+while (currentCard !== 'Spade') {
+       	console.log(currentCard);
+  			currentCard = cards[Math.floor(Math.random() * 4)];
+       }
+console.log('found a spade');
