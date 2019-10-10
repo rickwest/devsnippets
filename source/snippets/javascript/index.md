@@ -264,3 +264,21 @@ while (currentCard !== 'Spade') {
   			currentCard = cards[Math.floor(Math.random() * 4)];
        }
 console.log('found a spade');
+
+### Finding all vowels in a string using match()
+
+To find all vowels in a string, use the following:
+
+```javascript
+let input = "A fox runs fast. Oh, how fast it runs!";
+
+let vowels = input.match(/[aeiouAEIOU]/g);
+```
+
+In this example, `vowels` is an array containing all of the vowels: 
+
+```javascript
+console.log(vowels);
+=> [ 'A', 'o', 'u', 'a', 'O', 'o', 'a', 'i', 'u' ]
+```
+
