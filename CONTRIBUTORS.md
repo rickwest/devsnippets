@@ -11,6 +11,7 @@
 - [Mikee Ramirez](https://github.com/mikeermz)
 - [Qazi Wahaj](https://github.com/Wahaj26)
 - [Giovane da Silva Sobrinho](https://github.com/silvasobrinho)
+- [Syed Sabih Ur Rehman](https://github.com/SabihRehman)
 - [Craig Ramsden](https://github.com/crammers)
 - [Cem Ugur Karacam](https://github.com/cemuka)
 - [Erica Perry](https://github.com/comealongerica)
