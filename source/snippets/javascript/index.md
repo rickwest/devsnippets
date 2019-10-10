@@ -345,6 +345,20 @@ console.log(vowels);
 => [ 'A', 'o', 'u', 'a', 'O', 'o', 'a', 'i', 'u' ]
 ```
 
+### Add/Sub time period to/from a Date variable
+
+to add a period (for example 10 minutes) to Date variable in javascript.
+
+```javascript
+function addSecond(date, seconds) {
+  // Time period is in milliseconds so you must multiply second with 1000
+  return new Date(date.getTime() + seconds * 1000);
+};
+
+// add 60 seconds to current time
+expired = addSecond(new Date(), 60);
+```
+
 ### Closures concept
 
 #### Why we use closures?
