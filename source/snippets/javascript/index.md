@@ -23,6 +23,7 @@ The first odd number for which argument function returns true is reported by the
 The syntax of array find() method is following.
 
 #### Arguments
+
 The function takes three arguments:
 element:
 This is the current item being processed by the function.
@@ -34,31 +35,31 @@ This is the array on which the array.filter() function was called.
 Another argument which is thisValue. It used to tell the function to use the array value when executing an argument function.
 
 #### Code
+
 ```javascript
 const todoList = [
   {
-	task: 'Create new array function',
-	isActive: false,
+    task: "Create new array function",
+    isActive: false
   },
   {
-	task: 'Change number type strings to type number',
-	isActive: false,
+    task: "Change number type strings to type number",
+    isActive: false
   },
   {
-	task: 'Record new array using map',
-	isActive: true,
+    task: "Record new array using map",
+    isActive: true
   }
 ];
 
 const findTask = (arrayTodo, value) => {
-	const position =arrayTodo.find((objectTodo) => {
-		return objectTodo.job.toLowerCase() === value.toLowerCase();
-	})
-	return position;
+  const position = arrayTodo.find(objectTodo => {
+    return objectTodo.job.toLowerCase() === value.toLowerCase();
+  });
+  return position;
 };
 
-console.log(findTask(todoList,'record new array using map'))
-
+console.log(findTask(todoList, "record new array using map"));
 ```
 
 #### map() method
@@ -67,7 +68,9 @@ Array.map() is a built in JavaScript function and normally a developers first in
 It runs a callback function on each element in the array, passing the element and index values to the callback, and returns a new array with all the values returned by the callback function.
 
 ##### Code
+
 Lets write a function that takes an array of values, and returns a new array, wherein all the values from the original array have doubled.
+
 ```javascript
 const original = [1, 2, 3, 4];
 
@@ -80,14 +83,17 @@ console.log(double); // [2, 4, 6, 8]
 Array.filter() is a built in JavaScript function, pretty similar to map. Filter receives the same arguments as map, and works very similarly. The only difference is that the callback needs to return either true or false. If it returns true then the array keeps that element and if it returns false the element is filtered out. Map always return the same length of array Whether it's meet the condition or not where filter return only filtered values.
 
 #### When to use the Filter Method
+
 When you want only items that meet a required condition in an array.
 
 ##### Code
+
 Lets filtered even numbers & returns new array.
+
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-const evenNumbers = numbers.filter(x => x % 2 === 0) // filter only even values
+const evenNumbers = numbers.filter(x => x % 2 === 0); // filter only even values
 console.log(evenNumbers); // [2, 4, 6, 8]
 ```
 
@@ -98,47 +104,48 @@ The accumulator can be pretty much anything (integer, string, object, etc.) and 
 It can easily turn an array of arrays into a single one.
 
 ##### Code
+
 for example, Say you have an array with these students and their respective score & We need to know the total score of all of them for an average. With .reduce(), it’s pretty straightforward:
+
 ```javascript
 const students = [
   {
     id: 10,
     name: "Poe Dameron",
-    score: 75,
+    score: 75
   },
   {
     id: 2,
     name: "Temmin 'Snap' Wexley",
-    score: 30,
+    score: 30
   },
   {
     id: 4,
     name: "Tallissan Lintra",
-    score: 50,
+    score: 50
   },
   {
     id: 19,
     name: "Ello Asty",
-    score: 10,
+    score: 10
   }
 ];
 
-const totalScore = students.reduce(function (accumulator, student) {
+const totalScore = students.reduce(function(accumulator, student) {
   return accumulator + student.score;
 }, 0);
 
 const totalScore = students.reduce((acc, student) => acc + student.score, 0); // or with ES6’s arrow functions
 ```
+
 Notice that I’ve set the starting value as 0. I could have also used an existing variable if necessary. After running the callback for each element of the array, reduce will return the final value of our accumulator (in our case: 165).
-
-
 
 ### Promise
 
 #### Using Promise.race() method
 
-When we pass multiple promises to the Promise.race method, it resolves/rejects the first promise that resolves/rejects. 
-To the setTimeout method, we pass a timer: 500ms for the first promise (firstPromise), and 100ms for the second promise (secondPromise). 
+When we pass multiple promises to the Promise.race method, it resolves/rejects the first promise that resolves/rejects.
+To the setTimeout method, we pass a timer: 500ms for the first promise (firstPromise), and 100ms for the second promise (secondPromise).
 This means that the secondPromise resolves first with the value of 'two'. res now holds the value of 'two', which gets logged.
 
 #### Code Sample
@@ -157,10 +164,12 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 #### split() method
 
-This method is used to split a string into an array of substrings. It takes two optional parameters, the *separator* and the *limit*. If the *separator* parameter is not given, the method will return the entire string. A *separator* parameter of an empty string ("") will split the string between each character.
+This method is used to split a string into an array of substrings. It takes two optional parameters, the _separator_ and the _limit_. If the _separator_ parameter is not given, the method will return the entire string. A _separator_ parameter of an empty string ("") will split the string between each character.
 
 ##### Code
+
 Here are some examples of a string being split using different separators. The first example also uses the limit parameter.
+
 ```javascript
 const str = "A very interesting string!";
 
@@ -176,6 +185,7 @@ console.log(arr2); //["A ve", "y inte", "esting st", "ing!"]
 The reverse() method will reverse the order of an array. It changes the original array, it does not return a new array.
 
 ##### Code
+
 ```javascript
 const arr = ["goldfish", "cats", "dogs"];
 
@@ -186,7 +196,7 @@ console.log(arr); //["dogs", "cats", "goldfish"]
 
 #### join() method
 
-The join() method will join all the elements of an array into a string. It has an optional *separator* parameter. If no parameter is given, the elements are separated with a comma.
+The join() method will join all the elements of an array into a string. It has an optional _separator_ parameter. If no parameter is given, the elements are separated with a comma.
 
 ##### Code
 
@@ -196,7 +206,6 @@ const arr = ["Lions", "tigers", "bears."];
 const str = arr.join(" and ");
 
 console.log(str); //"Lions and tigers and bears."
-
 ```
 
 #### Using split(), reverse() and join() to reverse the letters of a string.
@@ -206,7 +215,10 @@ console.log(str); //"Lions and tigers and bears."
 ```javascript
 const str = "abcde";
 
-const rev = str.split("").reverse().join("");
+const rev = str
+  .split("")
+  .reverse()
+  .join("");
 
 console.log(rev); //"edcba"
 ```
@@ -214,6 +226,7 @@ console.log(rev); //"edcba"
 #### Using map(), split(), reverse() and join() to reverse the letters of each word in a string.
 
 ##### Code
+
 ```JavaScript
 const str = "All work and no play makes Jack a dull boy"
 
@@ -239,6 +252,7 @@ console.log(newStr); // "llA krow dna on yalp sekam kcaJ a llud yob"
 replace(pattern|matchString, replaceString|function) where the first parameter "pattern" can be a regular expression, or a string and the second parameter can be a string that you want to replace with or a function that can be called for a matched pattern/string.
 
 ##### Code
+
 ```JavaScript
 
 function stripHtmlTags(htmlText){
@@ -252,15 +266,76 @@ const str = "<h1>replace() method in javascript is really powerful.</h1>";
 console.log(stripHtmlTags(str)); // "replace() method in javascript is really powerful."
 
 ```
-### List items from an array until a specific string is found. JS
 
+### List items from an array until a specific string is found. JS
 
 let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
 
 let currentCard = 'Heart';
 
 while (currentCard !== 'Spade') {
-       	console.log(currentCard);
-  			currentCard = cards[Math.floor(Math.random() * 4)];
-       }
+console.log(currentCard);
+currentCard = cards[Math.floor(Math.random() * 4)];
+}
 console.log('found a spade');
+
+### Variable Scopes
+
+#### var
+
+The JavaScript variables statement is used to declare a variable and, optionally, we can initialize the value of that variable.
+Variable declarations are processed before the execution of the code.
+The scope of a JavaScript variable declared with var is its current execution context.
+The scope of a JavaScript variable declared outside the function is global.
+
+##### Code
+
+```JavaScript
+
+function nodeSimplified(){
+  var a =5;
+  console.log(a);  // output 5
+  if(true){
+   var a=10;
+   console.log(a); // output 10
+  }
+  console.log(a);  // output 10
+}
+```
+
+### let
+
+The let statement declares a local variable in a block scope. It is similar to var, in that we can optionally initialize the variable.
+The let statement allows you to create a variable with the scope limited to the block on which it is used.
+It is similar to the variable we declare in other languages
+
+##### Code
+
+```JavaScript
+function nodeSimplified(){
+  let a =5;
+  console.log(a);  // output 5
+  if(true){
+   let a=20;
+   console.log(a); // output 20
+  }
+  console.log(a);  // output 5
+}
+
+```
+
+### const
+
+const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
+
+##### Code
+
+```JavaScript
+
+function test(){
+  const MY_VARIABLE =5;
+  console.log(MY_VARIABLE);  //output 5
+  MY_VARIABLE =20;           //throws type error
+  console.log(MY_VARIABLE);
+}
+```
