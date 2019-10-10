@@ -5,6 +5,7 @@
 - [Dean W Lofts](https://github.com/loftwah)
 - [Leslie Alldridge](https://github.com/leslie-alldridge)
 - [Paskalouis Patressi](https://github.com/Paskalouis)
+- [Muhammad Shaharyar](https://github.com/shaharyar123)
 - [Hegar Garcia](https://github.com/hegargarcia)
 - [Jesus Mava](https://github.com/jesusMava)
 - [Quazi Hasan](https://github.com/quazihasan)
