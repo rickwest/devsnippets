@@ -359,6 +359,27 @@ function addSecond(date, seconds) {
 expired = addSecond(new Date(), 60);
 ```
 
+### Whilelist Checker
+
+Checks provided keys in reqInput are in whiteList or not
+
+```javascript
+/**
+* @param  		{*} 		        reqInput  {data input to check white list on}
+* @param  		{*} 		        whiteList {the list of properties to become checked in reqInput}
+*/
+whiteChecker(reqInput, whiteList) {
+  let keys = Object.keys(reqInput);
+  for (let key of keys) {
+    if (!whiteList.includes(key)) {
+      return false;
+    }
+  }
+ return true;
+}
+```
+
+
 ### Closures concept
 
 #### Why we use closures?
