@@ -7,9 +7,71 @@ section: content
 
 # Javascript
 
-## Search from Array of Objects
+## Variables
 
-### Array
+### Scopes
+
+#### var
+
+The JavaScript variables statement is used to declare a variable and, optionally, we can initialize the value of that variable.
+Variable declarations are processed before the execution of the code.
+The scope of a JavaScript variable declared with var is its current execution context.
+The scope of a JavaScript variable declared outside the function is global.
+
+##### Code
+
+```JavaScript
+
+function nodeSimplified(){
+  var a =5;
+  console.log(a);  // output 5
+  if(true){
+   var a=10;
+   console.log(a); // output 10
+  }
+  console.log(a);  // output 10
+}
+```
+
+### let
+
+The let statement declares a local variable in a block scope. It is similar to var, in that we can optionally initialize the variable.
+The let statement allows you to create a variable with the scope limited to the block on which it is used.
+It is similar to the variable we declare in other languages
+
+##### Code
+
+```JavaScript
+function nodeSimplified(){
+  let a =5;
+  console.log(a);  // output 5
+  if(true){
+   let a=20;
+   console.log(a); // output 20
+  }
+  console.log(a);  // output 5
+}
+
+```
+
+### const
+
+const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
+
+##### Code
+
+```JavaScript
+
+function test(){
+  const MY_VARIABLE =5;
+  console.log(MY_VARIABLE);  //output 5
+  MY_VARIABLE =20;           //throws type error
+  console.log(MY_VARIABLE);
+}
+```
+---
+
+## Arrays
 
 #### Using the find() Method
 
@@ -346,3 +408,4 @@ and so on…
 
 ### Conclusion:
 The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
