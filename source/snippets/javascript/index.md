@@ -375,7 +375,7 @@ function addSecond(date, seconds) {
 expired = addSecond(new Date(), 60);
 ```
 
-### Whilelist Checker
+### Whitelist Checker
 
 Checks provided keys in reqInput are in whiteList or not
 
