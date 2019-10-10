@@ -177,8 +177,7 @@ console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu
 
 ### Template String
 
-Normaly we write our string to atribute for a variables or to logs  of this way 'your content' but whit template string we use ``
-and this way we can input ou variavel of this way ${variable name} more fast and easy of 'string'+variable+'string again', you can put ereything, objects and functions.
+Normally, we write our string to attribute a variables or to logs this way “your content” but with template string we use “ and like this we can input our variable as ${variable name} in a fastest and easiest way than ‘string+variable+string again’ you can put everything like objects and functions.
 
 ### Code
 
@@ -189,6 +188,8 @@ const age = 20
 function myCountry(){
   return 'Brazil'
 }
+
+
 
 console.log('My name is '+name+' and i am '+age+' years old and i live in '+myCountry()+'.')
 
