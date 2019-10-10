@@ -78,3 +78,33 @@ $array = ["Car", "Bike", "Train"];
 
 rsort($array); //rsort() function
 ```
+
+### Multi-dimensional arrays
+```php
+$students = array(
+	//Student Name, Age and Behaviour
+	array('Jack', 14, 'Good'),
+	array('Mary', 13, 'Good'),
+);
+//print_r($students)
+```
+
+### Multi-dimensional associative arrays
+```php
+$marks = array(
+	//Name of student is key
+	"Jack" => array(
+		//key-value pairs
+		"Maths" => 95,
+		"Science" => 84,
+		"History" => 48,
+	),
+
+	"Mary" => array(
+		"Maths" => 78,
+		"Science" => 76,
+		"History" => 64,
+	),
+);
+//print_r($marks)
+```

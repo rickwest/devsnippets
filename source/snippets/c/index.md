@@ -11,10 +11,9 @@ description: C++ Dev Snippets
 
 Let us look at a simple code that would print the words Hello World.
 
-```bash
 # Simple Hello world
 ```
-\#include <iostream>
+#include <iostream>
 using namespace std;
 
 // main() is where program execution begins.

@@ -7,9 +7,71 @@ section: content
 
 # Javascript
 
-## Search from Array of Objects
+## Variables
 
-### Array
+### Scopes
+
+#### var
+
+The JavaScript variables statement is used to declare a variable and, optionally, we can initialize the value of that variable.
+Variable declarations are processed before the execution of the code.
+The scope of a JavaScript variable declared with var is its current execution context.
+The scope of a JavaScript variable declared outside the function is global.
+
+##### Code
+
+```JavaScript
+
+function nodeSimplified(){
+  var a =5;
+  console.log(a);  // output 5
+  if(true){
+   var a=10;
+   console.log(a); // output 10
+  }
+  console.log(a);  // output 10
+}
+```
+
+### let
+
+The let statement declares a local variable in a block scope. It is similar to var, in that we can optionally initialize the variable.
+The let statement allows you to create a variable with the scope limited to the block on which it is used.
+It is similar to the variable we declare in other languages
+
+##### Code
+
+```JavaScript
+function nodeSimplified(){
+  let a =5;
+  console.log(a);  // output 5
+  if(true){
+   let a=20;
+   console.log(a); // output 20
+  }
+  console.log(a);  // output 5
+}
+
+```
+
+### const
+
+const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
+
+##### Code
+
+```JavaScript
+
+function test(){
+  const MY_VARIABLE =5;
+  console.log(MY_VARIABLE);  //output 5
+  MY_VARIABLE =20;           //throws type error
+  console.log(MY_VARIABLE);
+}
+```
+---
+
+## Arrays
 
 #### Using the find() Method
 
@@ -74,6 +136,64 @@ const original = [1, 2, 3, 4];
 const double = original.map(val => val * 2);
 console.log(double); // [2, 4, 6, 8]
 ```
+
+#### filter() method
+
+Array.filter() is a built in JavaScript function, pretty similar to map. Filter receives the same arguments as map, and works very similarly. The only difference is that the callback needs to return either true or false. If it returns true then the array keeps that element and if it returns false the element is filtered out. Map always return the same length of array Whether it's meet the condition or not where filter return only filtered values.
+
+#### When to use the Filter Method
+When you want only items that meet a required condition in an array.
+
+##### Code
+Lets filtered even numbers & returns new array.
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const evenNumbers = numbers.filter(x => x % 2 === 0) // filter only even values
+console.log(evenNumbers); // [2, 4, 6, 8]
+```
+
+#### reduce() method
+
+Just like .map(), .reduce() also runs a callback for each element of an array. What’s different here is that reduce passes the result of this callback (the accumulator) from one array element to the other.
+The accumulator can be pretty much anything (integer, string, object, etc.) and must be instantiated or passed when calling .reduce().
+It can easily turn an array of arrays into a single one.
+
+##### Code
+for example, Say you have an array with these students and their respective score & We need to know the total score of all of them for an average. With .reduce(), it’s pretty straightforward:
+```javascript
+const students = [
+  {
+    id: 10,
+    name: "Poe Dameron",
+    score: 75,
+  },
+  {
+    id: 2,
+    name: "Temmin 'Snap' Wexley",
+    score: 30,
+  },
+  {
+    id: 4,
+    name: "Tallissan Lintra",
+    score: 50,
+  },
+  {
+    id: 19,
+    name: "Ello Asty",
+    score: 10,
+  }
+];
+
+const totalScore = students.reduce(function (accumulator, student) {
+  return accumulator + student.score;
+}, 0);
+
+const totalScore = students.reduce((acc, student) => acc + student.score, 0); // or with ES6’s arrow functions
+```
+Notice that I’ve set the starting value as 0. I could have also used an existing variable if necessary. After running the callback for each element of the array, reduce will return the final value of our accumulator (in our case: 165).
+
+
 
 ### Promise
 
@@ -175,3 +295,117 @@ console.log(newStr); // "llA krow dna on yalp sekam kcaJ a llud yob"
 
 // Then go watch The Shining.
 ```
+
+#### Using replace() to strip off any html tag from a given html text.
+
+replace(pattern|matchString, replaceString|function) where the first parameter "pattern" can be a regular expression, or a string and the second parameter can be a string that you want to replace with or a function that can be called for a matched pattern/string.
+
+##### Code
+```JavaScript
+
+function stripHtmlTags(htmlText){
+	if(htmlText && htmlText.length){
+		return htmlText.replace(/<(?:.|\n)*?>/gi, ''); // g is for global replace, i for ignore case.
+	}
+	return htmlText;
+}
+const str = "<h1>replace() method in javascript is really powerful.</h1>";
+
+console.log(stripHtmlTags(str)); // "replace() method in javascript is really powerful."
+
+```
+### List items from an array until a specific string is found. JS
+
+```
+let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
+
+let currentCard = 'Heart';
+
+while (currentCard !== 'Spade') {
+       	console.log(currentCard);
+  			currentCard = cards[Math.floor(Math.random() * 4)];
+       }
+console.log('found a spade');
+```
+
+### Finding all vowels in a string using match()
+
+To find all vowels in a string, use the following:
+
+```javascript
+let input = "A fox runs fast. Oh, how fast it runs!";
+
+let vowels = input.match(/[aeiouAEIOU]/g);
+```
+
+In this example, `vowels` is an array containing all of the vowels: 
+
+```javascript
+console.log(vowels);
+=> [ 'A', 'o', 'u', 'a', 'O', 'o', 'a', 'i', 'u' ]
+```
+
+### Closures concept
+
+#### Why we use closures?
+
+The concept of closure is used to restrict the analogy of functional scope to initialized the variable in functional scope and restrict the local variable to be excess from global. When a function created and passed around or returned from another function it carries a variables with it. Due to which, inner variable will come with all the necessary attachments. Hope this will give you a core concept of JavaScript closure.
+
+#### How we use closures?
+
+A closure is an inner function that has access to the outer (enclosing) function’s variables — scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables
+
+Lets move on the examples
+
+##### Code
+Example - 1
+
+```javascript
+
+function init() {
+  var name = 'hello world'; // parent scope
+  function displayName() { 
+    console.log(name); // child scope
+  }
+  displayName();    
+}
+init();// hello world
+
+// name — is a local variable created by init function
+// displayName() — is the nested function.
+
+```
+#### Explanation
+init() creates a local variable called name and a function calling displayName(). The displayName() function is an nested function and is only available within the body of the init() function. The displayName() function has no local variables of its own. However, because nested function have access to the variables of outer function, displayName() can access the variable name declared in the parent function.
+
+
+Example-2
+
+```javascript
+function createCounter() {
+   let counter = 0
+   const myFunction = function() {
+     counter = counter + 1
+     return counter
+   }
+   return myFunction
+}
+const increment = createCounter()
+const c1 = increment()
+const c2 = increment()
+const c3 = increment()
+console.log('example increment', c1, c2, c3) // 1, 2, 3
+
+```
+
+#### Explanation
+When file execute a code, A self calling function execute and initialized a local variable counter and function initialized in a myFunction variable. Self calling function return function definition of myFunction. Every time createCounter function called it will return an incremented value like:
+
+0+1 = 1
+1+1 = 2
+2+1 = 3
+and so on…
+
+### Conclusion:
+The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
