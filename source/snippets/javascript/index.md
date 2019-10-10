@@ -254,7 +254,7 @@ console.log(stripHtmlTags(str)); // "replace() method in javascript is really po
 ```
 ### List items from an array until a specific string is found. JS
 
-
+```
 let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
 
 let currentCard = 'Heart';
@@ -264,6 +264,7 @@ while (currentCard !== 'Spade') {
   			currentCard = cards[Math.floor(Math.random() * 4)];
        }
 console.log('found a spade');
+```
 
 ### Finding all vowels in a string using match()
 
@@ -282,3 +283,66 @@ console.log(vowels);
 => [ 'A', 'o', 'u', 'a', 'O', 'o', 'a', 'i', 'u' ]
 ```
 
+### Closures concept
+
+#### Why we use closures?
+
+The concept of closure is used to restrict the analogy of functional scope to initialized the variable in functional scope and restrict the local variable to be excess from global. When a function created and passed around or returned from another function it carries a variables with it. Due to which, inner variable will come with all the necessary attachments. Hope this will give you a core concept of JavaScript closure.
+
+#### How we use closures?
+
+A closure is an inner function that has access to the outer (enclosing) function’s variables — scope chain. The closure has three scope chains: it has access to its own scope (variables defined between its curly brackets), it has access to the outer function’s variables, and it has access to the global variables
+
+Lets move on the examples
+
+##### Code
+Example - 1
+
+```javascript
+
+function init() {
+  var name = 'hello world'; // parent scope
+  function displayName() { 
+    console.log(name); // child scope
+  }
+  displayName();    
+}
+init();// hello world
+
+// name — is a local variable created by init function
+// displayName() — is the nested function.
+
+```
+#### Explanation
+init() creates a local variable called name and a function calling displayName(). The displayName() function is an nested function and is only available within the body of the init() function. The displayName() function has no local variables of its own. However, because nested function have access to the variables of outer function, displayName() can access the variable name declared in the parent function.
+
+
+Example-2
+
+```javascript
+function createCounter() {
+   let counter = 0
+   const myFunction = function() {
+     counter = counter + 1
+     return counter
+   }
+   return myFunction
+}
+const increment = createCounter()
+const c1 = increment()
+const c2 = increment()
+const c3 = increment()
+console.log('example increment', c1, c2, c3) // 1, 2, 3
+
+```
+
+#### Explanation
+When file execute a code, A self calling function execute and initialized a local variable counter and function initialized in a myFunction variable. Self calling function return function definition of myFunction. Every time createCounter function called it will return an incremented value like:
+
+0+1 = 1
+1+1 = 2
+2+1 = 3
+and so on…
+
+### Conclusion:
+The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
