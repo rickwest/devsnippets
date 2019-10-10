@@ -157,16 +157,14 @@ console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${ca
 const computer ={
   monitor: 'Acer',
   cpu: {
-    name: 'FX-6300',
+    name: 'The best processor ever',
     core: 6,
-    socket: 'AM3 +'
   },
   gpu:{
-    name: 'GTX-950',
+    name: 'The best GPU ever',
     Memory: 2
   },
   ram:{
-    name: 'Hyperx',
     gb: 8
   }
 }

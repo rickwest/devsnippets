@@ -7,3 +7,6 @@
 .DS_Store
 .idea
 /source/assets/build/
+composer
+composer-setup.php
+composer.phar
