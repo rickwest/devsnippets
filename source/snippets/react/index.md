@@ -354,3 +354,17 @@ function useDebounce(value, delay) {
 }
 
 ```
+
+
+### Rendering your react component
+
+Render your react element into the DOM. The id belongs to the element in which the react application will mount.  
+
+```javascript
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import App from './app'
+
+ReactDOM.render(<App />, document.getElementById('foo-bar'))
+```
