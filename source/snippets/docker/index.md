@@ -73,3 +73,40 @@ Remember to change the container name or id
 ```bash
 docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' container_name_or_id
 ```
+
+## Docker Cheatsheet
+
+Docker build
+```bash
+// simple build
+
+docker build .
+
+// good practice
+
+docker build -t <tag name> .
+
+// please note, for these command to work you need to have a dockerfile present.
+```
+
+Docker images
+```bash
+// list all images on disk
+
+docker images
+
+// remove a certain image
+
+docker image rm <image hash>
+```
+
+Docker containers
+```bash
+// list all containers online/offline
+
+docker ps -a
+
+// remove/stop/kill a certain container
+
+docker kill rm <container hash>
+```
