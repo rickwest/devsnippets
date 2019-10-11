@@ -303,3 +303,54 @@ ReactDOM.render(
 );
 
 ```
+
+### Hook for throttling value change
+
+A custom hook to help throttling changes to variables. Especially useful when automatically queriying api's based on user text-input
+
+```javascript
+import { useState, useEffect, useRef } from 'react';
+
+const useThrottle = (value, limit = 300) => {
+  const [throttledValue, setThrottledValue] = useState();
+  const lastRan = useRef(Date.now());
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      if (Date.now() - lastRan.current >= limit) {
+        setThrottledValue(value);
+        lastRan.current = Date.now();
+      }
+    }, limit - (Date.now() - lastRan.current));
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, limit]);
+
+  return throttledValue;
+};
+
+```
+
+### Hook for debouncing value change
+
+A similar custom hook to help debouncing changes to variables.
+
+```javascript
+import { useState, useEffect } from 'react';
+
+function useDebounce(value, delay) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [delay, value]);
+  return debouncedValue;
+}
+
+```
