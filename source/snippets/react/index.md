@@ -356,7 +356,7 @@ function useDebounce(value, delay) {
 ```
 
 
-### Rendering your react component
+### Rendering your react component to the DOM
 
 Render your react element into the DOM. The id belongs to the element in which the react application will mount.  
 
