@@ -22,3 +22,4 @@
 - [Sabiha Shaik](https://github.com/Sabihashaik)
 - [Cristian Silva](https://github.com/Cristuker)
 - [Hojjat Jashnniloofar](https://github.com/hjn66)
+- [Nicholas Patterson](https://github.com/nicholas-patterson)

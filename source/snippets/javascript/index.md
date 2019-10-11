@@ -129,126 +129,147 @@ console.log(findTask(todoList, "record new array using map"));
 
 You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
 
-### Code 
+### Code
 
-```javascript 
-  const car = {
-    name: 'Ferrari',
-    year: 2015,
-    horsepower: 670,
-    isCar: true
-  }
-console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
+```javascript
+const car = {
+  name: "Ferrari",
+  year: 2015,
+  horsepower: 670,
+  isCar: true
+};
+console.log(
+  `The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`
+);
 
 //Another example with functions
 
 const calc = {
-  sum: function(a,b){
-    return a+b;
+  sum: function(a, b) {
+    return a + b;
   },
-  subtraction: function(a,b){
-    return a-b;
+  subtraction: function(a, b) {
+    return a - b;
   }
-}
+};
 
-console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
-
+console.log(
+  `The sum of 5 plus 4 is ${calc.sum(
+    5,
+    4
+  )} and the subtraction is ${calc.subtraction(5, 4)}`
+);
 
 //Anote example with other object
 
-const computer ={
-  monitor: 'Acer',
+const computer = {
+  monitor: "Acer",
   cpu: {
-    name: 'FX-6300',
+    name: "FX-6300",
     core: 6,
-    socket: 'AM3 +'
+    socket: "AM3 +"
   },
-  gpu:{
-    name: 'GTX-950',
+  gpu: {
+    name: "GTX-950",
     Memory: 2
   },
-  ram:{
-    name: 'Hyperx',
+  ram: {
+    name: "Hyperx",
     gb: 8
   }
-}
+};
 
-console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`)
+console.log(
+  `My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`
+);
 ```
-
 
 ### Template String
 
-Normally, we write our string to attribute a variables or to logs this way “your content” but with template string we use “ and like this we can input our variable as ${variable name} in a fastest and easiest way than ‘string+variable+string again’ you can put everything like objects and functions.
+Normally, we write our string to attribute a variables or to logs this way “your content” but with template string we use “ and like this we can input our variable as \${variable name} in a fastest and easiest way than ‘string+variable+string again’ you can put everything like objects and functions.
 
 ### Code
 
 ```javascript
-const name = 'Cristian'
-const age = 20
+const name = "Cristian";
+const age = 20;
 
-function myCountry(){
-  return 'Brazil'
+function myCountry() {
+  return "Brazil";
 }
 
-
-
-console.log('My name is '+name+' and i am '+age+' years old and i live in '+myCountry()+'.')
+console.log(
+  "My name is " +
+    name +
+    " and i am " +
+    age +
+    " years old and i live in " +
+    myCountry() +
+    "."
+);
 
 //this same example whit template string
 
-console.log(`My name is ${name} and i am ${age} years old and i live in ${myCountry()}.`)
-
-
+console.log(
+  `My name is ${name} and i am ${age} years old and i live in ${myCountry()}.`
+);
 ```
 
 ### Objects
 
 You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
 
-### Code 
+### Code
 
-```javascript 
-  const car = {
-    name: 'Ferrari',
-    year: 2015,
-    horsepower: 670,
-    isCar: true
-  }
-console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
+```javascript
+const car = {
+  name: "Ferrari",
+  year: 2015,
+  horsepower: 670,
+  isCar: true
+};
+console.log(
+  `The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`
+);
 
 //Another example with functions
 
 const calc = {
-  sum: function(a,b){
-    return a+b;
+  sum: function(a, b) {
+    return a + b;
   },
-  subtraction: function(a,b){
-    return a-b;
+  subtraction: function(a, b) {
+    return a - b;
   }
-}
+};
 
-console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
-
+console.log(
+  `The sum of 5 plus 4 is ${calc.sum(
+    5,
+    4
+  )} and the subtraction is ${calc.subtraction(5, 4)}`
+);
 
 //Anote example with other object
 
-const computer ={
-  monitor: 'Acer',
+const computer = {
+  monitor: "Acer",
   cpu: {
-    name: 'The best processor ever',
-    core: 6,
+    name: "The best processor ever",
+    core: 6
   },
-  gpu:{
-    name: 'The best GPU ever',
+  gpu: {
+    name: "The best GPU ever",
     Memory: 2
   },
-  ram:{
+  ram: {
     gb: 8
   }
-}
+};
 
-console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`)
+console.log(
+  `My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`
+);
 ```
 
 #### map() method
@@ -599,3 +620,49 @@ and so on…
 ### Conclusion:
 
 The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
+### Partial Application Concept
+
+## What is partial application ?
+
+Patial application refers to the process of fixing a number of arguments to a function also referred to prefilling a function. Producing another function of smaller arity. In simpler terms, we call an argument with fewer arguments than it expects and it returns a function with the remaining arguments.
+
+Example 1
+
+```javascript
+const join = (input, prefill) => input + prefill;
+
+const myFunc = (fn, prefill) => {
+  const partial = input => {
+    const output = fn(input, prefill);
+    return output;
+  };
+  return partial;
+};
+
+const result = myFunc(join, "@gmail.com");
+result("test"); // test@gmail.com
+result("test2"); // test2@gmail.com
+```
+
+Example 2
+
+```javascript
+const add = (a, b) => a + b;
+
+const myFunc = (fn, prefill) => {
+  const partial = input => {
+    const output = fn(fn, prefill);
+    return ouput;
+  };
+  return partial;
+};
+
+const result = myFunc(join, 10);
+result(5); // 15
+result(50); // 60
+```
+
+### Explanation
+
+In example 1, our function is expecting 2 parameters but we prefilled one of the paramaters with "@gmail.com"...So we called the function with fewer arguments than it expected we only called it with one argument and it already had the other argument.
