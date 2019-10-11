@@ -202,6 +202,55 @@ console.log(`My name is ${name} and i am ${age} years old and i live in ${myCoun
 
 ```
 
+### Objects
+
+You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
+
+### Code 
+
+```javascript 
+  const car = {
+    name: 'Ferrari',
+    year: 2015,
+    horsepower: 670,
+    isCar: true
+  }
+console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
+
+//Another example with functions
+
+const calc = {
+  sum: function(a,b){
+    return a+b;
+  },
+  subtraction: function(a,b){
+    return a-b;
+  }
+}
+
+console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
+
+
+//Anote example with other object
+
+const computer ={
+  monitor: 'Acer',
+  cpu: {
+    name: 'The best processor ever',
+    core: 6,
+  },
+  gpu:{
+    name: 'The best GPU ever',
+    Memory: 2
+  },
+  ram:{
+    gb: 8
+  }
+}
+
+console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`)
+```
+
 #### map() method
 
 Array.map() is a built in JavaScript function and normally a developers first introduction to 'declarative' programming in JavaScript.
