@@ -37,7 +37,9 @@ function nodeSimplified(){
 
 The let statement declares a local variable in a block scope. It is similar to var, in that we can optionally initialize the variable.
 The let statement allows you to create a variable with the scope limited to the block on which it is used.
-It is similar to the variable we declare in other languages
+It is similar to the variable we declare in other languages.
+
+The let declaration is only supported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#BlockScopedVariables)
 
 ##### Code
 
@@ -57,6 +59,8 @@ function nodeSimplified(){
 ### const
 
 const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
+
+The const declaration is only available bsupported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
 
 ##### Code
 
