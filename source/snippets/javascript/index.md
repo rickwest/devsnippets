@@ -7,6 +7,15 @@ section: content
 
 # Javascript
 
+- [Variables](#variables)
+- [Arrays](#arrays)
+- [Objects](#objects)
+- [Strings](#strings)
+- [Dates](#dates)
+- [Promises](#promises)
+- [Useful Functions](#useful-functions)
+- [Closures](#closures)
+
 ## Variables
 
 ### Scopes
@@ -78,192 +87,72 @@ function test(){
 
 ## Arrays
 
-#### Using the find() Method
+### find, map, filter, and reduce
+All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
-The Array.find() is the inbuilt function in JavaScript which is used to get a value of the first item in the array that meets the provided condition.
-It checks all the items of the array and whichever the first item meets the condition is going to print.
-If more than one item meets the condition, then the first item satisfying the condition is returned.
-Suppose that you want to find the first odd number in the array.
-The argument function checks whether an argument passed to it is an odd number or not.
-The find() function calls an argument function for every item of the array.
-The first odd number for which argument function returns true is reported by the find() function as the answer.
-The syntax of array find() method is following.
+Find() and filter() are used to select values from an array that meet some condition.
 
-#### Arguments
+Map() is used to apply a transformation to all elements of an array, and reduce() is used to apply some accumulation to the values in an array.
 
-The function takes three arguments:
-element:
-This is the current item being processed by the function.
-index
-This is the index of the current item being processed by the function.
-array:
-This is the array on which the array.filter() function was called.
+### Using the find() Method
 
-Another argument which is thisValue. It used to tell the function to use the array value when executing an argument function.
+[Array.prototype.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find) is the inbuilt function in JavaScript which is used to get a value of the first item in the array that meets the provided condition.
 
-#### Code
+If more than one item meets the condition, then the first item satisfying the condition is returned. Processing stops when the first matching value is found. This is accomplished by providing a callback function to find() that returns true when a value in the array meets some condition.
 
-```javascript
-const todoList = [
-  {
-    task: "Create new array function",
-    isActive: false
-  },
-  {
-    task: "Change number type strings to type number",
-    isActive: false
-  },
-  {
-    task: "Record new array using map",
-    isActive: true
-  }
-];
+**Find returns a single value from the array, or null if no matching value is found.**
 
-const findTask = (arrayTodo, value) => {
-  const position = arrayTodo.find(objectTodo => {
-    return objectTodo.job.toLowerCase() === value.toLowerCase();
-  });
-  return position;
-};
+#### When to use find()
+When you want to find the **first** value in an array that meets some condition.
 
-console.log(findTask(todoList, "record new array using map"));
-```
-
-### Objects
-
-You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
-
-### Code 
-
-```javascript 
-  const car = {
-    name: 'Ferrari',
-    year: 2015,
-    horsepower: 670,
-    isCar: true
-  }
-console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
-
-//Another example with functions
-
-const calc = {
-  sum: function(a,b){
-    return a+b;
-  },
-  subtraction: function(a,b){
-    return a-b;
-  }
-}
-
-console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
-
-
-//Anote example with other object
-
-const computer ={
-  monitor: 'Acer',
-  cpu: {
-    name: 'FX-6300',
-    core: 6,
-    socket: 'AM3 +'
-  },
-  gpu:{
-    name: 'GTX-950',
-    Memory: 2
-  },
-  ram:{
-    name: 'Hyperx',
-    gb: 8
-  }
-}
-
-console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`)
-```
-
-
-### Template String
-
-Normally, we write our string to attribute a variables or to logs this way “your content” but with template string we use “ and like this we can input our variable as ${variable name} in a fastest and easiest way than ‘string+variable+string again’ you can put everything like objects and functions.
-
-### Code
-
-```javascript
-const name = 'Cristian'
-const age = 20
-
-function myCountry(){
-  return 'Brazil'
-}
-
-
-
-console.log('My name is '+name+' and i am '+age+' years old and i live in '+myCountry()+'.')
-
-//this same example whit template string
-
-console.log(`My name is ${name} and i am ${age} years old and i live in ${myCountry()}.`)
-
-
-```
-
-### Objects
-
-You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
-
-### Code 
-
-```javascript 
-  const car = {
-    name: 'Ferrari',
-    year: 2015,
-    horsepower: 670,
-    isCar: true
-  }
-console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
-
-//Another example with functions
-
-const calc = {
-  sum: function(a,b){
-    return a+b;
-  },
-  subtraction: function(a,b){
-    return a-b;
-  }
-}
-
-console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
-
-
-//Anote example with other object
-
-const computer ={
-  monitor: 'Acer',
-  cpu: {
-    name: 'The best processor ever',
-    core: 6,
-  },
-  gpu:{
-    name: 'The best GPU ever',
-    Memory: 2
-  },
-  ram:{
-    gb: 8
-  }
-}
-
-console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`)
-```
-
-#### map() method
-
-Array.map() is a built in JavaScript function and normally a developers first introduction to 'declarative' programming in JavaScript.
-It runs a callback function on each element in the array, passing the element and index values to the callback, and returns a new array with all the values returned by the callback function.
+#### Example: finding an odd number in an array
+This is how you would use find to find the first odd number in an array of numbers
 
 ##### Code
 
-Lets write a function that takes an array of values, and returns a new array, wherein all the values from the original array have doubled.
+```javascript
+const numbers = [2,4,6,5,6,7];
 
+let firstOddNumber = numbers.find((number) => number % 2 === 1);
+
+console.log(firstOddNumber); // 5
+```
+
+#### Using the filter() method
+
+[Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is a built in JavaScript function that returns a subset of the original array in which all of the values match some condition. Like with find, the callback function passed to filter returns either true or false. If it returns true then filter adds that element to the return array, and if it returns false the element is not included. 
+
+**Filter returns an array with all values that meet the condition, or an empty array if no value meet the condition.**
+
+#### When to use filter()
+Use filter when you want **all the values** from an array that meet some condition. 
+
+#### Example: filter all even numbers in a numeric array
+This is how you would use filter() to get all even numbers in an array of numbers.
+
+##### Code
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+const evenNumbers = numbers.filter(number => number % 2 === 0);
+console.log(evenNumbers); // [2, 4, 6, 8]
+```
+
+### Using the map() method
+
+[Array.prototype.map()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) is a built in JavaScript function that applies some transformation to every element of an array.
+
+It does this by running a callback function on each element in the array, and returns a new array with the values returned by the callback function.
+
+**Map returns an array that is the same length as the original array.**
+
+#### When to use map()
+When you want to apply some function on all elements of an array. 
+
+#### Example: doubling the values in a numeric array
+This is how you would use map() to return a new array with the values in the original array doubled.
+
+##### Code
 ```javascript
 const original = [1, 2, 3, 4];
 
@@ -271,34 +160,21 @@ const double = original.map(val => val * 2);
 console.log(double); // [2, 4, 6, 8]
 ```
 
-#### filter() method
+#### Using the reduce() method
 
-Array.filter() is a built in JavaScript function, pretty similar to map. Filter receives the same arguments as map, and works very similarly. The only difference is that the callback needs to return either true or false. If it returns true then the array keeps that element and if it returns false the element is filtered out. Map always return the same length of array Whether it's meet the condition or not where filter return only filtered values.
+Just like map(), [Array.prototype.reduce()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/Reduce) also runs a callback for each element of an array. What’s different here is that reduce passes the result of this callback (the accumulator) from one array element to the other, accumulating the result.
 
-#### When to use the Filter Method
+**Reduce returns a single value that is some accumulation of values in the array.**
 
-When you want only items that meet a required condition in an array.
+#### When to use reduce()
+Use reduce() when you want to accumulate the values in an array into a single value.
 
-##### Code
-
-Lets filtered even numbers & returns new array.
-
-```javascript
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-
-const evenNumbers = numbers.filter(x => x % 2 === 0); // filter only even values
-console.log(evenNumbers); // [2, 4, 6, 8]
-```
-
-#### reduce() method
-
-Just like .map(), .reduce() also runs a callback for each element of an array. What’s different here is that reduce passes the result of this callback (the accumulator) from one array element to the other.
-The accumulator can be pretty much anything (integer, string, object, etc.) and must be instantiated or passed when calling .reduce().
-It can easily turn an array of arrays into a single one.
+#### Example - accumulating student scores from an array of objects
+In this example, we want the sum of all student scores from the given array of objects. 
 
 ##### Code
 
-for example, Say you have an array with these students and their respective score & We need to know the total score of all of them for an average. With .reduce(), it’s pretty straightforward:
+We have an array with students and their respective score. We can use reduce() to get the total score as shown here.
 
 ```javascript
 const students = [
@@ -324,35 +200,121 @@ const students = [
   }
 ];
 
-const totalScore = students.reduce(function(accumulator, student) {
-  return accumulator + student.score;
-}, 0);
+const totalScore = students.reduce((total, student) => total + student.score, 0); // 0 is used as the initial value for total
 
-const totalScore = students.reduce((acc, student) => acc + student.score, 0); // or with ES6’s arrow functions
+console.log(totalScore); // 165
 ```
 
-Notice that I’ve set the starting value as 0. I could have also used an existing variable if necessary. After running the callback for each element of the array, reduce will return the final value of our accumulator (in our case: 165).
+#### Using the join() method
 
-### Promise
+The [join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) method will join all the elements of an array into a string. It has an optional _separator_ parameter. If no parameter is given, the elements are separated with a comma.
 
-#### Using Promise.race() method
+#### When to use join()
+Use join() when you want to represent the values in an array as a single, delimited string.
 
-When we pass multiple promises to the Promise.race method, it resolves/rejects the first promise that resolves/rejects.
-To the setTimeout method, we pass a timer: 500ms for the first promise (firstPromise), and 100ms for the second promise (secondPromise).
-This means that the secondPromise resolves first with the value of 'two'. res now holds the value of 'two', which gets logged.
+##### Code
+```javascript
+const arr = ["Lions", "tigers", "bears."];
 
-#### Code Sample
+const str = arr.join(" and ");
 
+console.log(str); //"Lions and tigers and bears."
 ```
-const firstPromise = new Promise((res, rej) => {
-  setTimeout(res, 500, "one");
-});
 
-const secondPromise = new Promise((res, rej) => {
-  setTimeout(res, 100, "two");
-});
+### List items from an array until a specific string is found
 
-Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+##### Code
+```javascript
+let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
+
+let currentCard = 'Heart';
+
+while (currentCard !== 'Spade') {
+       	console.log(currentCard);
+  			currentCard = cards[Math.floor(Math.random() * 4)];
+       }
+console.log('found a spade');
+```
+
+---
+
+### Objects
+
+You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
+
+### Code 
+
+```javascript 
+const car = {
+    name: 'Ferrari',
+    year: 2015,
+    horsepower: 670,
+    isCar: true
+}
+console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
+
+//Another example with functions
+
+const calc = {
+    sum: function(a,b){
+        return a+b;
+    },
+    subtraction: function(a,b){
+        return a-b;
+    }
+}
+
+console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
+
+
+//An example with nested objects and functions
+
+const computer ={
+    monitor: 'Acer',
+    cpu: {
+        name: 'FX-6300',
+        core: 6,
+        socket: 'AM3 +'
+    },
+    gpu:{
+        name: 'GTX-950',
+        memory: 2
+    },
+    ram:{
+        name: 'Hyperx',
+        gb: 8
+    },
+    printDetails: function() {
+        console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`)
+    }
+}
+
+computer.printDetails();
+```
+
+## Strings
+
+### Template strings (string interpolation)
+
+Instead of using string concatenation, we can use a template string, or string interpolation, to include interpreted values in strings.
+
+#### Example: using template strings to print values
+You can use template strings to print variable values, or the results of functions - anything that can be interpreted by javascript.
+
+### Code
+```javascript
+const name = 'Cristian'
+const age = 20
+
+function myCountry(){
+  return 'Brazil'
+}
+
+// Using concatenation:
+console.log('My name is '+name+' and i am '+age+' years old and i live in '+myCountry()+'.')
+
+// Using template string:
+console.log(`My name is ${name} and I am ${age} years old and I live in ${myCountry()}.`)
 ```
 
 #### split() method
@@ -387,24 +349,9 @@ arr.reverse();
 console.log(arr); //["dogs", "cats", "goldfish"]
 ```
 
-#### join() method
-
-The join() method will join all the elements of an array into a string. It has an optional _separator_ parameter. If no parameter is given, the elements are separated with a comma.
-
-##### Code
-
-```javascript
-const arr = ["Lions", "tigers", "bears."];
-
-const str = arr.join(" and ");
-
-console.log(str); //"Lions and tigers and bears."
-```
-
 #### Using split(), reverse() and join() to reverse the letters of a string.
 
 ##### Code
-
 ```javascript
 const str = "abcde";
 
@@ -419,8 +366,7 @@ console.log(rev); //"edcba"
 #### Using map(), split(), reverse() and join() to reverse the letters of each word in a string.
 
 ##### Code
-
-```JavaScript
+```javascript
 const str = "All work and no play makes Jack a dull boy"
 
 // First the string is split into an array:
@@ -428,11 +374,9 @@ const arr = str.split(" ");
 
 // Then the letters of each word/element in the array are reversed
 const arr2 = arr.map((x) => x.split("").reverse().join(""));
-
-console.log(arr2); // ["llA", "krow", "dna", "on", "yalp", "sekam", "kcaJ", "a", "llud", "yob"]
+// ["llA", "krow", "dna", "on", "yalp", "sekam", "kcaJ", "a", "llud", "yob"]
 
 // Then join each element together again, making sure to use a separator.
-
 const newStr = arr2.join(" ");
 
 console.log(newStr); // "llA krow dna on yalp sekam kcaJ a llud yob"
@@ -442,12 +386,21 @@ console.log(newStr); // "llA krow dna on yalp sekam kcaJ a llud yob"
 
 #### Using replace() to strip off any html tag from a given html text.
 
-replace(pattern|matchString, replaceString|function) where the first parameter "pattern" can be a regular expression, or a string and the second parameter can be a string that you want to replace with or a function that can be called for a matched pattern/string.
+The syntax for [replace()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace) is:
+
+```javascript
+replace(pattern|matchString, replaceString|function)
+```
+
+Where the first parameter "pattern" can be a regular expression, or a string and the second parameter can be a string that you want to replace with or a function that can be called for a matched pattern/string.
+
+You can strip the html tags from any string with the regular expression: ```/<(?:.|\n)*?>/gi```
+
+#### Example: Strip html tags from an h1 header
+This is how you could use replace with the regular expression above to strip the h1 tags from a string.
 
 ##### Code
-
-```JavaScript
-
+```javascript
 function stripHtmlTags(htmlText){
 	if(htmlText && htmlText.length){
 		return htmlText.replace(/<(?:.|\n)*?>/gi, ''); // g is for global replace, i for ignore case.
@@ -460,24 +413,13 @@ console.log(stripHtmlTags(str)); // "replace() method in javascript is really po
 
 ```
 
-### List items from an array until a specific string is found. JS
+#### Using the match() method
+The [match()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) method is similar to replace(), but it simply returns an array with all values from the string that match the expression given.
 
-```
-let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
+#### Example: finding all vowels in a string using match()
+To find all vowels in a string we can use match() as shown here.
 
-let currentCard = 'Heart';
-
-while (currentCard !== 'Spade') {
-       	console.log(currentCard);
-  			currentCard = cards[Math.floor(Math.random() * 4)];
-       }
-console.log('found a spade');
-```
-
-### Finding all vowels in a string using match()
-
-To find all vowels in a string, use the following:
-
+##### Code
 ```javascript
 let input = "A fox runs fast. Oh, how fast it runs!";
 
@@ -488,10 +430,13 @@ In this example, `vowels` is an array containing all of the vowels:
 
 ```javascript
 console.log(vowels);
-=> [ 'A', 'o', 'u', 'a', 'O', 'o', 'a', 'i', 'u' ]
+// [ 'A', 'o', 'u', 'a', 'O', 'o', 'a', 'i', 'u' ]
 ```
+---
 
-### Add/Sub time period to/from a Date variable
+## Dates
+
+#### Add/Sub time period to/from a Date variable
 
 to add a period (for example 10 minutes) to Date variable in javascript.
 
@@ -505,10 +450,41 @@ function addSecond(date, seconds) {
 expired = addSecond(new Date(), 60);
 ```
 
-### Whitelist Checker
+---
+
+## Promises
+
+#### Using the Promise.race() method
+
+The [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) method is used to act on the first promise in a group of promises that resolves or rejects.
+
+When we pass multiple promises to the Promise.race method, it executes the callback for the first promise that resolves/rejects.
+
+#### Example: demonstrating Promise.race() with setTimeout
+This trivial example will just demonstrate how Promise.race() works using setTimeout.
+
+#### Code
+```javascript
+const firstPromise = new Promise((res, rej) => {
+  setTimeout(res, 500, "one");
+});
+
+const secondPromise = new Promise((res, rej) => {
+  setTimeout(res, 100, "two");
+});
+
+Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+---
+
+## Useful functions
+
+#### Whitelist Checker
 
 Checks provided keys in reqInput are in whiteList or not
 
+##### Code
 ```javascript
 /**
 * @param  		{*} 		        reqInput  {data input to check white list on}
@@ -525,10 +501,11 @@ whiteChecker(reqInput, whiteList) {
 }
 ```
 
-### Random Generator
+#### Random Generator
 
 Returns a random number between provided min and max numbers
 
+##### Code
 ```javascript
 /**
 * @param  		{!number} 		  min       {Minimum number to be GTE in output number}
@@ -539,7 +516,9 @@ generateRandomNumber(min, max) => {
 }
 ```
 
-### Closures concept
+---
+
+## Closures
 
 #### Why we use closures?
 
