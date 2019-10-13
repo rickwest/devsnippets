@@ -56,8 +56,8 @@ class Main {
 
 To create  functions on Java we have three requirements: type, parameter and static or not.
 
-Type - Every function in java need to have a type before your name and this is a type of your return. When a function have a type,  needs 
-to have a return, only exception is void type, when your function dosen't have a return.
+Type - Every function in java needs to have a type before your name and this is a type of your return. When a function have a type,  needs 
+to have a return, the only exception is void type, when your function dosen't have a return.
 
 psvm = public static void main
 
