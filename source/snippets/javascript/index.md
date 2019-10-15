@@ -478,7 +478,7 @@ getPokemon(1, function(dataFromFirstRequest) { //retrieve first Pokemon
   }).fail(errorFromSecondRequest => console.log(errorFromSecondRequest))
 }).fail(errorFromFirstRequest => console.log(errorFromFirstRequest))
 ```
-As you can see, nested Callbacks can quickly make your code look like a 'pyramid' aka 'Callback Hell'. Imagine if we want to retrieve 10 Pokemons!
+As you can see, nested Callbacks can quickly make your code look like a 'pyramid' aka 'Callback Hell'. Imagine if we want to retrieve 10 Pokemons! Error handling also gets messy as we need to create a handler for every request. 
 
 This is where Promises shine. Let's refactor the above:
 
