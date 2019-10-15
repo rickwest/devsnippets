@@ -510,6 +510,7 @@ getPokemon(1) //retrieve the first Pokemon
 })
 ```
 With Promises, we have removed the need for nested Callbacks. Instead, we use `then()` to chain mulitple requests. Error handling also becomes a breeze as we only require one `catch()` to catch any errors, regardless from which request.
+
 #### Using the Promise.race() method
 
 The [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) method is used to act on the first promise in a group of promises that resolves or rejects.
