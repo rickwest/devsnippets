@@ -484,7 +484,8 @@ This is where Promises shine. Let's refactor the above:
 
 #### Code
 ```javascript
-//Task: Use the PokemonAPI to retrieve the first 3 Pokemons and output a comma separated list e.g., Pokemon1, Pokemon2, Pokemon3
+//Task: Use the PokemonAPI to retrieve the first 3 Pokemons 
+//and output a comma separated list e.g., Pokemon1, Pokemon2, Pokemon3
 let poke1, poke2, poke3;
 
 function getPokemon(ID) {
