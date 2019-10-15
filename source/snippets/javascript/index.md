@@ -474,9 +474,9 @@ getPokemon(1, function(dataFromFirstRequest) { //retrieve first Pokemon
     getPokemon(3, function(dataFromThirdRequest) { //retrieve third Pokemon
       poke3 = dataFromThirdRequest.name //store the name of the third Pokemon to the poke3 var
       console.log(`${poke1}, ${poke2}, ${poke3}`); //log out them
-    })
-  })
-})
+    }).fail(errorFromThirdRequest => console.log(errorFromThirdRequest))
+  }).fail(errorFromSecondRequest => console.log(errorFromSecondRequest))
+}).fail(errorFromFirstRequest => console.log(errorFromFirstRequest))
 ```
 As you can see, nested Callbacks can quickly make your code look like a 'pyramid' aka 'Callback Hell'. Imagine if we want to retrieve 10 Pokemons!
 
