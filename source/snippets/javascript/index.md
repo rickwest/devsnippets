@@ -510,7 +510,7 @@ getPokemon(1) //retrieve the first Pokemon
   console.log(err) //catch any errors and log them out
 })
 ```
-With Promises, we have removed the need for nested Callbacks. Instead, we use `then()` to chain mulitple requests. Error handling also becomes a breeze as we only require one `catch()` to catch any errors, regardless from which request.
+With Promises, we have removed the need for nested Callbacks. Instead, we use `then()` to chain mulitple requests. Error handling also becomes a breeze as we only require one `catch()` to catch any error, regardless from which requests.
 
 #### Using the Promise.race() method
 
