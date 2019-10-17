@@ -23,3 +23,5 @@
 - [Cristian Silva](https://github.com/Cristuker)
 - [Hojjat Jashnniloofar](https://github.com/hjn66)
 - [Ramsha Saeed](https://github.com/RamshaS)
+- [Tarun Khandelwal](https://github.com/kaitou786)
+- [Hilary Matusiak](https://github.com/hwilson2563)
