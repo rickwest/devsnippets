@@ -5,7 +5,7 @@ title: Python
 description: Python Dev Snippets
 ---
 
-#Python
+# Python
 
 ## Requirements
 
@@ -87,5 +87,23 @@ for i in range(r1):
 print("\nFinal Matrix : ",D) # final matrix after multiplication
 
 ```
+## Useful Function - Force 2 Decimals
+This function returns the given integer as a string with 2 decimals points, useful for prices.
+```python
+def forceTwoDecimals(integer):
+    if str(round(integer,2)) == str(round(integer,1)):
+        return str(integer)+"0"
+    else: 
+        return str(integer)
+```
+
+### Reversing A string
+test_string="test string"
+reverse_test_string=test_string[::-1]
+print(reverse_test_string)
+
+Output: "gnirts tset"
+
+
 #### Note :
 As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors.
