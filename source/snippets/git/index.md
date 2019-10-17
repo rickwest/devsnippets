@@ -150,6 +150,20 @@ git checkout branchname
 git merge my-new-function
 ```
 
+### Rebase a branch
+
+Rebasing is another way to integrate changes from one branch to another. It will move the commits of that branch to a new base commit.
+To rebase a branch into another, you need to do the following
+
+1. Checkout to the branch you wish to rebase
+2. Rebase this branch to the required branch.
+
+```bash
+git checkout new-branch
+git rebase master
+```
+This will change the base of new-branch to the latest commit in master.
+
 ### Delete a branch
 
 Deletes a branch thats no longer required (eg after a merge)
