@@ -147,6 +147,25 @@ class AnyComponent extends React.Component {
 export default AnyComponent;
 ```
 
+### Context Provider Component with useState Hook
+
+Here we use a similar context example as above. However instead of using a class based component, we use a functional component with the useState hook.
+
+```javascript
+import React, { createContext, useState } from 'react';
+
+export const MyContext = createContext();
+
+export const ContextProvider = props => {
+  const [state, setState] = useState({ key: 'value' });
+  return (
+    <MyContext.Provider value={{ state, setState }}>
+      {props.children}
+    </MyContext.Provider>
+  )
+}
+```
+
 ### useContext Hook
 
 Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The useContext hook allows access to the value in function components.
