@@ -598,6 +598,9 @@ displayPokemon();
 //ivysaur
 //caterpie
 ```
+
+When it comes to handling multiple Promises, Async/Await provides a very clear advantage - you can read and understand the code as if it were synchronous despite it running asynchronously!
+
 ---
 
 ## Useful functions
