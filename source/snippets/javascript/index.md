@@ -573,6 +573,32 @@ async function sayHi() {
 
 sayHi(); //'Promise resolved!!!' will be displayed after 2 seconds
 ```
+
+The improved clarity and readability may not be that obvious from the above example because we are dealing with only a single Promise. Let's use Async/Await to handle multiple Promises:
+
+##### Code
+```javascript
+//let's use the Pokemon API to demonstrate this
+function getPokemon(ID) {
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
+}
+
+async function displayPokemon() {
+  const pokemon1 = await getPokemon(1);
+  const pokemon2 = await getPokemon(2);
+  const pokemon3 = await getPokemon(10);
+
+  console.log(pokemon1.name); 
+  console.log(pokemon2.name);
+  console.log(pokemon3.name);
+
+  //output should be:
+  //bulbasaur
+  //ivysaur
+  //caterpie
+}
+displayPokemon()
+```
 ---
 
 ## Useful functions
