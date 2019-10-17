@@ -97,6 +97,13 @@ def forceTwoDecimals(integer):
         return str(integer)
 ```
 
+### Reversing A string
+test_string="test string"
+reverse_test_string=test_string[::-1]
+print(reverse_test_string)
+
+Output: "gnirts tset"
+
 
 #### Note :
 As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors.
