@@ -38,7 +38,7 @@ Prepare the content staged for the next commit.
 ```bash
 git add .
 ```
-or 
+or
 
 
 ```bash
@@ -54,7 +54,7 @@ Use the given <msg> as the commit message. If multiple -m options are given, the
 git commit -m"your commit message"
 ```
 
---- 
+---
 
 ## Repositories
 
@@ -138,6 +138,18 @@ Changes to a branch based on name
 git checkout branchname
 ```
 
+### Work on remote branch
+
+Clones a remote branch locally, and sets it up to track the remote branch
+
+```bash
+git checkout --track remote-name/branch-name
+```
+or equivalently
+```bash
+git checkout -b branch-name remote-name/branch-name
+```
+
 ### Merge a branch
 
 To merge a branch into another, you need to do the following
@@ -148,6 +160,15 @@ To merge a branch into another, you need to do the following
 ```bash
 git checkout branchname
 git merge my-new-function
+```
+
+### Push local branch to remote
+
+Creates a new branch locally and then on a remote
+
+```bash
+git checkout -b branch-name
+git push remote-name branch-name
 ```
 
 ### Rebase a branch
@@ -169,8 +190,18 @@ This will change the base of new-branch to the latest commit in master.
 Deletes a branch thats no longer required (eg after a merge)
 
 ```bash
-git branch -d branchname 
+git branch -d branchname
 ```
+
+### Delete a remote branch
+
+Deletes a remote branch, e.g a branch in your GitHub repo. Note that you'll still have to delete the local branch using the above snippet, if you want to completely remove the branch.
+
+```bash
+git push -d remote-name branch-name
+```
+
+Where remote-name(generally 'origin' for GitHub) is the name of the remote where you want to delete the branch from, and branch-name is the branch you wish to delete.
 
 ---
 
@@ -191,7 +222,7 @@ To see a list of the stashes you've stored.
 ```bash
 git stash list
 ```
-### Apply Stash 
+### Apply Stash
 
 To reapply your last stash
 
