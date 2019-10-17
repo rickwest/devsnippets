@@ -115,3 +115,9 @@ docker container ls -a
 docker kill rm <container hash>
 ```
 //coming out of container without exiting it:  ctrl+P+Q
+
+//searching docker image on docker hub
+docker search <<image_name>>
+
+//tagging local image with another name
+docker tag <<old_image_name>> <<new_image_name>>
