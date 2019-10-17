@@ -91,13 +91,17 @@ docker build -t <tag name> .
 
 Docker images
 ```bash
+
 // list all images on disk
 
 docker images
 
+// search a particular image
+docker images --filter=reference="centos"  //will give all locally present images of centos
+
 // remove a certain image
 
-docker image rm <image hash>
+docker image rm <image hash> //only first 3 characters of hash code is enough for docker daemon to distinguish the image.
 ```
 
 Docker containers
@@ -105,8 +109,9 @@ Docker containers
 // list all containers online/offline
 
 docker ps -a
-
+docker container ls -a
 // remove/stop/kill a certain container
 
 docker kill rm <container hash>
 ```
+//coming out of container without exiting it:  ctrl+P+Q
