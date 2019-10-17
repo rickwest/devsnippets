@@ -601,6 +601,9 @@ displayPokemon();
 
 When it comes to handling multiple Promises, Async/Await provides a very clear advantage - you can read and understand the code as if it were synchronous despite it running asynchronously!
 
+### Caveat
+If you look carefully at the `displayPokemon()` function, the three asynchronous calls are actually being executed sequentially. This means `await getPokemon(2)` will only run after `await getPokemon(1)` is resolved and `await getPokemon(10)` will only run after `getPokemon(2)` is resolved; this results in our function taking a much longer time to return the output. Since all three values are independent of each other, they all should run at the same time. That's when we can bring `Promise.all` into the picture:
+
 ---
 
 ## Useful functions
