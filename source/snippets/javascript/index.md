@@ -536,6 +536,10 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 ---
 
+## Async/Await
+Introduced in ES8, async/await is a new way to write asynchronous code. One of its main advantanges over callbacks and Promises is that it makes asynchronous code look very much like synchronous code. There are two parts to this new function
+
+---
 ## Useful functions
 
 #### Whitelist Checker
