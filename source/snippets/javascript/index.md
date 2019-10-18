@@ -761,3 +761,8 @@ and so on…
 ### Conclusion:
 
 The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
+---
+
+## Destructuring
+[Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) allows the extraction of values from arrays and properties from objects into their own variables using a pretty terse, yet clear syntax.
