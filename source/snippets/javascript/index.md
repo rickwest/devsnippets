@@ -15,6 +15,7 @@ section: content
 - [Promises](#promises)
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
+- [Expression and Operators](#expression-and-operators)
 
 ## Variables
 
@@ -582,3 +583,63 @@ and so on…
 ### Conclusion:
 
 The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
+## Expression and Operators
+
+### Spread Syntax
+
+The Spread syntax ([...](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax)) allows an iterable such as an array expression or string to be expanded in places where zero or more arguments (for function calls) or elements (for array literals) are expected, or an object expression to be expanded in places where zero or more key-value pairs (for object literals) are expected.
+
+### When we use spread syntax?
+
+When we want to use the elements of an array as arguments to a function, manipulate an array or object literal like cloning, merging and concatenating.
+
+### Code
+
+Spread syntax in function call
+
+```javascript
+function displayNumber(x,y,z){
+  console.log(`$x $y $z`);
+}
+var myNumber = [1,2,3]; // create an array
+displayNumber(...myNumber) // pass the array into function!
+
+```
+
+Spread syntax in array
+
+```javascript
+//Cloning an array
+var originArr = [1,2,3];
+var clonedArr = [...originArr];// clone it !
+console.log(clonedArr); // [1,2,3]
+
+//Merging two array
+var newFruits = ['apple','orange',];
+var fruits = ['banana',...newFruits,'watermelon','lemon'];
+console.log(fruits); // ['banana', 'apple', 'orange', 'watermelon', 'lemon']
+
+//concatenating two array
+var firstNumberArr = [0,1,2];
+var secondNumberArr = [3,4,5];
+var concatenatedArr = [...firstNumberArr,...secondNumberArr];
+console.log(concatenatedArr); //[0,1,2,3,4,5]
+
+```
+
+Spread syntax in object literal
+
+```javascript
+//Cloning an object literal
+var originObj = {one: 1,two: 2,three: 3};
+var clonedObj = {...originObj}// clone it!
+console.log(clonedObj); // Object {one: 1, two: 2, three: 3}
+
+//Merging two object literal
+var firstObj = {firstNumber: 1, secondNumber: 2, thirdNumber: 3};
+var secondObj = {fourthNumber: 4, fifthNumber: 5};
+var mergedObj = {...firstObj, ...secondObj}; // merge it!
+console.log(mergedObj); // Object {firstNumber: 1, secondNumber: 2, thirdNumber: 3, fourthNumber: 4, fifthNumber: 5}
+
+```
