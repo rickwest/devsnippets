@@ -806,3 +806,15 @@ const [ itemA, ...rest] = items;
 console.log(itemA) //'car'
 console.log(rest) //['computer', 'wallet']
 ```
+
+### Destructuring Objects
+
+Destructuring objects allows us to store its properties in variables like so:
+
+#### Code
+```javascript
+const obj = {name: 'Foo', age: 31};
+const {name, age} = obj; //extract the 'name' and 'age' properties into variables. Notice how the variable names match the properties
+console.log(name) // 'Foo'
+console.log(age) // 31
+```
