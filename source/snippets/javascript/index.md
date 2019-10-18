@@ -477,7 +477,48 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
 ---
+#### Promise.all() method
 
+This method is used when you have multiple promises Promise.all() wait until your every promises resolved then return you a single Promises
+
+##### Code
+
+Here are some examples of waiting 2 http request
+
+```javascript
+let promise1 = new Promise(function(resolve, reject) {
+	let requestOpt = {
+			uri:"URL-1",
+	}
+	rp(requestOpt)
+		.then(function(html){   
+			resolve(html)
+		})
+		.catch(function(err){
+			resolve(null);
+		});
+});
+
+let promise2 = new Promise(function(resolve, reject) {
+	let requestOpt = {
+			uri:"URL-2",
+	}
+	rp(requestOpt)
+		.then(function(html){   
+			resolve(html)
+		})
+		.catch(function(err){
+			resolve(null);
+		});
+});
+
+Promise.all([promise1,promise2])
+        .then((all_html_response)=>{
+			console.log(all_html_response)
+		})
+```
+
+---
 ## Useful functions
 
 #### Whitelist Checker
