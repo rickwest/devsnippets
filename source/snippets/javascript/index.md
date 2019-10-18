@@ -797,3 +797,14 @@ const [ itemA, , itemC] = items; //'computer' is being ignored
 console.log(itemC) //'wallet'
 
 ```
+
+And you can also choose to unpack only some values and assign the remaining to a variable using the [rest (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) syntax:
+
+#### Code
+```javascript
+const items = ['car', 'computer', 'wallet'];
+const [ itemA, ...rest] = items;
+console.log(itemA) //'car'
+console.log(rest) //['computer', 'wallet']
+
+```
