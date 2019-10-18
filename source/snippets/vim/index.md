@@ -4,7 +4,10 @@ section: content
 title: Vim Snippets
 description: Vim Snippets
 ---
-# Vim  
+
+# Vim
+
+---
 
 ## Open vim
 
@@ -12,11 +15,13 @@ description: Vim Snippets
 vim FILENAME
 ```
 
+---
+
 ## Delete
 
 ### Delete a whole line
 ```bash
-dd 
+dd
 ```
 
 ### Delete a character
@@ -24,11 +29,13 @@ dd
  x
 ```
 
+---
+
 ## Moving the Cursor
 
 ### Move down
 ```bash
-j    
+j
 ```
 
 ### Move up
@@ -78,6 +85,8 @@ G
 $
 ```
 
+---
+
 ## Basic word movements
 
 ### Move to beginning of next word
@@ -110,6 +119,8 @@ e
 E
 ```
 
+---
+
 ## Text Insertion
 
 Vim is a 'modal' editor. This means you will cycle in between several different editing modes. It makes Vim extremely efficient once you get the hang of it. You'll normally find yourself between 'edit' and 'insert' modes.
@@ -121,6 +132,8 @@ There are also a few more advance methods that come in handy.
 
 `o` will move you down a line and place you into insert mode. This is useful when you find somewhere in the file you would like to start adding to.
 `shift-a` will open up insert mode at the END of a line.
+
+---
 
 ## Text Selection
 There are two modes to select lines of code in vim. You can switch to them from normal mode.
@@ -135,12 +148,16 @@ While in this mode, using any movement keys `hjkl`, selects the lines just like 
 
 When moving cursor around in this mode, no matter where your cursor is in that line the full line will be selected.
 
+---
+
 ## Copy/Paste
 
 ```bash
 yy # copies/yanks the current line
 p # pastes the line
 ```
+
+---
 
 ## Macros
 
