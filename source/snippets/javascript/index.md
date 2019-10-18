@@ -802,7 +802,7 @@ And you can also choose to unpack only some values and assign the remaining to a
 #### Code
 ```javascript
 const items = ['car', 'computer', 'wallet'];
-const [ itemA, ...rest] = items;
+const [itemA, ...rest] = items; //extract first item and assign the remaining items to the 'rest' variable
 console.log(itemA) //'car'
 console.log(rest) //['computer', 'wallet']
 ```
