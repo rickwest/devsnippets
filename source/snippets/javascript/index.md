@@ -15,6 +15,7 @@ section: content
 - [Promises](#promises)
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
+- [Destructuring](#destructuring)
 
 ## Variables
 
