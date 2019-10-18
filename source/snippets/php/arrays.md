@@ -7,6 +7,8 @@ section: content
 
 # Arrays
 
+---
+
 Create new array in PHP
 
 ```php
@@ -14,14 +16,14 @@ Create new array in PHP
 
 $array = []; // recommended
 $array = array(); //array() function
-$array = ['foo' => 'bar']; 
+$array = ['foo' => 'bar'];
 ```
 
 ### Destructure arrays in PHP
 
 In Javascript, we loved the destructuring assignments in Arrays, in PHP we can achieve it via
 ```php
-$array = [1, 2, 3]; 
+$array = [1, 2, 3];
 
 // Using the list syntax:
 list($a, $b, $c) = $array;
@@ -36,7 +38,7 @@ list($a, $b, $c) = $array;
 
 ### Skipping elements in an array in PHP
 ```php
-$array = [1, 2, 3]; 
+$array = [1, 2, 3];
 
 [, , $c] = $array;
 

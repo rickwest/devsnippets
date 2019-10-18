@@ -7,6 +7,8 @@ section: content
 
 # Vue
 
+---
+
 <!-- ## Components -->
 
 ### Component

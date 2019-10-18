@@ -6,7 +6,7 @@ There are sections for the existing snippets. If your snippet is relevant for on
 
 If your snippet is on some topic for which a section does not yet exist, add a new section and place your snippet in it. Make sure that you add a link to that section at the top of the index.md.
 
-Put a horizontal rule (`---`) between sections. 
+Put a horizontal rule (`---`) between sections.
 
 ## Follow format of existing snippets
 - Use headings demonstrated in existing snippets as appropriate:
@@ -16,7 +16,7 @@ Put a horizontal rule (`---`) between sections.
   - Code - the code snippet
 - It may not be necessary to include all of these sections. At a minimum, include a header and **Code**
 
-Use the same header specifications as used for existing sections (for example, h2 for section heading, h5 for Code, etc.) 
+Use the same header specifications as used for existing sections (for example, h2 for section heading, h5 for Code, etc.)
 
 ## Use (```javascript) to format code snippets
 To format code snippets, follow the example and use ```javascript.

@@ -7,6 +7,8 @@ section: content
 
 # Javascript
 
+---
+
 - [Variables](#variables)
 - [Arrays](#arrays)
 - [Objects](#objects)
@@ -27,22 +29,19 @@ Variable declarations are processed before the execution of the code.
 The scope of a JavaScript variable declared with var is its current execution context.
 The scope of a JavaScript variable declared outside the function is global.
 
-##### Code
-
 ```JavaScript
-
-function nodeSimplified(){
-  var a =5;
+function nodeSimplified() {
+  var a = 5;
   console.log(a);  // output 5
-  if(true){
-   var a=10;
+  if (true) {
+   var a = 10;
    console.log(a); // output 10
   }
   console.log(a);  // output 10
 }
 ```
 
-### let
+#### let
 
 The let statement declares a local variable in a block scope. It is similar to var, in that we can optionally initialize the variable.
 The let statement allows you to create a variable with the scope limited to the block on which it is used.
@@ -50,14 +49,12 @@ It is similar to the variable we declare in other languages.
 
 The let declaration is only supported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#BlockScopedVariables)
 
-##### Code
-
 ```JavaScript
-function nodeSimplified(){
-  let a =5;
+function nodeSimplified() {
+  let a = 5;
   console.log(a);  // output 5
-  if(true){
-   let a=20;
+  if (true) {
+   let a = 20;
    console.log(a); // output 20
   }
   console.log(a);  // output 5
@@ -65,20 +62,17 @@ function nodeSimplified(){
 
 ```
 
-### const
+#### const
 
 const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
 
 The const declaration is only available bsupported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
 
-##### Code
-
 ```JavaScript
-
-function test(){
-  const MY_VARIABLE =5;
-  console.log(MY_VARIABLE);  //output 5
-  MY_VARIABLE =20;           //throws type error
+function test() {
+  const MY_VARIABLE = 5;
+  console.log(MY_VARIABLE);  // output 5
+  MY_VARIABLE = 20;          // throws type error
   console.log(MY_VARIABLE);
 }
 ```
@@ -108,8 +102,6 @@ When you want to find the **first** value in an array that meets some condition.
 #### Example: finding an odd number in an array
 This is how you would use find to find the first odd number in an array of numbers
 
-##### Code
-
 ```javascript
 const numbers = [2,4,6,5,6,7];
 
@@ -120,17 +112,16 @@ console.log(firstOddNumber); // 5
 
 #### Using the filter() method
 
-[Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is a built in JavaScript function that returns a subset of the original array in which all of the values match some condition. Like with find, the callback function passed to filter returns either true or false. If it returns true then filter adds that element to the return array, and if it returns false the element is not included. 
+[Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is a built in JavaScript function that returns a subset of the original array in which all of the values match some condition. Like with find, the callback function passed to filter returns either true or false. If it returns true then filter adds that element to the return array, and if it returns false the element is not included.
 
 **Filter returns an array with all values that meet the condition, or an empty array if no value meet the condition.**
 
 #### When to use filter()
-Use filter when you want **all the values** from an array that meet some condition. 
+Use filter when you want **all the values** from an array that meet some condition.
 
 #### Example: filter all even numbers in a numeric array
 This is how you would use filter() to get all even numbers in an array of numbers.
 
-##### Code
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -147,16 +138,15 @@ It does this by running a callback function on each element in the array, and re
 **Map returns an array that is the same length as the original array.**
 
 #### When to use map()
-When you want to apply some function on all elements of an array. 
+When you want to apply some function on all elements of an array.
 
 #### Example: doubling the values in a numeric array
 This is how you would use map() to return a new array with the values in the original array doubled.
 
-##### Code
 ```javascript
 const original = [1, 2, 3, 4];
-
 const double = original.map(val => val * 2);
+
 console.log(double); // [2, 4, 6, 8]
 ```
 
@@ -170,9 +160,7 @@ Just like map(), [Array.prototype.reduce()](https://developer.mozilla.org/en-US/
 Use reduce() when you want to accumulate the values in an array into a single value.
 
 #### Example - accumulating student scores from an array of objects
-In this example, we want the sum of all student scores from the given array of objects. 
-
-##### Code
+In this example, we want the sum of all student scores from the given array of objects.
 
 We have an array with students and their respective score. We can use reduce() to get the total score as shown here.
 
@@ -212,7 +200,6 @@ The [join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/G
 #### When to use join()
 Use join() when you want to represent the values in an array as a single, delimited string.
 
-##### Code
 ```javascript
 const arr = ["Lions", "tigers", "bears."];
 
@@ -223,7 +210,6 @@ console.log(str); //"Lions and tigers and bears."
 
 ### List items from an array until a specific string is found
 
-##### Code
 ```javascript
 let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
 
@@ -242,9 +228,7 @@ console.log('found a spade');
 
 You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
 
-### Code 
-
-```javascript 
+```javascript
 const car = {
     name: 'Ferrari',
     year: 2015,
@@ -253,7 +237,7 @@ const car = {
 }
 console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
 
-//Another example with functions
+// Another example with functions
 
 const calc = {
     sum: function(a,b){
@@ -267,7 +251,7 @@ const calc = {
 console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
 
 
-//An example with nested objects and functions
+// An example with nested objects and functions
 
 const computer ={
     monitor: 'Acer',
@@ -292,6 +276,8 @@ const computer ={
 computer.printDetails();
 ```
 
+---
+
 ## Strings
 
 ### Template strings (string interpolation)
@@ -301,7 +287,6 @@ Instead of using string concatenation, we can use a template string, or string i
 #### Example: using template strings to print values
 You can use template strings to print variable values, or the results of functions - anything that can be interpreted by javascript.
 
-### Code
 ```javascript
 const name = 'Cristian'
 const age = 20
@@ -321,8 +306,6 @@ console.log(`My name is ${name} and I am ${age} years old and I live in ${myCoun
 
 This method is used to split a string into an array of substrings. It takes two optional parameters, the _separator_ and the _limit_. If the _separator_ parameter is not given, the method will return the entire string. A _separator_ parameter of an empty string ("") will split the string between each character.
 
-##### Code
-
 Here are some examples of a string being split using different separators. The first example also uses the limit parameter.
 
 ```javascript
@@ -339,8 +322,6 @@ console.log(arr2); //["A ve", "y inte", "esting st", "ing!"]
 
 The reverse() method will reverse the order of an array. It changes the original array, it does not return a new array.
 
-##### Code
-
 ```javascript
 const arr = ["goldfish", "cats", "dogs"];
 
@@ -351,7 +332,6 @@ console.log(arr); //["dogs", "cats", "goldfish"]
 
 #### Using split(), reverse() and join() to reverse the letters of a string.
 
-##### Code
 ```javascript
 const str = "abcde";
 
@@ -365,7 +345,6 @@ console.log(rev); //"edcba"
 
 #### Using map(), split(), reverse() and join() to reverse the letters of each word in a string.
 
-##### Code
 ```javascript
 const str = "All work and no play makes Jack a dull boy"
 
@@ -399,7 +378,6 @@ You can strip the html tags from any string with the regular expression: ```/<(?
 #### Example: Strip html tags from an h1 header
 This is how you could use replace with the regular expression above to strip the h1 tags from a string.
 
-##### Code
 ```javascript
 function stripHtmlTags(htmlText){
 	if(htmlText && htmlText.length){
@@ -419,7 +397,6 @@ The [match()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/
 #### Example: finding all vowels in a string using match()
 To find all vowels in a string we can use match() as shown here.
 
-##### Code
 ```javascript
 let input = "A fox runs fast. Oh, how fast it runs!";
 
@@ -463,7 +440,6 @@ When we pass multiple promises to the Promise.race method, it executes the callb
 #### Example: demonstrating Promise.race() with setTimeout
 This trivial example will just demonstrate how Promise.race() works using setTimeout.
 
-#### Code
 ```javascript
 const firstPromise = new Promise((res, rej) => {
   setTimeout(res, 500, "one");
@@ -484,7 +460,6 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 Checks provided keys in reqInput are in whiteList or not
 
-##### Code
 ```javascript
 /**
 * @param  		{*} 		        reqInput  {data input to check white list on}
@@ -505,7 +480,6 @@ whiteChecker(reqInput, whiteList) {
 
 Returns a random number between provided min and max numbers
 
-##### Code
 ```javascript
 /**
 * @param  		{!number} 		  min       {Minimum number to be GTE in output number}
@@ -530,10 +504,6 @@ A closure is an inner function that has access to the outer (enclosing) function
 
 Lets move on the examples
 
-##### Code
-
-Example - 1
-
 ```javascript
 function init() {
   var name = "hello world"; // parent scope
@@ -551,8 +521,6 @@ init(); // hello world
 #### Explanation
 
 init() creates a local variable called name and a function calling displayName(). The displayName() function is an nested function and is only available within the body of the init() function. The displayName() function has no local variables of its own. However, because nested function have access to the variables of outer function, displayName() can access the variable name declared in the parent function.
-
-Example-2
 
 ```javascript
 function createCounter() {

@@ -2,8 +2,12 @@
 
 return [
     'Welcome' => 'snippets/welcome',
-    'C#' => 'snippets/csharp',
-    'C++' => 'snippets/c',
+    'C#' => [
+        'children' => [
+            'Shuffle' => 'snippets/csharp/shuffle',
+        ]
+    ],
+    'C++' => 'snippets/cpp',
     'Docker' => 'snippets/docker',
     'Git' => 'snippets/git',
     'Java' => 'snippets/java',
@@ -12,7 +16,8 @@ return [
         'children' => [
             'DateTime' => 'snippets/php/datetime',
             'Tooling' => 'snippets/php/tools',
-            'Arrays' => 'snippets/php/arrays'
+            'Arrays' => 'snippets/php/arrays',
+            'Strings' => 'snippets/php/strings'
         ]
     ],
     'Python' => 'snippets/python',

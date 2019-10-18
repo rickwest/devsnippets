@@ -7,6 +7,8 @@ section: content
 
 # DateTime
 
+---
+
 Get current date time:
 
 ```php
@@ -82,27 +84,6 @@ Using this function, you can parse about any English textual datetime descriptio
 	echo date("Y-m-d h:i:sa", $t) . "<br>";
 
 	$t=strtotime("+2 Months");
-	echo date("Y-m-d h:i:sa", $t) . "<br>";	
+	echo date("Y-m-d h:i:sa", $t) . "<br>";
 ?>
 ```
-
-# Create a Date with PHP mktime()
-
-The mktime() function returns the Unix timestamp for a date. The Unix timestamp contains the number of seconds between the Unix Epoch (January 1 1970 00:00:00 GMT) and the time specified.
-
-```php
-<?php
-	mktime(hour,minute,second,month,day,year)
-?>
-```
-
-Here is an example to create a date and time with some parameters in this function
-
-```php
-<?php
-	$t = mktime(11, 14, 54, 8, 11, 2019);
-	echo "Created date is " . date("Y-m-d h:i:sa", $t);
-?>
-```
-
-

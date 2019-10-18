@@ -7,6 +7,8 @@ section: content
 
 # React
 
+---
+
 ## Components
 
 ### Simple Component
@@ -74,7 +76,7 @@ function Timer(props) {
   const tick = () => {
     setSeconds(seconds + 1);
   }
-  
+
   useEffect(() => {
     const interval = setInterval(() => {
       // this will run every second!
@@ -197,9 +199,9 @@ function MyComponent ({ name }) {
 Functional Components can be written with arraow functions.
 
 ```javascript
-const Greeting = (props) => 
+const Greeting = (props) =>
   <h1> Hello {props.name} </h1>;
-  
+
 ReactDOM.render() {
   <Greeting name="xyz" />;
   document.getElementById("root");
@@ -208,7 +210,7 @@ ReactDOM.render() {
 
 ### Hooks in Combination with setInterval()
 
-In comparison to stateful components in React, hooks let you use features like state without the neccessity of writing a class compoent.  
+In comparison to stateful components in React, hooks let you use features like state without the neccessity of writing a class compoent.
 
 ```javascript
 function useInterval(callback) {
@@ -237,7 +239,7 @@ function Timer() {
 }
 
 ReactDOM.render(
-  <Timer />, 
+  <Timer />,
   document.getElementById("timer-example")
 );
 ```
@@ -290,15 +292,15 @@ class Lock extends React.Component {
     }));
   }
   lock = () => {
-    // setState is an asynchronous function, so that there are times that, it can't return the mutate state 
+    // setState is an asynchronous function, so that there are times that, it can't return the mutate state
     // immediately, but using the second parameter in setState(), you can now access the new state value.
     this.setState({locked: true}, () => {
       console.log(this.state.locked);
     })
   }
-  
+
   combinedSetState = () => {
-    // We can actually combined this ways :)  
+    // We can actually combined this ways :)
     this.setState(state => ({
       locked: !state.locked
     }), () => {
@@ -377,7 +379,7 @@ function useDebounce(value, delay) {
 
 ### Rendering your react component to the DOM
 
-Render your react element into the DOM. The id belongs to the element in which the react application will mount.  
+Render your react element into the DOM. The id belongs to the element in which the react application will mount.
 
 ```javascript
 import React from 'react'

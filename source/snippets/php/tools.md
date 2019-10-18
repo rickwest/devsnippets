@@ -7,6 +7,8 @@ section: content
 
 # PHP Tooling
 
+---
+
 ## PHP Stan
 
 https://github.com/phpstan/phpstan
@@ -35,7 +37,7 @@ parameters:
         - tests
 ```
 
---- 
+---
 
 ## PHP CS Fixer
 
