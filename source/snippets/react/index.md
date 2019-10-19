@@ -369,6 +369,25 @@ Here are some approaches to treat state as immutable (without using libraries):
     ...
  }
 ```
+```javascript
+//using the spread operator(...)
+ import React, { Component } from 'react';
+
+ class App extends Component {
+  
+  state = {
+    fruits: ['apples', 'oranges', 'bananas'],
+  }
+
+  handleAdd = () => {
+    //spread out the items of the original array and add a new item to the end
+    const newState = [...this.state.fruits, 'watermelon'];
+    console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+    console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+  }
+    ...
+ }
+ ```
 
 ### Hook for throttling value change
 
