@@ -326,6 +326,28 @@ ReactDOM.render(
 When it comes it handling state, it is important to **never mutate it directly**. This is mentioned in the official [docs](https://reactjs.org/docs/react-component.html#state): 
 > Never mutate this.state directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
 
+Here are some approaches to treat state as immutable (without using libraries):
+
+#### Arrays
+```javascript
+ import React, { Component } from 'react';
+
+ class App extends Component {
+  
+  state = {
+    fruits: ['apples', 'oranges', 'bananas'],
+  }
+
+  handleAdd = () => {
+    //use the array concat() method to add a new item to an existing array WITHOUT mutating it.
+    const newState = this.state.fruits.concat('watermelon');
+    console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+    console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+  }
+    ...
+ }
+```
+
 ### Hook for throttling value change
 
 A custom hook to help throttling changes to variables. Especially useful when automatically queriying api's based on user text-input
