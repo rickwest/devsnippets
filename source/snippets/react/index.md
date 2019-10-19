@@ -404,6 +404,34 @@ handleChange = () => {
   console.log(newPerson) //{name: 'Bar', age: 31}
 }
  ```
+ If you have nested objects, be sure to clone them as well:
+ ```javascript
+//using the spread operator(...) to handle nested objects
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
+    children: {
+      name: 'John',
+    }
+  }
+}
+
+handleChange = () => {
+  //clone the original object and change the name property 
+  const newPerson = {
+    ...this.state.person, 
+    name: 'Bar',
+    children: {
+      //clone the nested children object and change the name property
+      ...this.state.children,
+      name: 'Alex',
+    }
+  }
+  console.log(this.state.person) //{name: 'Foo', age: 31, children: {name: 'John}}
+  console.log(newPerson) //{name: 'Bar', age: 31, children: {name: 'Alex}}
+}
+ ```
 
 ### Hook for throttling value change
 
