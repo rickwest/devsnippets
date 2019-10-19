@@ -323,6 +323,9 @@ ReactDOM.render(
 
 ```
 
+When it comes it handling state, it is important to **never mutate it directly**. This is mentioned in the official [docs](https://reactjs.org/docs/react-component.html#state): 
+> Never mutate this.state directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
+
 ### Hook for throttling value change
 
 A custom hook to help throttling changes to variables. Especially useful when automatically queriying api's based on user text-input
