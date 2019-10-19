@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'baseUrl' => '',
+    'baseUrl' => 'http://localhost:3000',
     'production' => false,
     'siteName' => 'Dev Snippets',
     'siteDescription' => 'A collection of useful code snippets for new developers!',
