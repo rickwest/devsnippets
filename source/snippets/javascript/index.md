@@ -15,6 +15,7 @@ section: content
 - [Promises](#promises)
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
+- [Bind](#bind)
 
 ## Variables
 
@@ -582,3 +583,56 @@ and so on…
 ### Conclusion:
 
 The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
+---
+
+## Bind
+
+### What are bind and why do we use it?
+
+Bind() is a method that allows us identify which specific object will be binded to 'this', when a function is invoked. Its need occurs when we're using 'this' keyword in a method. In some cases 'this' isn't bound to an object that we're expecting to. Which resuts in error.  
+
+### How does bind works?
+
+bind() returns a bound function that'll have a context of 'this' for calling original function. Bind() can be used when function is called later for certain events.  
+
+Example-1
+
+var x = 9;
+var module = {
+  x: 81,
+  getX: function() {
+  return this.x
+}
+};
+
+var getX = module.getX;
+getX();
+
+var boundGetX = getX.bind(module);
+boundGetX();
+
+Example-2 
+
+bind() created a new function which when called, has 'this' keyword set to the provided value. 
+
+Lets take a function:
+var logProp = function(prop) {
+  console.log(this[prop]);
+}
+
+and an object:
+var obj = {
+  x: 5,
+  y: 10
+};
+
+Now we can bind function with the object:
+
+Obj.log = logProp.bind(Obj);
+
+Now we can log this any where in the project:
+Obj.log('x'); => 5
+Obj.log('y'); => 10
+
+This will work because we've binded our function with the object.
