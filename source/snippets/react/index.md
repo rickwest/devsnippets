@@ -404,32 +404,58 @@ handleChange = () => {
   console.log(newPerson) //{name: 'Bar', age: 31}
 }
  ```
- If you have nested objects, be sure to clone them as well:
+ If you have nested objects, be sure to clone them as well!
+
+ ##### Wrong
  ```javascript
-//using the spread operator(...) to handle nested objects
 state = {
   person: {
     name: 'Foo',
     age: 31,
     children: {
-      name: 'John',
+      name: 'FooChild',
     }
   }
 }
 
 handleChange = () => {
-  //clone the original object and change the name property 
-  const newPerson = {
+  //without cloning the nested object
+  const withoutNestedClone = {
+    ...this.state.person,
+    name: 'Bar',
+    //nested children object is not cloned. It is now prone to mutation!
+  }
+
+  withoutNestedClone.children.name = 'BarChild';
+  console.log(this.state.person) //{name: 'Foo', age: 31, children: {name: 'BarChild'}} the name property of children got mutated!
+  console.log(withoutNestedClone) //{name: 'Bar', age: 31, children: {name: 'BarChild'}}
+}
+```
+##### Correct
+ ```javascript
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
+    children: {
+      name: 'FooChild',
+    }
+  }
+}
+
+handleChange = () => {
+  //cloning the nested object
+  const nestedClone = {
     ...this.state.person, 
     name: 'Bar',
     children: {
       //clone the nested children object and change the name property
       ...this.state.children,
-      name: 'Alex',
     }
   }
-  console.log(this.state.person) //{name: 'Foo', age: 31, children: {name: 'John}}
-  console.log(newPerson) //{name: 'Bar', age: 31, children: {name: 'Alex}}
+  nestedClone.children.name = 'BarChild'
+  console.log(this.state.person) //{name: 'Foo', age: 31, children: {name: 'FooChild'}} the name property of Children is not affected!
+  console.log(nestedClone) //{name: 'Bar', age: 31, children: {name: 'BarChild'}}
 }
  ```
 
