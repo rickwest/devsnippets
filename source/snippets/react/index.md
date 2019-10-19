@@ -412,6 +412,28 @@ Here are some approaches to treat state as immutable (without using libraries):
     ...
  }
  ```
+ ```javascript
+//using the spread operator(...)
+ import React, { Component } from 'react';
+
+ class App extends Component {
+  
+  state = {
+    person: {
+      name: 'Foo',
+      age: 31,
+    }
+  }
+
+  handleChange = () => {
+    //clone the original object and change the name property 
+    const newPerson = {...this.state.person, name: 'Bar'}
+    console.log(this.state.person) //{name: 'Foo', age: 31}
+    console.log(newPerson) //{name: 'Bar', age: 31}
+  }
+    ...
+ }
+ ```
 
 ### Hook for throttling value change
 
