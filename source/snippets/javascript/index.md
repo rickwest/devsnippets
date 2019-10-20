@@ -542,6 +542,30 @@ When it comes to handling multiple Promises, Async/Await provides a very clear a
 ### Caveat
 If you look carefully at the `displayPokemon()` function, the three asynchronous calls are actually being executed sequentially. This means `await getPokemon(2)` will only run after `await getPokemon(1)` is resolved and `await getPokemon(10)` will only run after `getPokemon(2)` is resolved; this results in our function taking a much longer time to return the output. Since all three values are independent of each other, they all should run at the same time. That's when we can bring `Promise.all` into the picture:
 
+```javascript
+function getPokemon(ID) {
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
+}
+async function displayPokemonParallel() {
+  //since we want to fetch the data in parallel, we don't need the await operator here
+  const getPokemon1 = getPokemon(1);
+  const getPokemon2 = getPokemon(2);
+  const getPokemon3 = getPokemon(10);
+  //Promise.all takes in an array of Promises and returns a single promise when all of them are resolved.
+  //By using await here, we are waiting for all three Promises to resolve and then use array destructuring to store the resolved values in its own variable
+  const [pokemon1, pokemon2, pokemon3] = await Promise.all([getPokemon1, getPokemon2, getPokemon3]);
+  console.log(pokemon1.name); 
+  console.log(pokemon2.name);
+  console.log(pokemon3.name);
+}
+displayPokemonParallel();
+//output should be:
+//bulbasaur
+//ivysaur
+//caterpie
+```
+So when using **Async/Await**, it is important to not accidentally run all your requests sequentially and slow down your application.
+
 ---
 
 ## Useful functions
