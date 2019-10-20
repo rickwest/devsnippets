@@ -384,6 +384,29 @@ Here are some approaches to treat state as immutable (without using libraries):
  }
  ```
 
+ #### Objects
+ 
+ ```javascript
+//using Object.assign()
+ import React, { Component } from 'react';
+ class App extends Component {
+  
+  state = {
+    person: {
+      name: 'Foo',
+      age: 31,
+    }
+  }
+  handleChange = () => {
+    //clone the original object and change the name property 
+    const newPerson = Object.assign({}, {...this.state.person, name: 'Bar'});
+    console.log(this.state.person) //{name: 'Foo', age: 31}
+    console.log(newPerson) //{name: 'Bar', age: 31}
+  }
+    ...
+ }
+ ```
+
 ### Hook for throttling value change
 
 A custom hook to help throttling changes to variables. Especially useful when automatically queriying api's based on user text-input
