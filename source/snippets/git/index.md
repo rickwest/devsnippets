@@ -33,14 +33,17 @@ git status
 
 ### Add file contents to the index
 
-Prepare the content staged for the next commit.
+Prepare one file and stage for the next commit.
+```bash
+git add someFile
+```
+
+Prepare all the content (tracked and untracked files) and stage for the next commit.
 
 ```bash
 git add .
 ```
 or
-
-
 ```bash
 git add -A
 ```
