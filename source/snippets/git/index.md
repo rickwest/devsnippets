@@ -152,6 +152,10 @@ git checkout branchname
 Clones a remote branch locally, and sets it up to track the remote branch
 
 ```bash
+git checkout branch-name
+```
+or 
+```bash
 git checkout --track remote-name/branch-name
 ```
 or equivalently
