@@ -521,6 +521,7 @@ The improved clarity and readability may not be that obvious from the above exam
 function getPokemon(ID) {
   return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
 }
+
 async function displayPokemon() {
   const pokemon1 = await getPokemon(1);
   const pokemon2 = await getPokemon(2);
