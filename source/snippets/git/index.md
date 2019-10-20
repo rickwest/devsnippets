@@ -73,6 +73,7 @@ git commit -m "first commit"
 git remote add origin https://github.com/rickwest/devsnippets.git
 git push -u origin master
 ```
+Note: `-u` is a short-hand for setting up remote tracking on the pushed branch.
 
 ### Push an existing repository
 
