@@ -481,6 +481,22 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ## Async/Await
 Introduced in ES8, async/await is a new way to write asynchronous code. One of its main advantanges over callbacks and Promises is that it makes asynchronous code look very much like synchronous code. There are two parts to this new function:
 
+#### 1) [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+Adding the Async keyword to a function will cause that function to return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise):
+##### Code
+```javascript
+async function sayHi() {
+  return 'hello';
+}
+console.log(sayHi()) //we will get [object Promise] { ... } instead of 'hello'
+
+//to display 'hello', we can do the following:
+sayHi()
+.then(res => console.log(res));
+```
+
+---
+
 ## Useful functions
 
 #### Whitelist Checker
