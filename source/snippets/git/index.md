@@ -299,8 +299,9 @@ git merge branchname
 This will delete all the local changes made to master.
 
 ```bash
-git reset --hard upstream/"branchname"
+git reset --hard upstream/branchname
 ```
+Note: This will also delete **all untracked files** as well. 
  Not necessary if you have not made any changes.
 
 ### Pushing changes to your forked master
