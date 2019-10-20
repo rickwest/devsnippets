@@ -529,12 +529,12 @@ async function displayPokemon() {
   console.log(pokemon1.name); 
   console.log(pokemon2.name);
   console.log(pokemon3.name);
-  //output should be:
-  //bulbasaur
-  //ivysaur
-  //caterpie
 }
-displayPokemon()
+displayPokemon();
+//output should be:
+//bulbasaur
+//ivysaur
+//caterpie
 ```
 
 ---
