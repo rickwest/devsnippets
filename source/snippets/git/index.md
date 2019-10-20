@@ -133,6 +133,11 @@ Creates a new branch without switching to it
 git branch branchname
 ```
 
+### Rename a branch
+
+```bash
+git branch -m old-name new-name
+```
 
 ### Switch to a branch
 
