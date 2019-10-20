@@ -648,3 +648,13 @@ const {name: newName, age: newAge} = obj; //extract the 'name' and 'age' propert
 console.log(newName) // 'Foo'
 console.log(newAge) // 31
 ```
+
+Using the [rest (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) syntax in Object destructuring:
+
+#### Code
+```javascript
+const obj = {name: 'Foo', age: 31, hobby: 'coding'};
+const {name, ...rest} = obj; //extract 'name' property and assign the remaining properties to the 'rest' variable
+console.log(name) // 'Foo'
+console.log(rest) // {age: 31, hobby: 'coding'}
+```
