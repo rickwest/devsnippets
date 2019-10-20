@@ -498,6 +498,22 @@ sayHi()
 #### 2) [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
 The Await operator is used to wait for a **Promise** to be resolved or rejected before resuming the rest of the **Async** function. Do note that **Await can only be used inside an Async function.**
 
+##### Code
+```javascript
+function resolveAfter2Seconds() {
+  return new Promise(res => {
+    setTimeout(function() { //we use setTimeout here to mimic a HTTP request
+      res('Promise resolved!!!');
+    }, 2000);
+  })
+}
+async function sayHi() {
+  const message = await resolveAfter2Seconds(); //waiting for Promise to resolve...
+  console.log(message); //this line will not run until await resolveAfter2Seconds() line returns with a fulfilled Promise
+}
+sayHi(); //'Promise resolved!!!' will be displayed after 2 seconds
+```
+
 ---
 
 ## Useful functions
