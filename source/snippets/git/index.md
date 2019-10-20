@@ -51,7 +51,7 @@ git add -A
 
 ### Record changes to the repository
 
-Use the given <msg> as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs.
+Use the given `<msg>` as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs.
 
 ```bash
 git commit -m"your commit message"
