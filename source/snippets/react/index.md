@@ -347,6 +347,25 @@ Here are some approaches to treat state as immutable (without using libraries):
     ...
  }
 ```
+```javascript
+ //using slice()
+ import React, { Component } from 'react';
+ class App extends Component {
+  
+  state = {
+    fruits: ['apples', 'oranges', 'bananas'],
+  }
+  handleAdd = () => {
+    //clone the existing array so the original is left untouched
+    const newState = this.state.fruits.slice();
+    //add a new item to the end of the cloned array
+    newState.push('watermelon');
+    console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+    console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+  }
+    ...
+ }
+```
 
 ### Hook for throttling value change
 
