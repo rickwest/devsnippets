@@ -331,6 +331,7 @@ Here are some approaches to treat state as immutable (without using libraries):
 #### Arrays
 
 ```javascript
+//using .concat()
  import React, { Component } from 'react';
  class App extends Component {
   
@@ -338,7 +339,7 @@ Here are some approaches to treat state as immutable (without using libraries):
     fruits: ['apples', 'oranges', 'bananas'],
   }
   handleAdd = () => {
-    //use the array concat() method to add a new item to an existing array WITHOUT mutating it.
+    //add a new item to an existing array WITHOUT mutating it.
     const newState = this.state.fruits.concat('watermelon');
     console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
     console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
