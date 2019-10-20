@@ -590,6 +590,7 @@ The key to remember is that when a function gets declared, it contains a functio
 
 ### Destructuring Arrays
 Before destructuring, the way to access items in an array looks something like this:
+
 #### Code
 ```javascript
 const items = ['car', 'computer', 'wallet'];
@@ -597,7 +598,9 @@ const itemA = items[0];
 const itemB = items[1];
 const itemC = items[2];
 ```
+
 With destructuring, this becomes a one-liner:
+
 #### Code
 ```javascript
 const items = ['car', 'computer', 'wallet'];
