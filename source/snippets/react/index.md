@@ -331,10 +331,7 @@ Here are some approaches to treat state as immutable (without using libraries):
 #### Arrays
 
 ```javascript
-//using .concat()
- import React, { Component } from 'react';
- class App extends Component {
-  
+//using .concat() 
   state = {
     fruits: ['apples', 'oranges', 'bananas'],
   }
@@ -344,14 +341,9 @@ Here are some approaches to treat state as immutable (without using libraries):
     console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
     console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
   }
-    ...
- }
 ```
 ```javascript
- //using slice()
- import React, { Component } from 'react';
- class App extends Component {
-  
+ //using slice() 
   state = {
     fruits: ['apples', 'oranges', 'bananas'],
   }
@@ -363,14 +355,9 @@ Here are some approaches to treat state as immutable (without using libraries):
     console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
     console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
   }
-    ...
- }
 ```
 ```javascript
-//using the spread operator(...)
- import React, { Component } from 'react';
- class App extends Component {
-  
+//using the spread operator(...) 
   state = {
     fruits: ['apples', 'oranges', 'bananas'],
   }
@@ -380,17 +367,12 @@ Here are some approaches to treat state as immutable (without using libraries):
     console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
     console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
   }
-    ...
- }
  ```
 
  #### Objects
 
  ```javascript
-//using Object.assign()
- import React, { Component } from 'react';
- class App extends Component {
-  
+//using Object.assign()  
   state = {
     person: {
       name: 'Foo',
@@ -403,14 +385,9 @@ Here are some approaches to treat state as immutable (without using libraries):
     console.log(this.state.person) //{name: 'Foo', age: 31}
     console.log(newPerson) //{name: 'Bar', age: 31}
   }
-    ...
- }
  ```
 ```javascript
-//using the spread operator(...)
- import React, { Component } from 'react';
- class App extends Component {
-  
+//using the spread operator(...)  
   state = {
     person: {
       name: 'Foo',
@@ -423,8 +400,6 @@ Here are some approaches to treat state as immutable (without using libraries):
     console.log(this.state.person) //{name: 'Foo', age: 31}
     console.log(newPerson) //{name: 'Bar', age: 31}
   }
-    ...
- }
 ```
 
 ### Hook for throttling value change
