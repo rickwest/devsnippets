@@ -195,7 +195,7 @@ git push -u remote-name branch-name
 Rebasing is another way to integrate changes from one branch to another. It will move the commits of that branch to a new base commit.
 To rebase a branch into another, you need to do the following
 
-1. Checkout to the branch you wish to rebase
+1. Checkout the branch you wish to rebase
 2. Rebase this branch to the required branch.
 
 ```bash
