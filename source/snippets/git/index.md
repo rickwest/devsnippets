@@ -286,9 +286,13 @@ git fetch upstream
 To pull changes from an upstream branch to your current branch.
 
 ```bash
-git pull upstream "branchname"
+git pull upstream branchname
 ```
-P.s. write the branchname without the "". Generally master.
+Note: pulling is an alias for
+```bash
+git fetch upstream branchname
+git merge branchname
+```
 
 ### Delete local changes to master
 
