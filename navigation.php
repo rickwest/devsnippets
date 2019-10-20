@@ -19,4 +19,5 @@ return [
     'React' => 'snippets/react',
     'Vue' => 'snippets/vue',
     'Vim' => 'snippets/vim',
+    'Kubernetes' => 'snippets/kubernetes',
 ];

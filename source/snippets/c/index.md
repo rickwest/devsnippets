@@ -62,3 +62,27 @@ Hello World
 Make sure that g++ is in your path and that you are running it in the directory containing file hello.cpp.
 
 You can compile C/C++ programs using makefile. For more details, you can check our 'Makefile
+
+# C++ function for Binary search in an array
+
+int binarySearch(int array[], int left, int right, int element) 
+{ 
+   while (left <= right) { 
+      int middle = left + (right - left) / 2; 
+  
+      // Check if element is present at mid 
+      if (array[middle] == element) 
+         return middle; 
+  
+      // If element greater, ignore left half 
+      if (array[middle] < element) 
+         left = middle + 1; 
+  
+      // If element is smaller, ignore right half 
+      else
+         right = middle - 1; 
+   } 
+  
+   // If element is not present 
+   return -1; 
+} 
