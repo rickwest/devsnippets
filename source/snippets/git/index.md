@@ -206,7 +206,7 @@ This will change the base of new-branch to the latest commit in master.
 
 ### Delete a branch
 
-Deletes a branch thats no longer required (eg after a merge)
+Deletes a branch that is no longer required (e.g. after a merge)
 
 ```bash
 git branch -d branchname
