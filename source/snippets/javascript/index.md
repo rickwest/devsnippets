@@ -607,3 +607,11 @@ const items = ['car', 'computer', 'wallet'];
 const [ itemA, itemB, itemC ] = items; //assign individual variables to the corresponding item in the array
 console.log(itemB) //'computer'
 ```
+
+You can also choose to ignore items in an array by 'skipping' its variable assigment:
+#### Code
+```javascript
+const items = ['car', 'computer', 'wallet'];
+const [ itemA, , itemC] = items; //'computer' is being ignored
+console.log(itemC) //'wallet'
+```
