@@ -128,7 +128,7 @@ Creates a new branch and switches to it
 git checkout -b branchname
 ```
 
-Just create a new branch
+Creates a new branch without switching to it
 ```bash
 git branch branchname
 ```
