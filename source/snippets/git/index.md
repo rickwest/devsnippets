@@ -309,7 +309,8 @@ Note: This will also delete **all untracked files** as well.
 This will delete all the changes on forked master and will make your branch even with the upstream branch.
 
 ```bash
-git push origin "branchname" --force
+git push origin branchname --force
 ```
+Note: **Only force push if you are the only person working on a branch.** Otherwise, you will mess up other people's repositories and force work on them to clean up their repositories. 
 
-P.s. --force is required when your repository is ahead of upstream, otherwise you can also push normally.
+P.s. `--force` is required when your repository is ahead of upstream, otherwise you can also push normally.
