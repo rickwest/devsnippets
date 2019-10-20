@@ -44,7 +44,7 @@ or
 ```bash
 git add -A
 ```
-A stands for All
+`-A` stands for All
 
 ### Record changes to the repository
 
