@@ -332,74 +332,74 @@ Here are some approaches to treat state as immutable (without using libraries):
 
 ```javascript
 //using .concat() 
-  state = {
-    fruits: ['apples', 'oranges', 'bananas'],
-  }
-  handleAdd = () => {
-    //add a new item to an existing array WITHOUT mutating it.
-    const newState = this.state.fruits.concat('watermelon');
-    console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
-    console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
-  }
+state = {
+  fruits: ['apples', 'oranges', 'bananas'],
+}
+handleAdd = () => {
+  //add a new item to an existing array WITHOUT mutating it.
+  const newState = this.state.fruits.concat('watermelon');
+  console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+  console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+}
 ```
 ```javascript
- //using slice() 
-  state = {
-    fruits: ['apples', 'oranges', 'bananas'],
-  }
-  handleAdd = () => {
-    //clone the existing array so the original is left untouched
-    const newState = this.state.fruits.slice();
-    //add a new item to the end of the cloned array
-    newState.push('watermelon');
-    console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
-    console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
-  }
+//using slice() 
+state = {
+  fruits: ['apples', 'oranges', 'bananas'],
+}
+handleAdd = () => {
+  //clone the existing array so the original is left untouched
+  const newState = this.state.fruits.slice();
+  //add a new item to the end of the cloned array
+  newState.push('watermelon');
+  console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+  console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+}
 ```
 ```javascript
 //using the spread operator(...) 
-  state = {
-    fruits: ['apples', 'oranges', 'bananas'],
-  }
-  handleAdd = () => {
-    //spread out the items of the original array and add a new item to the end
-    const newState = [...this.state.fruits, 'watermelon'];
-    console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
-    console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
-  }
- ```
+state = {
+  fruits: ['apples', 'oranges', 'bananas'],
+}
+handleAdd = () => {
+  //spread out the items of the original array and add a new item to the end
+  const newState = [...this.state.fruits, 'watermelon'];
+  console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+  console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+}
+```
 
- #### Objects
+#### Objects
 
- ```javascript
+```javascript
 //using Object.assign()  
-  state = {
-    person: {
-      name: 'Foo',
-      age: 31,
-    }
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
   }
-  handleChange = () => {
-    //clone the original object and change the name property 
-    const newPerson = Object.assign({}, {...this.state.person, name: 'Bar'});
-    console.log(this.state.person) //{name: 'Foo', age: 31}
-    console.log(newPerson) //{name: 'Bar', age: 31}
-  }
- ```
+}
+handleChange = () => {
+  //clone the original object and change the name property 
+  const newPerson = Object.assign({}, {...this.state.person, name: 'Bar'});
+  console.log(this.state.person) //{name: 'Foo', age: 31}
+  console.log(newPerson) //{name: 'Bar', age: 31}
+}
+```
 ```javascript
 //using the spread operator(...)  
-  state = {
-    person: {
-      name: 'Foo',
-      age: 31,
-    }
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
   }
-  handleChange = () => {
-    //clone the original object and change the name property 
-    const newPerson = {...this.state.person, name: 'Bar'}
-    console.log(this.state.person) //{name: 'Foo', age: 31}
-    console.log(newPerson) //{name: 'Bar', age: 31}
-  }
+}
+handleChange = () => {
+  //clone the original object and change the name property 
+  const newPerson = {...this.state.person, name: 'Bar'}
+  console.log(this.state.person) //{name: 'Foo', age: 31}
+  console.log(newPerson) //{name: 'Bar', age: 31}
+}
 ```
 
 ### Hook for throttling value change
