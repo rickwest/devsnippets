@@ -638,3 +638,13 @@ const {name, age} = obj; //extract the 'name' and 'age' properties into variable
 console.log(name) // 'Foo'
 console.log(age) // 31
 ```
+
+We can also extract the properties and assign them to new variable names:
+
+#### Code
+```javascript
+const obj = {name: 'Foo', age: 31};
+const {name: newName, age: newAge} = obj; //extract the 'name' and 'age' properties and assign them to new variables - newName and newAge - respectively
+console.log(newName) // 'Foo'
+console.log(newAge) // 31
+```
