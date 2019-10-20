@@ -495,6 +495,9 @@ sayHi()
 .then(res => console.log(res));
 ```
 
+#### 2) [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+The Await operator is used to wait for a **Promise** to be resolved or rejected before resuming the rest of the **Async** function. Do note that **Await can only be used inside an Async function.**
+
 ---
 
 ## Useful functions
