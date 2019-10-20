@@ -168,7 +168,7 @@ git checkout -b branch-name remote-name/branch-name
 To merge a branch into another, you need to do the following
 
 1. **Checkout** the branch/master you wish to merge _into_
-2. Merge the required branch into this one
+2. Merge your required branch _into_ the requested branch
 
 ```bash
 git checkout branchname
