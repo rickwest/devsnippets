@@ -212,6 +212,11 @@ Deletes a branch that is no longer required (e.g. after a merge)
 git branch -d branchname
 ```
 
+Force deletes a branch
+```bash
+git branch -D branchname
+```
+
 ### Delete a remote branch
 
 Deletes a remote branch, e.g a branch in your GitHub repo. Note that you'll still have to delete the local branch using the above snippet, if you want to completely remove the branch.
