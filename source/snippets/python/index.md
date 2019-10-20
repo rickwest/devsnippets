@@ -104,7 +104,7 @@ print(reverse_test_string)
 
 Output: "gnirts tset"
 
-## Using Loops
+## Loops
 Like in any other language there are many loop functions in python. Here are the two common ones.
 
 ### For Loop
