@@ -17,7 +17,7 @@ mkdir <folder-name>
 touch <file-name-with-type>
 ```
 
-### Initialize Git
+### Initialize a Git repository
 
 ```bash
 git init
