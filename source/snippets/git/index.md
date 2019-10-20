@@ -184,6 +184,12 @@ git checkout -b branch-name
 git push remote-name branch-name
 ```
 
+To set up remote tracking with a new local branch
+```bash
+git checkout -b branch-name
+git push -u remote-name branch-name
+```
+
 ### Rebase a branch
 
 Rebasing is another way to integrate changes from one branch to another. It will move the commits of that branch to a new base commit.
