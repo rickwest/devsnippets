@@ -454,6 +454,55 @@ expired = addSecond(new Date(), 60);
 
 ## Promises
 
+#### Using Promises
+
+[Promises] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) are objects that represent the outcome of an asynchronous code. There are two possible outcomes for a Promise and they are provided through two JavaScript callbacks: resolve() or reject().
+
+	`resolve(response)` it represents a succesfull outcome and returns the response value.
+	`reject(error)` it represents an unsuccesfull outcome and returns the error object.
+	
+In order to perform operations on the result returned by the Promise, the methods then() and catch() have to be invoked.
+
+	`then(response)` it's invoked by resolve().
+	`catch(error)` it's invoked by reject().
+
+#### Example: demonstrating the use of Promises
+
+This example will demonstrante the use of Promises by retrieving an user's information from the Github API.
+
+#### Code
+
+```javascript
+
+let myPromise = (userName) => {
+	return new Promise((resolve, reject) => {
+		let xhr = new XMLHttpRequest();
+		xhr.open('GET', `https://api.github.com/users/${userName}`);
+		xhr.send(null);
+		
+		xhr.onreadystatechange = () => {
+			if(xhr.readyState == 4) {
+				if(xhr.status == 200) {
+					resolve(JSON.parse(xhr.responseText));
+				} else {
+					reject('Oops... There might be something wrong with your request!');
+				}
+			}
+		}
+	});
+}
+
+myPromise(userName) // Replace userName with your Github's username
+	.then((response) =>  {
+		console.log(response);
+	})
+	.catch((error) => {
+		console.log(error);
+	})
+
+
+```
+
 #### Using the Promise.race() method
 
 The [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) method is used to act on the first promise in a group of promises that resolves or rejects.
