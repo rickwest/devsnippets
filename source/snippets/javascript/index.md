@@ -566,6 +566,27 @@ displayPokemonParallel();
 ```
 So when using **Async/Await**, it is important to not accidentally run all your requests sequentially and slow down your application.
 
+### Handling errors
+If a Promise is rejected, the **await** expression throws the rejected value. Hence, one of the ways to handle errors when using **Async/Await** is using a try-catch block:
+#### Code
+```javascript
+function rejected() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function() {
+      reject('this is an error!!!');
+    }, 1000)
+  })
+}
+async function getPromise() {
+  try {
+    const value = await rejected(); //Promise is rejected. Await will throw the rejected value
+  } catch(err) { //catch rejected value here
+    console.log(err)
+  }
+}
+getPromise() //output: this is an error!!!
+```
+
 ---
 
 ## Useful functions
