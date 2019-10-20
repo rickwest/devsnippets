@@ -104,6 +104,23 @@ print(reverse_test_string)
 
 Output: "gnirts tset"
 
+## Loops
+Like in any other language there are many loop functions in python. Here are the two common ones.
+
+### For Loop
+```python
+array = [2, 3, 5, 7]
+for element in array:
+    print(element)
+```
+
+### While Loop
+```python
+i = 0
+while i < 10:
+    print(count)
+    count += 1
+```
 
 #### Note :
 As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors.
