@@ -13,6 +13,7 @@ section: content
 - [Strings](#strings)
 - [Dates](#dates)
 - [Promises](#promises)
+- [Async/Await](#asyncawait)
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 
