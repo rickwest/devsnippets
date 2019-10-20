@@ -105,5 +105,18 @@ print(reverse_test_string)
 Output: "gnirts tset"
 
 
+
+### Printing ASCII value of character
+Python program to print ASCII Value of Character 
+```python
+  
+c = '*'
+print("The ASCII value of '" + c + "' is", ord(c))
+
+OUTPUT:The ASCII value of g is 42
+
+```
+
+
 #### Note :
 As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors.
