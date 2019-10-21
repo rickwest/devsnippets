@@ -20,9 +20,9 @@ pip install -r myrequirements.txt
 
 ```
 
---- 
+---
 
-## Preventing user input during sleep. 
+## Preventing user input during sleep.
 
 This function disables all user input if used after a sleep function. As this uses the msvcrt module, this is only usable on Microsoft Windows.
 
@@ -39,35 +39,35 @@ input("Press enter to continue...")
 ```
 
 
-## Two Matrix Multiplication 
+## Two Matrix Multiplication
 
 The following python snippet is for multiplication of two matrix. simply using for loops & list.
 
 ```python
 r1 = int(input("Enter no. of rows of first matrix : "))
-c1 = int(input("Enter no. of coloumns of first matrix : "))
+c1 = int(input("Enter no. of columns of first matrix : "))
 r2 = int(input("Enter no. of rows of second matrix : "))
-c2 = int(input("Enter no. of coloumns of second matrix : "))
+c2 = int(input("Enter no. of columns of second matrix : "))
 C = []
 D = []
 A = []
 
 print("\nFirst Matrix :")
 for i in range(r1):
-    
+
     temp1 = []
     for i in range(c1):
-        
+
        temp1.append(float(input("Enter a value : "))) #values of first matrix
     A.append(temp1)
 
 B = []
 print("\nSecond Matrix :")
 for i in range(r2):
-    
+
     temp2 = []
     for i in range(c2):
-        
+
        temp2.append(float(input("Enter a value : "))) #values of second matrix
     B.append(temp2)
 
@@ -80,10 +80,10 @@ for i in range(r1):
         for k in range(c1):
             s = s+(A[i][k]*B[k][j]) # perform matrix multiplication
         C.append(s)
-  
+
     D.append(C)
     C = []
- 
+
 print("\nFinal Matrix : ",D) # final matrix after multiplication
 
 ```
@@ -93,7 +93,7 @@ This function returns the given integer as a string with 2 decimals points, usef
 def forceTwoDecimals(integer):
     if str(round(integer,2)) == str(round(integer,1)):
         return str(integer)+"0"
-    else: 
+    else:
         return str(integer)
 ```
 
@@ -103,6 +103,21 @@ reverse_test_string=test_string[::-1]
 print(reverse_test_string)
 
 Output: "gnirts tset"
+
+## Iteration
+### For Loop
+
+The following example uses a for loop to find the number of occurrences of a specified sub_string. In below example, the number returned would be 2.
+
+```python
+def count_substring(string, sub_string):
+    count = 0
+    for i in range(len(string)):
+        if string[i:].startswith(sub_string):
+            count += 1
+    return count
+count_substring('hello', 'l')
+```
 
 
 #### Note :
