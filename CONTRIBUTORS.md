@@ -25,3 +25,4 @@
 - [Ramsha Saeed](https://github.com/RamshaS)
 - [Tarun Khandelwal](https://github.com/kaitou786)
 - [Hilary Matusiak](https://github.com/hwilson2563)
+- [Lee Connelly](https://github.com/LeeConnelly12)
