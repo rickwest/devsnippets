@@ -2,6 +2,7 @@
 
 return [
     'Welcome' => 'snippets/welcome',
+    'Ruby' => 'snippets/ruby',
     'C#' => 'snippets/csharp',
     'C++' => 'snippets/c',
     'Docker' => 'snippets/docker',
