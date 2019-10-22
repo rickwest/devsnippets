@@ -12,6 +12,7 @@ hljs.registerLanguage('php', require('highlight.js/lib/languages/php'));
 hljs.registerLanguage('scss', require('highlight.js/lib/languages/scss'));
 hljs.registerLanguage('yaml', require('highlight.js/lib/languages/yaml'));
 hljs.registerLanguage('ruby', require('highlight.js/lib/languages/ruby'));
+hljs.registerLanguage('r', require('highlight.js/lib/languages/r'));
 
 document.querySelectorAll('pre code').forEach((block) => {
     hljs.highlightBlock(block);
