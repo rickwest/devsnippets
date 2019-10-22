@@ -292,6 +292,44 @@ const computer ={
 computer.printDetails();
 ```
 
+### Object destructuring
+
+Objects can be destructurized in order to get only needed properties from them. The object fields can then be easily converted into variables using the `const` keyword. A use-case example would be extracting from an HTTP response only the data that our application needs.
+
+### Code
+```javascript
+const exampleObject = {
+  exampleProperty: 'Test',
+  secondProperty: 'second',
+  helloFunction: (param = 'Jim') => `Hello World, ${param}`, 
+};
+
+const { helloFunction, exampleProperty } = exampleObject;
+
+console.log(helloFunction(exampleProperty)); // This prints to the console: "Hello World, Test"
+```
+
+#### keys(), values() and entries() methods
+These methods are the main utility methods to be used to interact with JavaScript objects.
+- The `Object.keys()` method can extracts all the valid properties defined in an object. As a precondition, the function parameter must be a valid object.
+- The `Object.values()` function does the opposite of the `keys()` method, returning the values of the properties defined for an object.
+- The `Object.entries()` returns a matrix where each array contains 2 elements: in position `0` there is the key and in position `1` there will be a string representation of the corresponding value.
+
+### Code
+```javascript
+const example = {
+  main: 'foo',
+  secondary: 'bar',
+  useless: 'baz',
+};
+
+console.log(Object.keys(example)); // This should print: "['main', 'secondary', 'useless']"
+
+console.log(Object.values(example)); // This should print: "['foo', 'bar', 'baz']"
+
+console.log(Object.entries(example)); // This should print: "[['main', 'foo'], ['secondary', 'bar'], ['useless', 'baz']]"
+```
+
 ## Strings
 
 ### Template strings (string interpolation)
