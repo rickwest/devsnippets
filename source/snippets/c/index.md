@@ -85,4 +85,20 @@ int binarySearch(int array[], int left, int right, int element)
   
    // If element is not present 
    return -1; 
-} 
+}
+
+#### c function for calculating power in O(log n)
+long long mypow(long long a,long long b)//(a^b)
+{
+	if (b==0)//checking base case when b=0
+		return 1;
+	if(b==1)//checking base case when b=1
+		return a;
+	
+	//implementing Divide and rule through recurssion
+	long long c=mypow(a,b/2);
+	if(b%2==0)
+		return c*c;
+	else
+		return a*c*c;
+}
