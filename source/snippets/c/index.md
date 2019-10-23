@@ -65,24 +65,48 @@ You can compile C/C++ programs using makefile. For more details, you can check o
 
 # C++ function for Binary search in an array
 
-int binarySearch(int array[], int left, int right, int element) 
-{ 
-   while (left <= right) { 
-      int middle = left + (right - left) / 2; 
-  
-      // Check if element is present at mid 
-      if (array[middle] == element) 
-         return middle; 
-  
-      // If element greater, ignore left half 
-      if (array[middle] < element) 
-         left = middle + 1; 
-  
-      // If element is smaller, ignore right half 
+int binarySearch(int array[], int left, int right, int element)
+{
+   while (left <= right) {
+      int middle = left + (right - left) / 2;
+
+      // Check if element is present at mid
+      if (array[middle] == element)
+         return middle;
+
+      // If element greater, ignore left half
+      if (array[middle] < element)
+         left = middle + 1;
+
+      // If element is smaller, ignore right half
       else
-         right = middle - 1; 
-   } 
-  
-   // If element is not present 
-   return -1; 
-} 
+         right = middle - 1;
+   }
+
+   // If element is not present
+   return -1;
+}
+
+
+# C++ function to efficiently check if a number is prime or not
+
+
+bool isPrime(int n)
+{
+    
+    if (n <= 1)
+        return false;
+    if (n <= 3)
+        return true;
+
+    // This is checked so that we can skip
+    // middle five numbers in below loop
+    if (n % 2 == 0 || n % 3 == 0)
+        return false;
+
+    for (int i = 5; i * i <= n; i = i + 6)
+        if (n % i == 0 || n % (i + 2) == 0)
+            return false;
+
+    return true;
+}
