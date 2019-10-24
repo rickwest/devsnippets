@@ -102,6 +102,10 @@ docker images --filter=reference="centos"  //will give all locally present image
 // remove a certain image
 
 docker image rm <image hash> //only first 3 characters of hash code is enough for docker daemon to distinguish the image.
+
+// clear all docker images
+
+docker rmi -f $(docker images -q)
 ```
 
 Docker containers
@@ -113,7 +117,12 @@ docker container ls -a
 // remove/stop/kill a certain container
 
 docker kill rm <container hash>
+
+// remove all containers
+
+docker rm -f $(docker ps -a -q)
 ```
+
 //coming out of container without exiting it:  ctrl+P+Q
 
 //searching docker image on docker hub
