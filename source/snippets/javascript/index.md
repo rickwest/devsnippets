@@ -87,7 +87,7 @@ function test(){
 
 ## Arrays
 
-### find, map, filter, and reduce
+### find, map, forEach, filter, and reduce
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
 Find() and filter() are used to select values from an array that meet some condition.
@@ -158,6 +158,35 @@ const original = [1, 2, 3, 4];
 
 const double = original.map(val => val * 2);
 console.log(double); // [2, 4, 6, 8]
+```
+
+### Using the forEach method
+Just like map(), [Array.prototype.forEach()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach) executes a function once for each element in an array. The difference is while map() returns a new array, forEach returns nothing.
+
+#### When to use forEach()
+Use forEach() when you want to apply a function to every element in an array but you do not wan't to return anything.
+
+#### Example: log model of every element in a car array
+The example shows how you would use forEach() to log a car model from a cars array
+
+##### Code
+```javascript
+const cars = [
+  {
+    model: 'Toyota',
+    type: 'suv'
+  },
+  {
+    model: 'Hyundai',
+    type: 'saloon'
+  },
+  {
+    model: 'Mercedes',
+    type: 'G-Wagon'
+  }
+];
+
+cars.forEach(car => console.log(car.model))
 ```
 
 #### Using the reduce() method
