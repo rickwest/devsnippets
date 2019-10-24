@@ -292,6 +292,58 @@ const computer ={
 computer.printDetails();
 ```
 
+### Object Methods (Entries, Keys, Values)
+
+There are a number of methods that you can use to manipulate objects
+
+#### Using Object.entries()
+
+[Object.entries()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/entries) is a method that returns an array containing arrays of the keys and values of an object
+
+##### Code
+
+```javascript
+const ages = { john: 21, doe: 32, jane: 22 }
+
+const agesKeyValuesArray = Object.entries(ages);
+
+console.log(agesKeyValuesArray);
+
+// expected output: [['john', 21], ['doe', 32], ['jane', 22]]
+```
+
+#### Using Object.keys()
+
+[Object.keys()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys) is a method that returns an array containing all the keys of an object as strings
+
+##### Code
+
+```javascript
+const ages = { john: 21, doe: 32, jane: 22 }
+
+const agesKeysArray = Object.keys(ages);
+
+console.log(agesKeysArray);
+
+// expected output: ['john', 'doe', 'jane']
+```
+
+#### Using Object.values()
+
+[Object.values()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_objects/Object/values)
+
+##### Code
+
+```javascript
+const ages = { john: 21, doe: 32, jane: 22 }
+
+const agesValuesArray = Object.values(ages);
+
+console.log(agesValuesArray);
+
+// expected output: [21, 32, 22]
+```
+
 ## Strings
 
 ### Template strings (string interpolation)
