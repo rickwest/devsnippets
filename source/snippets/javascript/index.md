@@ -236,6 +236,30 @@ while (currentCard !== 'Spade') {
 console.log('found a spade');
 ```
 
+### Add elements to an array using push and unshift
+
+### Using the push() method
+
+[Array.prototype.push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) adds one or more elements to the end of an array and returns the new length of the array.
+
+##### Code
+```javascript
+const original = [1, 2];
+original.push(3)
+console.log(original); // [1, 2, 3]
+```
+
+### Using the unshift() method
+
+[Array.prototype.unshift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) adds one or more elements to the beginning of an array and returns the new length of the array.
+
+##### Code
+```javascript
+const original = [1, 2, 3];
+original.unshift(4, 5)
+console.log(original); // [4, 5, 1, 2, 3]
+```
+
 ---
 
 ### Objects
