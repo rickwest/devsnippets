@@ -97,12 +97,20 @@ def forceTwoDecimals(integer):
         return str(integer)
 ```
 
+
 ### Reversing A string
 test_string="test string"
 reverse_test_string=test_string[::-1]
 print(reverse_test_string)
 
 Output: "gnirts tset"
+
+## Useful Function - isPalindrome
+This function returns true if a given string is a palindrome
+```python
+def isPalindrome(str):
+    return str == str[::-1]
+```
 
 
 #### Note :
