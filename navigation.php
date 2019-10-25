@@ -7,7 +7,12 @@ return [
     'Docker' => 'snippets/docker',
     'Git' => 'snippets/git',
     'Java' => 'snippets/java',
-    'Javascript' => 'snippets/javascript',
+    'Javascript' => [
+        'children' => [
+            'Javascript' => 'snippets/javascript/javascript',
+            'DigitalClock' => 'snippets/javascript/digitalclock'
+        ]
+    ],
     'PHP' => [
         'children' => [
             'DateTime' => 'snippets/php/datetime',
