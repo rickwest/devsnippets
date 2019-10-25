@@ -516,6 +516,50 @@ generateRandomNumber(min, max) => {
 }
 ```
 
+#### Merge Objects
+
+Returns a random number between provided min and max numbers
+
+##### Code
+```javascript
+const person = { name: 'Lucas Azambuja', lang: 'pt-br' };
+const languages = { javascript: true, csharp: false };
+const preferences = { background: 'black', size: 1024, gpu: true };
+
+const summary = {...person, ...languages, ...preferences};
+
+/*
+Object {
+  "name": "Lucas Azambuja",
+  "lang": "pt-br",
+  "javascript": true,
+  "csharp": false,
+  "background": "black",
+  "size": 1024,
+  "gpu": true
+}
+*/
+```
+
+#### Promisify
+
+Converts an asynchronous function to return a promise.
+
+_In Node 8+, you can use util.promisify_
+
+Use currying to return a function returning a Promise that calls the original function. Use the ...rest operator to pass in all the parameters.
+
+##### Code
+```javascript
+const promisify = func => (...args) =>
+  new Promise((resolve, reject) =>
+    func(...args, (err, result) => (err ? reject(err) : resolve(result)))
+  );
+
+// Example
+const delay = promisify((d, cb) => setTimeout(cb, d));
+delay(2000).then(() => console.log('Hi!')); // Promise resolves after 2s
+```
 ---
 
 ## Closures
