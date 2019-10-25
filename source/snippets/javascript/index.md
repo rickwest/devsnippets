@@ -476,6 +476,40 @@ const secondPromise = new Promise((res, rej) => {
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
+#### Sequence promises
+
+Code snippet usefull when we want resolve promises one after another
+
+#### Example: 
+This example demonstrate implementation and how to use sequence.
+
+#### Code
+```javascript
+const sequence = (() => {
+  let prev = Promise.resolve();
+  return (fn) => {
+    prev = prev.catch(() => {}).then(() => fn());
+    return prev;
+  };
+})();
+
+const promise1 = () => new Promise(res => {
+  setTimeout(() => {
+    console.log('promise1 completed');
+    res('1');
+  }, 3000);
+})
+ 
+const promise2 = () => new Promise(res => {
+  setTimeout(() => {
+    console.log('promise2 completed');
+    res('2');
+  }, 2000);
+})
+
+sequence(promise1) //resolve promise1 after 3 seconds
+sequence(promise2) //resolve promise1 after 5 seconds (3s from promise 1 and 2s from promise2)
+```
 ---
 
 ## Useful functions
