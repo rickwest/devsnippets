@@ -147,6 +147,25 @@ class AnyComponent extends React.Component {
 export default AnyComponent;
 ```
 
+### Context Provider Component with useState Hook
+
+Here we use a similar context example as above. However instead of using a class based component, we use a functional component with the useState hook.
+
+```javascript
+import React, { createContext, useState } from 'react';
+
+export const MyContext = createContext();
+
+export const ContextProvider = props => {
+  const [state, setState] = useState({ key: 'value' });
+  return (
+    <MyContext.Provider value={{ state, setState }}>
+      {props.children}
+    </MyContext.Provider>
+  )
+}
+```
+
 ### useContext Hook
 
 Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The useContext hook allows access to the value in function components.
@@ -302,4 +321,69 @@ ReactDOM.render(
   document.getElementById('lock')
 );
 
+```
+
+### Hook for throttling value change
+
+A custom hook to help throttling changes to variables. Especially useful when automatically queriying api's based on user text-input
+
+```javascript
+import { useState, useEffect, useRef } from 'react';
+
+const useThrottle = (value, limit = 300) => {
+  const [throttledValue, setThrottledValue] = useState();
+  const lastRan = useRef(Date.now());
+
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      if (Date.now() - lastRan.current >= limit) {
+        setThrottledValue(value);
+        lastRan.current = Date.now();
+      }
+    }, limit - (Date.now() - lastRan.current));
+
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [value, limit]);
+
+  return throttledValue;
+};
+
+```
+
+### Hook for debouncing value change
+
+A similar custom hook to help debouncing changes to variables.
+
+```javascript
+import { useState, useEffect } from 'react';
+
+function useDebounce(value, delay) {
+  const [debouncedValue, setDebouncedValue] = useState(value);
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedValue(value);
+    }, delay);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [delay, value]);
+  return debouncedValue;
+}
+
+```
+
+
+### Rendering your react component to the DOM
+
+Render your react element into the DOM. The id belongs to the element in which the react application will mount.  
+
+```javascript
+import React from 'react'
+import ReactDOM from 'react-dom'
+
+import App from './app'
+
+ReactDOM.render(<App />, document.getElementById('foo-bar'))
 ```

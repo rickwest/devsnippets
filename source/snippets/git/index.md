@@ -38,7 +38,7 @@ Prepare the content staged for the next commit.
 ```bash
 git add .
 ```
-or 
+or
 
 
 ```bash
@@ -54,7 +54,7 @@ Use the given <msg> as the commit message. If multiple -m options are given, the
 git commit -m"your commit message"
 ```
 
---- 
+---
 
 ## Repositories
 
@@ -138,6 +138,18 @@ Changes to a branch based on name
 git checkout branchname
 ```
 
+### Work on remote branch
+
+Clones a remote branch locally, and sets it up to track the remote branch
+
+```bash
+git checkout --track remote-name/branch-name
+```
+or equivalently
+```bash
+git checkout -b branch-name remote-name/branch-name
+```
+
 ### Merge a branch
 
 To merge a branch into another, you need to do the following
@@ -150,13 +162,46 @@ git checkout branchname
 git merge my-new-function
 ```
 
+### Push local branch to remote
+
+Creates a new branch locally and then on a remote
+
+```bash
+git checkout -b branch-name
+git push remote-name branch-name
+```
+
+### Rebase a branch
+
+Rebasing is another way to integrate changes from one branch to another. It will move the commits of that branch to a new base commit.
+To rebase a branch into another, you need to do the following
+
+1. Checkout to the branch you wish to rebase
+2. Rebase this branch to the required branch.
+
+```bash
+git checkout new-branch
+git rebase master
+```
+This will change the base of new-branch to the latest commit in master.
+
 ### Delete a branch
 
 Deletes a branch thats no longer required (eg after a merge)
 
 ```bash
-git branch -d branchname 
+git branch -d branchname
 ```
+
+### Delete a remote branch
+
+Deletes a remote branch, e.g a branch in your GitHub repo. Note that you'll still have to delete the local branch using the above snippet, if you want to completely remove the branch.
+
+```bash
+git push -d remote-name branch-name
+```
+
+Where remote-name(generally 'origin' for GitHub) is the name of the remote where you want to delete the branch from, and branch-name is the branch you wish to delete.
 
 ---
 
@@ -177,7 +222,7 @@ To see a list of the stashes you've stored.
 ```bash
 git stash list
 ```
-### Apply Stash 
+### Apply Stash
 
 To reapply your last stash
 
@@ -190,3 +235,52 @@ To apply an older stash, use your <code>git stash list</code> and append the sta
 ```bash
 git stash apply stash@{1}
 ```
+
+## Making your branch even with remote master
+
+### Add the remote repository
+
+To add the remote repository
+
+```bash
+git remote add upstream "link of the git repository"
+```
+
+This will add the remote repository by the name of upstream.
+P.s. write the link without the "" .
+
+### Fetching from remote repository
+
+To fetch changes from remote repository
+
+```bash
+git fetch upstream
+```
+
+### Pulling Changes from upstream "branchname"
+
+To pull changes from an upstream branch to your current branch.
+
+```bash
+git pull upstream "branchname"
+```
+P.s. write the branchname without the "". Generally master.
+
+### Delete local changes to master
+
+This will delete all the local changes made to master.
+
+```bash
+git reset --hard upstream/"branchname"
+```
+ Not necessary if you have not made any changes.
+
+### Pushing changes to your forked master
+
+This will delete all the changes on forked master and will make your branch even with the upstream branch.
+
+```bash
+git push origin "branchname" --force
+```
+
+P.s. --force is required when your repository is ahead of upstream, otherwise you can also push normally.

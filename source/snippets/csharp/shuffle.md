@@ -1,13 +1,13 @@
 ---
 extends: _layouts.documentation
 section: content
-title: Shuffle an Array 
-description: Method to randomize an Array
+title: C# 
+description: C# Dev Snippets
 ---
 
+# C#
 
-
-#Shuffle
+## Shuffle an Array
 
 Method to randomize an array of Strings.
 

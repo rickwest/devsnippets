@@ -2,9 +2,11 @@
 
 return [
     'Welcome' => 'snippets/welcome',
+    'C#' => 'snippets/csharp',
     'C++' => 'snippets/c',
     'Docker' => 'snippets/docker',
     'Git' => 'snippets/git',
+    'Java' => 'snippets/java',
     'Javascript' => 'snippets/javascript',
     'PHP' => [
         'children' => [
@@ -17,4 +19,5 @@ return [
     'React' => 'snippets/react',
     'Vue' => 'snippets/vue',
     'Vim' => 'snippets/vim',
+    'Kubernetes' => 'snippets/kubernetes',
 ];
