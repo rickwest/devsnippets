@@ -16,7 +16,7 @@ section: content
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 
-## Variables
+## <a id="variables"></a> Variables
 
 ### Scopes
 
@@ -85,7 +85,7 @@ function test(){
 
 ---
 
-## Arrays
+## <a id="arrays" name="arrays"></a> Arrays
 
 ### find, map, filter, and reduce
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
@@ -238,7 +238,7 @@ console.log('found a spade');
 
 ---
 
-### Objects
+### <a name="objects" id="objects"></a> Objects
 
 You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
 
@@ -292,7 +292,7 @@ const computer ={
 computer.printDetails();
 ```
 
-## Strings
+## <a name="strings" id="strings"></a> Strings
 
 ### Template strings (string interpolation)
 
@@ -434,7 +434,7 @@ console.log(vowels);
 ```
 ---
 
-## Dates
+## <a name="dates" id="dates"></a> Dates
 
 #### Add/Sub time period to/from a Date variable
 
@@ -452,7 +452,7 @@ expired = addSecond(new Date(), 60);
 
 ---
 
-## Promises
+## <a name="promises" id="promises"></a> Promises
 
 #### Using the Promise.race() method
 
@@ -478,7 +478,7 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 ---
 
-## Useful functions
+## <a name="useful-functions" id="useful-functions"></a> Useful functions
 
 #### Whitelist Checker
 
@@ -518,7 +518,7 @@ generateRandomNumber(min, max) => {
 
 ---
 
-## Closures
+## <a name="closures" id="closures"></a> Closures
 
 #### Why we use closures?
 
