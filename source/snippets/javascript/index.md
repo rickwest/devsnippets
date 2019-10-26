@@ -119,6 +119,22 @@ arr.unshift("Hola");
 // arr = ["Hola", "Hi", "Hello", "Bonjour"]
 ```
 
+
+### Sorting Arrays of Strings
+
+In JavaScript arrays have a sort() method that sorts the array items into an alphabetical order.
+
+##### Code
+
+```JavaScript
+// initialize array
+let animals = ['cat', 'dog', 'elephant', 'bee', 'ant'];
+
+// sort the elements of the animals array in ascending order alphabetically
+animals.sort();
+// animals = ["ant", "bee", "cat", "dog", "elephant"]
+```
+
 ### find, map, filter, and reduce
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
