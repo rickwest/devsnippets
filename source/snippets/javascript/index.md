@@ -87,6 +87,38 @@ function test(){
 
 ## Arrays
 
+### Add new element
+
+If you want to append new elememt to end of array, you can use push(). You can use the push() function to append more than one value to an array in a single call.
+
+##### Code
+
+```JavaScript
+// initialize array
+let arr = ["Hi", "Hello", "Bonjour"];
+
+// append new value to the array
+arr.push("Hola");
+// arr = ["Hi", "Hello", "Bonjour", "Hola"]
+
+// append multiple values to the array
+arr.push("Salaam", "Salut");
+// arr = ["Hi", "Hello", "Bonjour", "Hola", "Salaam", "Salut"]
+```
+
+Just an addition to this answer if you want to append any value to the start of an array that means to the first index then you can use unshift() for this purpose.
+
+##### Code
+
+```JavaScript
+// initialize array
+let arr = ["Hi", "Hello", "Bonjour"];
+
+// append new value to the array
+arr.unshift("Hola");
+// arr = ["Hola", "Hi", "Hello", "Bonjour"]
+```
+
 ### find, map, filter, and reduce
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
