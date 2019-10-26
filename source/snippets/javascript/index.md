@@ -146,14 +146,29 @@ By default, the sort() function sorts values as strings. This works well for str
 // initialize array
 let points = [40, 100, 1, 5, 25, 10];
 
-
-
 // sort the elements of the points asending
 points.sort(function(a, b){return a - b});
 // points = [1, 5, 10, 25, 40, 100]
 
 points.sort(function(a, b){return b - a});
 // points = [100 ,40 ,25 ,10 ,5 ,1]
+```
+
+
+### Reversing an Array
+
+The reverse() method reverses the elements in an array.
+
+##### Code
+
+```JavaScript
+// initialize array
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+// Then reverse the order of the elements
+fruits.reverse();
+// fruits = ["Orange", "Apple", "Mango", "Banana"];
+
 ```
 
 ### find, map, filter, and reduce
