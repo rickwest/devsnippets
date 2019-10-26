@@ -135,6 +135,27 @@ animals.sort();
 // animals = ["ant", "bee", "cat", "dog", "elephant"]
 ```
 
+
+### Sorting Arrays of Numbers
+
+By default, the sort() function sorts values as strings. This works well for strings ("Apple" comes before "Banana"). However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1". Because of this, the sort() method will produce incorrect result when sorting numbers. You can fix this by providing a compare function.
+
+##### Code
+
+```JavaScript
+// initialize array
+let points = [40, 100, 1, 5, 25, 10];
+
+
+
+// sort the elements of the points asending
+points.sort(function(a, b){return a - b});
+// points = [1, 5, 10, 25, 40, 100]
+
+points.sort(function(a, b){return b - a});
+// points = [100 ,40 ,25 ,10 ,5 ,1]
+```
+
 ### find, map, filter, and reduce
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
