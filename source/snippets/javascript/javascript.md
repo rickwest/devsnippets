@@ -1,5 +1,5 @@
 ---
-title: Javascript -Javascript
+title: Javascript - Javascript
 extends: _layouts.documentation
 description: Javascript Dev Snippets
 section: content
