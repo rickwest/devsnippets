@@ -87,6 +87,90 @@ function test(){
 
 ## Arrays
 
+### Add new element
+
+If you want to append new elememt to end of array, you can use push(). You can use the push() function to append more than one value to an array in a single call.
+
+##### Code
+
+```JavaScript
+// initialize array
+let arr = ["Hi", "Hello", "Bonjour"];
+
+// append new value to the array
+arr.push("Hola");
+// arr = ["Hi", "Hello", "Bonjour", "Hola"]
+
+// append multiple values to the array
+arr.push("Salaam", "Salut");
+// arr = ["Hi", "Hello", "Bonjour", "Hola", "Salaam", "Salut"]
+```
+
+Just an addition to this answer if you want to append any value to the start of an array that means to the first index then you can use unshift() for this purpose.
+
+##### Code
+
+```JavaScript
+// initialize array
+let arr = ["Hi", "Hello", "Bonjour"];
+
+// append new value to the array
+arr.unshift("Hola");
+// arr = ["Hola", "Hi", "Hello", "Bonjour"]
+```
+
+
+### Sorting Arrays of Strings
+
+In JavaScript arrays have a sort() method that sorts the array items into an alphabetical order.
+
+##### Code
+
+```JavaScript
+// initialize array
+let animals = ['cat', 'dog', 'elephant', 'bee', 'ant'];
+
+// sort the elements of the animals array in ascending order alphabetically
+animals.sort();
+// animals = ["ant", "bee", "cat", "dog", "elephant"]
+```
+
+
+### Sorting Arrays of Numbers
+
+By default, the sort() function sorts values as strings. This works well for strings ("Apple" comes before "Banana"). However, if numbers are sorted as strings, "25" is bigger than "100", because "2" is bigger than "1". Because of this, the sort() method will produce incorrect result when sorting numbers. You can fix this by providing a compare function.
+
+##### Code
+
+```JavaScript
+// initialize array
+let points = [40, 100, 1, 5, 25, 10];
+
+// sort the elements of the points asending
+points.sort(function(a, b){return a - b});
+// points = [1, 5, 10, 25, 40, 100]
+
+points.sort(function(a, b){return b - a});
+// points = [100 ,40 ,25 ,10 ,5 ,1]
+```
+
+
+### Reversing an Array
+
+The reverse() method reverses the elements in an array.
+
+##### Code
+
+```JavaScript
+// initialize array
+let fruits = ["Banana", "Orange", "Apple", "Mango"];
+
+// Then reverse the order of the elements
+fruits.reverse();
+// fruits = ["Orange", "Apple", "Mango", "Banana"];
+
+```
+
 ### find, map, filter, and reduce
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
