@@ -16,11 +16,13 @@ section: content
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 
+---
+
 ## Variables
 
 ### Scopes
 
-#### var
+### var
 
 The JavaScript variables statement is used to declare a variable and, optionally, we can initialize the value of that variable.
 Variable declarations are processed before the execution of the code.
@@ -32,13 +34,13 @@ The scope of a JavaScript variable declared outside the function is global.
 ```JavaScript
 
 function nodeSimplified(){
-  var a =5;
-  console.log(a);  // output 5
+  var a = 5;
+  console.log(a);  // Output 5
   if(true){
-   var a=10;
-   console.log(a); // output 10
+   var a = 10;
+   console.log(a); // Output 10
   }
-  console.log(a);  // output 10
+  console.log(a);  // Output 10
 }
 ```
 
@@ -54,32 +56,33 @@ The let declaration is only supported beginning in [ECMAScript6 (ES6)](http://es
 
 ```JavaScript
 function nodeSimplified(){
-  let a =5;
-  console.log(a);  // output 5
+  let a = 5;
+  console.log(a);  // Output 5
   if(true){
-   let a=20;
-   console.log(a); // output 20
+   let a = 20;
+   console.log(a); // Output 20
   }
-  console.log(a);  // output 5
+  console.log(a);  // Output 5
 }
 
 ```
 
 ### const
 
-const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
+**Const** variables values can be assigned once and they cannot be reassigned. However, if the **const** variable is an object,
+the object sub-properties can be changed but its structure cannot. 
+**Const** variables have the same scoping rules as let variables.
 
-The const declaration is only available bsupported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
+The **const** declaration is only supported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
 
 ##### Code
 
 ```JavaScript
-
-function test(){
-  const MY_VARIABLE =5;
-  console.log(MY_VARIABLE);  //output 5
-  MY_VARIABLE =20;           //throws type error
-  console.log(MY_VARIABLE);
+function test() {
+  const MY_VARIABLE = 5;
+  console.log(MY_VARIABLE); // Output 5
+  MY_VARIABLE = 20; // Throws Error
+  console.log(MY_VARIABLE); // Can't reach due to error
 }
 ```
 
