@@ -16,6 +16,8 @@ section: content
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 
+---
+
 ## Variables
 
 ### Scopes
@@ -67,19 +69,20 @@ function nodeSimplified(){
 
 ### const
 
-const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
+**Const** variables values can be assigned once and they cannot be reassigned. However, if the **const** variable is an object,
+the object sub-properties can be changed but its structure cannot. 
+**Const** variables have the same scoping rules as let variables.
 
-The const declaration is only available bsupported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
+The **const** declaration is only supported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
 
 ##### Code
 
 ```JavaScript
-
-function test(){
-  const MY_VARIABLE =5;
-  console.log(MY_VARIABLE);  //output 5
-  MY_VARIABLE =20;           //throws type error
-  console.log(MY_VARIABLE);
+function test() {
+  const MY_VARIABLE = 5;
+  console.log(MY_VARIABLE); // Output 5
+  MY_VARIABLE = 20; // Throws Error
+  console.log(MY_VARIABLE); // Can't reach due to error
 }
 ```
 
