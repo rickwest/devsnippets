@@ -22,7 +22,7 @@ section: content
 
 ### Scopes
 
-#### var
+### var
 
 The JavaScript variables statement is used to declare a variable and, optionally, we can initialize the value of that variable.
 Variable declarations are processed before the execution of the code.
@@ -34,13 +34,13 @@ The scope of a JavaScript variable declared outside the function is global.
 ```JavaScript
 
 function nodeSimplified(){
-  var a =5;
-  console.log(a);  // output 5
+  var a = 5;
+  console.log(a);  // Output 5
   if(true){
-   var a=10;
-   console.log(a); // output 10
+   var a = 10;
+   console.log(a); // Output 10
   }
-  console.log(a);  // output 10
+  console.log(a);  // Output 10
 }
 ```
 
@@ -56,13 +56,13 @@ The let declaration is only supported beginning in [ECMAScript6 (ES6)](http://es
 
 ```JavaScript
 function nodeSimplified(){
-  let a =5;
-  console.log(a);  // output 5
+  let a = 5;
+  console.log(a);  // Output 5
   if(true){
-   let a=20;
-   console.log(a); // output 20
+   let a = 20;
+   console.log(a); // Output 20
   }
-  console.log(a);  // output 5
+  console.log(a);  // Output 5
 }
 
 ```
