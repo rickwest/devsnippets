@@ -97,3 +97,38 @@ https://api.contoso.com/v1.0/people/jdoe@contoso.com/inbox
 511 Network Authentication Required
 599 Network Connect Timeout Error
 ```
+
+### Standard Request Headers
+
+| Header       | Type                  | 
+| ------------- |-------------:        | 
+| Authorization         | String        | 
+| Date                  | centered      |
+| Accept                | Content type      |    
+| Accept-Encoding       |Gzip, deflate        |
+| Accept-Language        | "en", "es", etc.      |
+| Accept-Charset         | Charset type like "UTF-8"      |
+| Prefer        | return=minimal, return=representation"      |
+| If-Match, If-None-Match, If-Range        | String  |
+
+### Standard Response headers
+
+| Response Header       | Required                   | 
+| ------------- |-------------:        | 
+| Date        | All responses       | 
+| Content-Type         | All responses   | 
+| Content-Encoding        | All responses   | 
+| Preference-Applied        | When specified in request   | 
+| ETag        | When the requested resource has an entity tag   |
+
+### HTTP METHODS
+
+| Methods         | Description                   |  Is Idempotent    |
+| :------------- |:-------------        | :----|
+|GET|	 Return the current value of an object	| True |
+PUT|	Replace an object, or create a named object, when applicable	|True |
+DELETE|	Delete an object	|True|
+POST|	Create a new object based on the data provided, or submit a command	|False|
+HEAD| 	Return metadata of an object for a GET response. Resources that support the GET method MAY support the HEAD method as well	|	True|
+PATCH|	Apply a partial update to an object|	False|
+OPTIONS	|Get information about a request; see below for details.|	True|
