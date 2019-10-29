@@ -98,9 +98,11 @@ def forceTwoDecimals(integer):
 ```
 
 ### Reversing A string
+```python
 test_string="test string"
 reverse_test_string=test_string[::-1]
 print(reverse_test_string)
+```
 
 Output: "gnirts tset"
 
