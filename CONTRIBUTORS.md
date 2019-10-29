@@ -26,3 +26,4 @@
 - [Tarun Khandelwal](https://github.com/kaitou786)
 - [Hilary Matusiak](https://github.com/hwilson2563)
 - [João Fonseca](https://github.com/FonsecaJoao)
+- [Lee Connelly](https://github.com/LeeConnelly12)
