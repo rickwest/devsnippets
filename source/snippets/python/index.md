@@ -38,6 +38,45 @@ input("Press enter to continue...")
 
 ```
 
+---
+
+## Python 3 f-strings: formatted string literals
+
+The new f-Strings are string literals that start with an `f` at the beginning, and allow for expressions to be evaluated inside of curly braces. This is way easier to keep track of, especially with a long set of parameters and strings.
+
+#### Simple Syntax
+```python
+name = "Sal"
+age = 33
+f"Hello, {name}. You are {age}"
+# 'Hello, Sal. You are 33.'
+
+# Capital `F` is also valid
+F"Hello, {name}. You are {age}"
+# 'Hello, Sal. You are 33.'
+
+# The output returned is a string, with single quotes, but you can wrap f-Strings in the print command, too.
+print(f"{name} is {age} and that is great!")
+# Sal is 33 and that is great!
+```
+#### Arbitrary Expressions
+Since f-Strings are evaluated at runtime, you can put any valid Python expression inside of them. This allows for some cool things to happen!
+```python
+# The basics
+f"{2 * 21}"
+# '42'
+
+# You can call functions
+def to_lowercase(input):
+    return input.lower()
+
+name = "Sal Mac"
+f"{to_lowercase(name)} loves to code."
+# 'sal mac loves to code.'
+
+```
+
+---
 
 ## Two Matrix Multiplication 
 
@@ -97,13 +136,23 @@ def forceTwoDecimals(integer):
         return str(integer)
 ```
 
+
 ### Reversing A string
+```python
 test_string="test string"
 reverse_test_string=test_string[::-1]
 print(reverse_test_string)
+```
 
 Output: "gnirts tset"
 
+## Useful Function - isPalindrome
+This function returns true if a given string is a palindrome
+```python
+def isPalindrome(str):
+    return str == str[::-1]
+```
+
 
 #### Note :
-As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors.
+As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors. IDEs like PyCharm are useful for debugging and avoiding common errors such as this.

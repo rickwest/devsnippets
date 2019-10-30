@@ -18,8 +18,10 @@ return [
         ]
     ],
     'Python' => 'snippets/python',
+    'Rails' => 'snippets/rails',
     'React' => 'snippets/react',
     'Vue' => 'snippets/vue',
     'Vim' => 'snippets/vim',
     'Kubernetes' => 'snippets/kubernetes',
+    'CSS' => 'snippets/css',
 ];
