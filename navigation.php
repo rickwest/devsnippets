@@ -2,6 +2,8 @@
 
 return [
     'Welcome' => 'snippets/welcome',
+    'Ruby' => 'snippets/ruby',
+    'R' => 'snippets/r',
     'C#' => 'snippets/csharp',
     'C++' => 'snippets/c',
     'Docker' => 'snippets/docker',
@@ -16,8 +18,10 @@ return [
         ]
     ],
     'Python' => 'snippets/python',
+    'Rails' => 'snippets/rails',
     'React' => 'snippets/react',
     'Vue' => 'snippets/vue',
     'Vim' => 'snippets/vim',
     'Kubernetes' => 'snippets/kubernetes',
+    'CSS' => 'snippets/css',
 ];
