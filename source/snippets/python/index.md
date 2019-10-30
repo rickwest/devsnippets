@@ -38,6 +38,45 @@ input("Press enter to continue...")
 
 ```
 
+---
+
+## Python 3 f-strings: formatted string literals
+
+The new f-Strings are string literals that start with an `f` at the beginning, and allow for expressions to be evaluated inside of curly braces. This is way easier to keep track of, especially with a long set of parameters and strings.
+
+#### Simple Syntax
+```python
+name = "Sal"
+age = 33
+f"Hello, {name}. You are {age}"
+# 'Hello, Sal. You are 33.'
+
+# Capital `F` is also valid
+F"Hello, {name}. You are {age}"
+# 'Hello, Sal. You are 33.'
+
+# The output returned is a string, with single quotes, but you can wrap f-Strings in the print command, too.
+print(f"{name} is {age} and that is great!")
+# Sal is 33 and that is great!
+```
+#### Arbitrary Expressions
+Since f-Strings are evaluated at runtime, you can put any valid Python expression inside of them. This allows for some cool things to happen!
+```python
+# The basics
+f"{2 * 21}"
+# '42'
+
+# You can call functions
+def to_lowercase(input):
+    return input.lower()
+
+name = "Sal Mac"
+f"{to_lowercase(name)} loves to code."
+# 'sal mac loves to code.'
+
+```
+
+---
 
 ## Two Matrix Multiplication 
 
