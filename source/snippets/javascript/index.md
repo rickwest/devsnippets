@@ -69,7 +69,7 @@ function nodeSimplified(){
 
 const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
 
-The const declaration is only available bsupported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
+The const declaration is only supported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
 
 ##### Code
 
