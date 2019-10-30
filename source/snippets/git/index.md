@@ -48,11 +48,20 @@ A stands for All
 
 ### Record changes to the repository
 
-Use the given <msg> as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs.
+Use the given `<msg>` as the commit message. If multiple -m options are given, their values are concatenated as separate paragraphs.
 
 ```bash
-git commit -m"your commit message"
+git commit -m "your commit message"
 ```
+
+### Rewrite the most recent commit message
+
+Did you mess up with your `<msg>` and need to update it before pushing it upstream?
+```bash
+git commit --amend
+```
+
+Then press **Enter** -> this will open your old message in your default text editor, edit the message, and save the commit.
 
 ---
 
