@@ -14,3 +14,26 @@ description: CSS Snippets
     
 }
 ```
+
+## Device breakpoints
+
+It is impossible to create the perfect experience for every device on the market but this list of typical media queries can help you decide on the right break point for your content.
+
+For device specific media queries check out this page on [CSS Tricks](https://css-tricks.com/snippets/css/media-queries-for-standard-devices/).
+
+```
+/* Small devices (mobile phones) */
+@media only screen and (max-width: 600px) {...}
+
+/* Medium devices (tablets) */
+@media only screen and (min-width: 768px) {...}
+
+/* Large devices (laptops/desktops) */
+@media only screen and (min-width: 992px) {...}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {...}
+
+```
+
+
