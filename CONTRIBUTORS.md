@@ -26,4 +26,4 @@
 - [Tarun Khandelwal](https://github.com/kaitou786)
 - [Hilary Matusiak](https://github.com/hwilson2563)
 - [Akhil Surendran](https://github.com/akhillllldev)
-
+- [Lee Connelly](https://github.com/LeeConnelly12)
