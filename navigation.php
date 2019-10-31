@@ -24,4 +24,5 @@ return [
     'Vim' => 'snippets/vim',
     'Kubernetes' => 'snippets/kubernetes',
     'CSS' => 'snippets/css',
+    'GO' => 'snippets/go',
 ];
