@@ -13,8 +13,9 @@ vim FILENAME
 ```
 
 ## Write current file, if modified, and exit
-`ZZ`
-
+```bash
+ZZ
+```
 
 ## Delete
 
