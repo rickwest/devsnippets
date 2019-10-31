@@ -35,14 +35,14 @@ end
 
 ### number + upto method
 ```ruby
-1.upto(10) do |i| 
+1.upto(10) do |i|
     puts "Iteration number " + i.to_s
 end
 ```
 
 ### range + each
 ```ruby
-(1..10).each do |i| 
+(1..10).each do |i|
     puts "Iteration number " + i.to_s
 end
 ```
@@ -66,4 +66,18 @@ end
 arr = ['Banana', 'Apple', 'Mango', 'Passionfruit', 'Pineapple']
 arr.sort_by{ |word| word.length }
 # => ["Apple", "Mango", "Banana", "Pineapple", "Passionfruit"]
+```
+
+## Array filtering
+
+### numbers
+```ruby
+[1, 25, 5, 15, 10, 20].select{ |number| number > 5}
+# => [25, 15, 10, 20]
+```
+
+### strings
+```ruby
+['Banana', 'Apple', 'Mango', 'Passionfruit', 'Pineapple'].select{ |fruit| fruit.length > 5}
+# => ["Banana", "Passionfruit", "Pineapple"]
 ```
