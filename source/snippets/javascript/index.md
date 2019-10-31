@@ -476,6 +476,27 @@ const secondPromise = new Promise((res, rej) => {
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
+#### Using the Promise.allSettled() method
+
+The [Promise.allSettled()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled) method is used to return a promise that resolves after all of the provided promises have either resolved or rejected.
+
+#### Example: demonstrating Promise.allSettled() with setTimeout
+This trivial example will just demonstrate how Promise.allSettled() works using setTimeout.
+
+#### Code
+```javascript
+const promise1 = Promise.resolve(3);
+const promise2 = new Promise((resolve, reject) => setTimeout(reject, 100, 'foo'));
+const promises = [promise1, promise2];
+
+Promise.allSettled(promises).
+  then((results) => results.forEach((result) => console.log(result.status)));
+
+// expected output:
+// "fulfilled"
+// "rejected"
+```
+
 ---
 
 ## Useful functions
