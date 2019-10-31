@@ -12,6 +12,10 @@ description: Vim Snippets
 vim FILENAME
 ```
 
+## Write current file, if modified, and exit
+`ZZ`
+
+
 ## Delete
 
 ### Delete a whole line
