@@ -17,7 +17,7 @@ mkdir <folder-name>
 touch <file-name-with-type>
 ```
 
-### Initialize Git
+### Initialize a Git repository
 
 ```bash
 git init
@@ -33,18 +33,21 @@ git status
 
 ### Add file contents to the index
 
-Prepare the content staged for the next commit.
+Prepare one file and stage for the next commit.
+```bash
+git add someFile
+```
+
+Prepare all the content (tracked and untracked files) and stage for the next commit.
 
 ```bash
 git add .
 ```
 or
-
-
 ```bash
 git add -A
 ```
-A stands for All
+`-A` stands for All
 
 ### Record changes to the repository
 
@@ -79,6 +82,7 @@ git commit -m "first commit"
 git remote add origin https://github.com/rickwest/devsnippets.git
 git push -u origin master
 ```
+Note: `-u` is a short-hand for setting up remote tracking on the pushed branch.
 
 ### Push an existing repository
 
@@ -133,11 +137,16 @@ Creates a new branch and switches to it
 git checkout -b branchname
 ```
 
-Just create a new branch
+Creates a new branch without switching to it
 ```bash
 git branch branchname
 ```
 
+### Rename a branch
+
+```bash
+git branch -m old-name new-name
+```
 
 ### Switch to a branch
 
@@ -152,6 +161,10 @@ git checkout branchname
 Clones a remote branch locally, and sets it up to track the remote branch
 
 ```bash
+git checkout branch-name
+```
+or 
+```bash
 git checkout --track remote-name/branch-name
 ```
 or equivalently
@@ -164,7 +177,7 @@ git checkout -b branch-name remote-name/branch-name
 To merge a branch into another, you need to do the following
 
 1. **Checkout** the branch/master you wish to merge _into_
-2. Merge the required branch into this one
+2. Merge your required branch _into_ the requested branch
 
 ```bash
 git checkout branchname
@@ -180,12 +193,18 @@ git checkout -b branch-name
 git push remote-name branch-name
 ```
 
+To set up remote tracking with a new local branch
+```bash
+git checkout -b branch-name
+git push -u remote-name branch-name
+```
+
 ### Rebase a branch
 
 Rebasing is another way to integrate changes from one branch to another. It will move the commits of that branch to a new base commit.
 To rebase a branch into another, you need to do the following
 
-1. Checkout to the branch you wish to rebase
+1. Checkout the branch you wish to rebase
 2. Rebase this branch to the required branch.
 
 ```bash
@@ -196,10 +215,15 @@ This will change the base of new-branch to the latest commit in master.
 
 ### Delete a branch
 
-Deletes a branch thats no longer required (eg after a merge)
+Deletes a branch that is no longer required (e.g. after a merge)
 
 ```bash
 git branch -d branchname
+```
+
+Force deletes a branch
+```bash
+git branch -D branchname
 ```
 
 ### Delete a remote branch
@@ -271,17 +295,22 @@ git fetch upstream
 To pull changes from an upstream branch to your current branch.
 
 ```bash
-git pull upstream "branchname"
+git pull upstream branchname
 ```
-P.s. write the branchname without the "". Generally master.
+Note: pulling is an alias for
+```bash
+git fetch upstream branchname
+git merge branchname
+```
 
 ### Delete local changes to master
 
 This will delete all the local changes made to master.
 
 ```bash
-git reset --hard upstream/"branchname"
+git reset --hard upstream/branchname
 ```
+Note: This will also delete **all untracked files** as well. 
  Not necessary if you have not made any changes.
 
 ### Pushing changes to your forked master
@@ -289,7 +318,8 @@ git reset --hard upstream/"branchname"
 This will delete all the changes on forked master and will make your branch even with the upstream branch.
 
 ```bash
-git push origin "branchname" --force
+git push origin branchname --force
 ```
+Note: **Only force push if you are the only person working on a branch.** Otherwise, you will mess up other people's repositories and force work on them to clean up their repositories. 
 
-P.s. --force is required when your repository is ahead of upstream, otherwise you can also push normally.
+P.s. `--force` is required when your repository is ahead of upstream, otherwise you can also push normally.
