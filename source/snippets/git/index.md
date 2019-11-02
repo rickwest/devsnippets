@@ -293,3 +293,51 @@ git push origin "branchname" --force
 ```
 
 P.s. --force is required when your repository is ahead of upstream, otherwise you can also push normally.
+
+## Rebasing commit history 
+
+It is used to rewrite the commits on the origin master, it helps to change the commit history,
+like merging(squash) multiple commits into one or editing (edit) the commit messages of previous commits.
+
+Let's start with rebasing
+
+```bash
+git rebase -i HEAD~n
+```
+Here put n as the number of commits you want to go back to. The “-i” flag stands for interactive.
+
+Then you’ll see the list of commits.
+
+```bash
+ e #edit
+ p #pick
+ s #squash
+```
+These are the options you can apply on each commit:
+
+edit – to edit the commit message
+
+pick – this commit is used
+
+squash – this is used to merge useless commits into the previous commit (really useful to cleanup the commit history)
+
+You might face some merge conflicts, fix them and proceed.
+After this, you will see screens to select the commit messages for the squishes and edits.
+Delete the text you don’t want, or simply comment it out and write a new commit message as needed
+
+### Force Push
+
+Now for the final step Forced Push.
+This is used to rewrite the commit history on the actual git repo on whatever online git management site you use.
+
+```bash
+git push -f origin branch
+```
+Here branch is the branch name on which you want to make the forced push, the “-f” flag is for force.
+
+### Force with lease
+
+```bash
+git push --force-with-lease
+```
+This is a safer alternative to –force, as it does not allow the force push if someone else made a commit which was not taken care of in rebase. Using –force would have deleted that commit.
