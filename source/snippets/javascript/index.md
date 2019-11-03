@@ -546,6 +546,23 @@ generateRandomNumber(min, max) => {
 }
 ```
 
+#### Grab URL Query Parameters By Name
+Grabs the value of a url query parameter based on its name
+```javascript
+/**
+* @param      {!string}     name      {Parameter name to search for in the URL}
+* @param      {string}      url       {The url to check, if not the currently active URL}
+*/
+getParameterByName(name, url = window.location.href) => {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+```
+
 ---
 
 ## Closures
