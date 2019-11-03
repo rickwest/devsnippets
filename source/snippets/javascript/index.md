@@ -476,6 +476,36 @@ const secondPromise = new Promise((res, rej) => {
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
+### Using async/await to simplify control flow 
+Async/await can help with code readability and executing Promises after another.
+```javascript
+function thenWay() {
+    loadData().then(data=>{
+        if(data) {
+            // Do something in case data is null
+        } 
+        process(data);
+        moreProcessing(data.thingy);
+        loadMoreData().then(data => {
+            process(data);
+            moreProcessing(data.thingy);
+        })
+    });
+}
+
+async function asyncWay() {
+    const data = await loadData();
+    if(data) {
+        // Do something in case data is null
+    } 
+    process(data);
+    moreProcessing(data.thingy);
+
+    const newData = loadMoreData();
+    process(newData);
+    moreProcessing(newData.thingy);
+}
+```
 ---
 
 ## Useful functions
