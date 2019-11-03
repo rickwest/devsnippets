@@ -476,6 +476,36 @@ const secondPromise = new Promise((res, rej) => {
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
+### Using async/await to simplify control flow 
+Async/await can help with code readability and executing Promises after another.
+```javascript
+function thenWay() {
+    loadData().then(data=>{
+        if(data) {
+            // Do something in case data is null
+        } 
+        process(data);
+        moreProcessing(data.thingy);
+        loadMoreData().then(data => {
+            process(data);
+            moreProcessing(data.thingy);
+        })
+    });
+}
+
+async function asyncWay() {
+    const data = await loadData();
+    if(data) {
+        // Do something in case data is null
+    } 
+    process(data);
+    moreProcessing(data.thingy);
+
+    const newData = loadMoreData();
+    process(newData);
+    moreProcessing(newData.thingy);
+}
+```
 ---
 
 ## Useful functions
@@ -513,6 +543,23 @@ Returns a random number between provided min and max numbers
 */
 generateRandomNumber(min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+```
+
+#### Grab URL Query Parameters By Name
+Grabs the value of a url query parameter based on its name
+```javascript
+/**
+* @param      {!string}     name      {Parameter name to search for in the URL}
+* @param      {string}      url       {The url to check, if not the currently active URL}
+*/
+getParameterByName(name, url = window.location.href) => {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
 ```
 
