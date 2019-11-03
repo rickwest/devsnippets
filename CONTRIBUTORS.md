@@ -31,3 +31,4 @@
 - [Cristian Garcia](https://github.com/criscros-garcia)
 - [Akhil Surendran](https://github.com/akhillllldev)
 - [Lee Connelly](https://github.com/LeeConnelly12)
+- [Augusto Scher](https://github.com/augustoscher)

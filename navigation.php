@@ -26,4 +26,5 @@ return [
     'Bash' => 'snippets/bash',
     'CSS' => 'snippets/css',
     'SCSS' => 'snippets/scss',
+    'GO' => 'snippets/go',
 ];
