@@ -571,6 +571,44 @@ generateRandomNumber(min, max) => {
 }
 ```
 
+### Converting an Array to a Keyed Object
+
+Using reduce, you can convert an array of objects to an object keyed by a value within the objects, or the index of the object.
+
+##### Code
+```javascript
+function convertListToObject(list, keyBy) {
+  return list.reduce((newObject, listItem, index) => {
+    const key = keyBy ? listItem[keyBy] : index.toString();
+    return {
+      ...newObject,
+      [key]: listItem
+    };
+  }, {});
+}
+
+const foods = [{ food: 'bacon', id: '1234 '}, { food: 'eggs', id: '1345' }, { food: 'toast', id: '1456'}];
+const clothes = [{ type: 'socks' }, { type: 'jacket' }, { type: 'shoes' }];
+
+console.log(convertListToObject(foods, 'id'));
+/*
+ * {
+ *   '1345': { food: 'eggs', id: '1345' },
+ *   '1456': { food: 'toast', id: '1456' },
+ *   '1234 ': { food: 'bacon', id: '1234 ' }
+ * }
+ */
+
+console.log(convertListToObject(clothes));
+/*
+ * {
+ *   '0': { type: 'socks' },
+ *   '1': { type: 'jacket' },
+ *   '2': { type: 'shoes' }
+ * }
+ */
+```
+
 #### Grab URL Query Parameters By Name
 Grabs the value of a url query parameter based on its name
 ```javascript
@@ -586,8 +624,8 @@ getParameterByName(name, url = window.location.href) => {
   if (!results[2]) return '';
   return decodeURIComponent(results[2].replace(/\+/g, ' '));
 }
-```
 
+```
 ---
 
 ## Closures
