@@ -14,6 +14,7 @@
 - [Giovane da Silva Sobrinho](https://github.com/silvasobrinho)
 - [Syed Sabih Ur Rehman](https://github.com/SabihRehman)
 - [Craig Ramsden](https://github.com/crammers)
+- [spaceshipdev](https://github.com/spaceshipdev)
 - [Cem Ugur Karacam](https://github.com/cemuka)
 - [Erica Perry](https://github.com/comealongerica)
 - [Grant Glidewell](https://github.com/grantglidewell)
