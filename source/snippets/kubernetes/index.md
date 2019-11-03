@@ -5,56 +5,99 @@ title: Kubernetes snippets
 description: Kubernetes Admin Snippets
 ---
 
-## Prerequisites: kuberntes Master/worker has been setup, kubectl CLI utility is present to interact with kubernetes api-server
+# Kubernetes
+## Prerequisites: 
+* Kubernetes Master/worker has been setup, 
+* The kubectl CLI utility is configured to interact with kubernetes api-server
 
-//Get basic info about nodes and their roles in the cluster
+###Check if you can connect to the cluster
+```sh
+kubectl cluster-info
+```
+
+###Get basic info about nodes and their roles in the cluster
+```sh
 kubectl get nodes
+```
 
-//for more detailed description
-kubectl get nodes -o wide 
+###Get a more detailed description
+```bash
+kubectl get nodes -o wide
+```
 
-//get information about the pods running in current namespace
-kubectl get pods //can be used with -o wide for detailed description
+###Get information about the pods running in current namespace
+```sh
+kubectl get pods #can be used with -o wide for detailed description
+```
 
-//create your namespace
+###Create your namespace
+```sh
 kubectl create namespace test
+```
 
-//delete your namespace
+
+###Delete your namespace
+```sh
 kubectl delete namespace test
+```
 
-//retrieving pods information from test namespace
+###Retrieving pods information from test namespace
+```sh
 kubectl get pods -n test
+```
 
-//Create deployment from CLI
+###Create deployment from CLI
+```sh
 kubectl run <<app-name>>  --image=<<docker_image_url>>
+```
 
-//exposing deploymemt on NodePort
+###Exposing deploymemt on NodePort
+```sh
 kubectl expose deployment <<app-name>> --type=NodePort
+```
 
-//delete deployment
+###Delete deployment
+```sh
 kubectl delete deployment/<<app-name>>
+```
 
-//get services
+###Get services
+```sh
 kubectl get svc
+```
 
-//get cluster-info
-kubectl get cluster-info
-
-//get pods from all namespaces
+###Get pods from all namespaces
+```sh
 kubectl get pods --all-namespaces
+```
 
-//get all components of your cluster in all namespaces(PODs, Deployments, Services, ReplicaSet etc.)
+###Get all components of your cluster in all namespaces(PODs, Deployments, Services, ReplicaSet etc.)
+```sh
 kubectl get all  --all-namespace
+```
 
-//executing command inside pod
+###Executing command inside pod
+```sh
 kubectl exec   <<pod_name>> <<cmd>>
+```
 
-//getting inside a running pod
+###Getting inside a running pod
+```sh
 kubectl exec -it <<pod_name>>  /bin/bash
+```
 
-//scaling application through deployment
+###Scaling application through deployment
+```sh
 kubectl scale --replicas=<<no_of_replicas>> deploy/<<app-name>>
+```
 
-//get labels present on pods from every namespace with detailed info
+###Get labels present on pods from every namespace with detailed info
+```sh
 kubectl get pods --show-labels --all-namespaces -o wide
+```
+
+###Apply a configuration using config files
+```sh
+kubectl apply -f <<file_name>>
+```
 
