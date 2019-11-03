@@ -23,6 +23,8 @@ return [
     'Vue' => 'snippets/vue',
     'Vim' => 'snippets/vim',
     'Kubernetes' => 'snippets/kubernetes',
+    'Bash' => 'snippets/bash',
     'CSS' => 'snippets/css',
+    'SCSS' => 'snippets/scss',
     'GO' => 'snippets/go',
 ];
