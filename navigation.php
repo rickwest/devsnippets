@@ -25,4 +25,5 @@ return [
     'Kubernetes' => 'snippets/kubernetes',
     'Bash' => 'snippets/bash',
     'CSS' => 'snippets/css',
+    'SCSS' => 'snippets/scss',
 ];
