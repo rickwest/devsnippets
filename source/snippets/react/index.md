@@ -387,3 +387,49 @@ import App from './app'
 
 ReactDOM.render(<App />, document.getElementById('foo-bar'))
 ```
+
+### Rendering component for each array item
+
+Let's supose that you have to create component that renders a job list.
+
+1. JobContent component
+```javascript
+const JobContent = ({ children }) => (
+  <ul>
+    {children}
+  </ul>
+);
+export default JobContent;
+```
+
+2. JobItem component
+```javascript
+const JobItem = ({{name}}) => (
+  <li>
+    <h4{name}</h4>
+  </li>
+);
+export default JobItem;
+```
+
+3. Map
+```javascript
+const renderJobItems = jobs =>
+  jobs.map(jobItem => (
+    <JobItem name={jobItem.name} />
+  ));
+
+const RenderJobs = ({jobs}) => (
+  <JobContent>
+    {renderJobItems(jobs)}
+  </JobContent>
+)
+export const RenderJobs;
+```
+
+4. Just pass jobs array to RenderJobs
+```javascript
+const jobs = ['Software Engineer', 'Tech Recruiter']
+<RenderJobs jobs={jobs} />
+);
+```
