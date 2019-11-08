@@ -69,7 +69,7 @@ function nodeSimplified(){
 
 const statement values can be assigned once and they cannot be reassigned. The scope of const statement works similar to let statements.
 
-The const declaration is only available bsupported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
+The const declaration is only supported beginning in [ECMAScript6 (ES6)](http://es6-features.org/#Constants).
 
 ##### Code
 
@@ -87,10 +87,12 @@ function test(){
 
 ## Arrays
 
-### find, map, filter, and reduce
+### find, findIndex, map, filter, and reduce
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
 Find() and filter() are used to select values from an array that meet some condition.
+
+FindIndex() is similar to the Find() method but instead of returning the object, it only return the index of the first item that matches the condition
 
 Map() is used to apply a transformation to all elements of an array, and reduce() is used to apply some accumulation to the values in an array.
 
@@ -118,14 +120,37 @@ let firstOddNumber = numbers.find((number) => number % 2 === 1);
 console.log(firstOddNumber); // 5
 ```
 
+### Using the findIndex() Method
+
+[Array.prototype.findIndex()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex) is a builtin function in JavaScript that returns the index of the first item that matches the provided condition.
+
+If more than one item meets the condition, it will only return the fist one and the processing stops there. If there's no item that meets the condition then it will return -1
+
+**Find returns the index of the first matching value, or -1 if no matching value is found.**
+
+#### When to use findIndex()
+When you want to find the **first** index of a value inside an array that meets some condition
+
+#### Example: finding the index of an object inside an array
+
+##### Code
+
+```javascript
+const arrayOfObjects = [{foo: "bar", baz: "qux"}, {bar: "foo", baz: "qux"}]
+
+let objectIndex = arrayOfObjects.findIndex((object) => object.bar === "foo")
+
+console.log(objectIndex); // 1
+```
+
 #### Using the filter() method
 
-[Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is a built in JavaScript function that returns a subset of the original array in which all of the values match some condition. Like with find, the callback function passed to filter returns either true or false. If it returns true then filter adds that element to the return array, and if it returns false the element is not included. 
+[Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is a built in JavaScript function that returns a subset of the original array in which all of the values match some condition. Like with find, the callback function passed to filter returns either true or false. If it returns true then filter adds that element to the return array, and if it returns false the element is not included.
 
 **Filter returns an array with all values that meet the condition, or an empty array if no value meet the condition.**
 
 #### When to use filter()
-Use filter when you want **all the values** from an array that meet some condition. 
+Use filter when you want **all the values** from an array that meet some condition.
 
 #### Example: filter all even numbers in a numeric array
 This is how you would use filter() to get all even numbers in an array of numbers.
@@ -147,7 +172,7 @@ It does this by running a callback function on each element in the array, and re
 **Map returns an array that is the same length as the original array.**
 
 #### When to use map()
-When you want to apply some function on all elements of an array. 
+When you want to apply some function on all elements of an array.
 
 #### Example: doubling the values in a numeric array
 This is how you would use map() to return a new array with the values in the original array doubled.
@@ -170,7 +195,7 @@ Just like map(), [Array.prototype.reduce()](https://developer.mozilla.org/en-US/
 Use reduce() when you want to accumulate the values in an array into a single value.
 
 #### Example - accumulating student scores from an array of objects
-In this example, we want the sum of all student scores from the given array of objects. 
+In this example, we want the sum of all student scores from the given array of objects.
 
 ##### Code
 
@@ -242,9 +267,9 @@ console.log('found a spade');
 
 You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
 
-### Code 
+### Code
 
-```javascript 
+```javascript
 const car = {
     name: 'Ferrari',
     year: 2015,
@@ -476,6 +501,36 @@ const secondPromise = new Promise((res, rej) => {
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
+### Using async/await to simplify control flow 
+Async/await can help with code readability and executing Promises after another.
+```javascript
+function thenWay() {
+    loadData().then(data=>{
+        if(data) {
+            // Do something in case data is null
+        } 
+        process(data);
+        moreProcessing(data.thingy);
+        loadMoreData().then(data => {
+            process(data);
+            moreProcessing(data.thingy);
+        })
+    });
+}
+
+async function asyncWay() {
+    const data = await loadData();
+    if(data) {
+        // Do something in case data is null
+    } 
+    process(data);
+    moreProcessing(data.thingy);
+
+    const newData = loadMoreData();
+    process(newData);
+    moreProcessing(newData.thingy);
+}
+```
 ---
 
 ## Useful functions
@@ -516,6 +571,61 @@ generateRandomNumber(min, max) => {
 }
 ```
 
+### Converting an Array to a Keyed Object
+
+Using reduce, you can convert an array of objects to an object keyed by a value within the objects, or the index of the object.
+
+##### Code
+```javascript
+function convertListToObject(list, keyBy) {
+  return list.reduce((newObject, listItem, index) => {
+    const key = keyBy ? listItem[keyBy] : index.toString();
+    return {
+      ...newObject,
+      [key]: listItem
+    };
+  }, {});
+}
+
+const foods = [{ food: 'bacon', id: '1234 '}, { food: 'eggs', id: '1345' }, { food: 'toast', id: '1456'}];
+const clothes = [{ type: 'socks' }, { type: 'jacket' }, { type: 'shoes' }];
+
+console.log(convertListToObject(foods, 'id'));
+/*
+ * {
+ *   '1345': { food: 'eggs', id: '1345' },
+ *   '1456': { food: 'toast', id: '1456' },
+ *   '1234 ': { food: 'bacon', id: '1234 ' }
+ * }
+ */
+
+console.log(convertListToObject(clothes));
+/*
+ * {
+ *   '0': { type: 'socks' },
+ *   '1': { type: 'jacket' },
+ *   '2': { type: 'shoes' }
+ * }
+ */
+```
+
+#### Grab URL Query Parameters By Name
+Grabs the value of a url query parameter based on its name
+```javascript
+/**
+* @param      {!string}     name      {Parameter name to search for in the URL}
+* @param      {string}      url       {The url to check, if not the currently active URL}
+*/
+getParameterByName(name, url = window.location.href) => {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+```
 ---
 
 ## Closures

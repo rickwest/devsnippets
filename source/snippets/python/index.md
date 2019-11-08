@@ -20,9 +20,9 @@ pip install -r myrequirements.txt
 
 ```
 
---- 
+---
 
-## Preventing user input during sleep. 
+## Preventing user input during sleep.
 
 This function disables all user input if used after a sleep function. As this uses the msvcrt module, this is only usable on Microsoft Windows.
 
@@ -38,36 +38,75 @@ input("Press enter to continue...")
 
 ```
 
+---
 
-## Two Matrix Multiplication 
+## Python 3 f-strings: formatted string literals
+
+The new f-Strings are string literals that start with an `f` at the beginning, and allow for expressions to be evaluated inside of curly braces. This is way easier to keep track of, especially with a long set of parameters and strings.
+
+#### Simple Syntax
+```python
+name = "Sal"
+age = 33
+f"Hello, {name}. You are {age}"
+# 'Hello, Sal. You are 33.'
+
+# Capital `F` is also valid
+F"Hello, {name}. You are {age}"
+# 'Hello, Sal. You are 33.'
+
+# The output returned is a string, with single quotes, but you can wrap f-Strings in the print command, too.
+print(f"{name} is {age} and that is great!")
+# Sal is 33 and that is great!
+```
+#### Arbitrary Expressions
+Since f-Strings are evaluated at runtime, you can put any valid Python expression inside of them. This allows for some cool things to happen!
+```python
+# The basics
+f"{2 * 21}"
+# '42'
+
+# You can call functions
+def to_lowercase(input):
+    return input.lower()
+
+name = "Sal Mac"
+f"{to_lowercase(name)} loves to code."
+# 'sal mac loves to code.'
+
+```
+
+---
+
+## Two Matrix Multiplication
 
 The following python snippet is for multiplication of two matrix. simply using for loops & list.
 
 ```python
 r1 = int(input("Enter no. of rows of first matrix : "))
-c1 = int(input("Enter no. of coloumns of first matrix : "))
+c1 = int(input("Enter no. of columns of first matrix : "))
 r2 = int(input("Enter no. of rows of second matrix : "))
-c2 = int(input("Enter no. of coloumns of second matrix : "))
+c2 = int(input("Enter no. of columns of second matrix : "))
 C = []
 D = []
 A = []
 
 print("\nFirst Matrix :")
 for i in range(r1):
-    
+
     temp1 = []
     for i in range(c1):
-        
+
        temp1.append(float(input("Enter a value : "))) #values of first matrix
     A.append(temp1)
 
 B = []
 print("\nSecond Matrix :")
 for i in range(r2):
-    
+
     temp2 = []
     for i in range(c2):
-        
+
        temp2.append(float(input("Enter a value : "))) #values of second matrix
     B.append(temp2)
 
@@ -80,30 +119,53 @@ for i in range(r1):
         for k in range(c1):
             s = s+(A[i][k]*B[k][j]) # perform matrix multiplication
         C.append(s)
-  
+
     D.append(C)
     C = []
- 
-print("\nFinal Matrix : ",D) # final matrix after multiplication
 
+print("\nFinal Matrix : ",D) # final matrix after multiplication
 ```
+
 ## Useful Function - Force 2 Decimals
 This function returns the given integer as a string with 2 decimals points, useful for prices.
 ```python
 def forceTwoDecimals(integer):
     if str(round(integer,2)) == str(round(integer,1)):
         return str(integer)+"0"
-    else: 
+    else:
         return str(integer)
 ```
 
-### Reversing A string
+## Useful Function - isPalindrome
+This function returns true if a given string is a palindrome
+```python
+def isPalindrome(str):
+    return str == str[::-1]
+```
+## Useful Function -  Reversing A string
+```python
 test_string="test string"
 reverse_test_string=test_string[::-1]
 print(reverse_test_string)
-
+```
 Output: "gnirts tset"
 
 
+## Iteration
+
+## For Loop
+
+The following example uses a for loop to find the number of occurrences of a specified sub_string. In below example, the number returned would be 2.
+
+```python
+def count_substring(string, sub_string):
+    count = 0
+    for i in range(len(string)):
+        if string[i:].startswith(sub_string):
+            count += 1
+    return count
+count_substring('hello', 'l')
+```
+
 #### Note :
-As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors.
+As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors. IDEs like PyCharm are useful for debugging and avoiding common errors such as this.
