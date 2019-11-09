@@ -692,3 +692,88 @@ and so on…
 ### Conclusion:
 
 The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
+
+## Hositing
+
+#### What is Hoisting?
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Let understand histing from some examples
+
+Before we begin, first clear the few things.
+
+#### Undefined VS Reference error
+
+An undeclared variable is assigned the value undefined at execution time and is also of type undefined.
+
+##### Code
+``` javascript
+console.log(typeof a); // Output: undefined
+
+console.log(a); // Output: ReferenceError: a is not defined
+```
+A reference error thrown when trying to access undeclared variable a.
+
+#### Hoisting variables
+
+Just think about it, How var a initialized before declaration ?
+In javascript, It is however important to remember that in the background, JavaScript is declaring then initializing our variables. All variables and functions are declared at the top of the global scope just like below.
+
+##### Code
+``` javascript
+var a = 30;
+var b = 'text';
+
+a = 30;
+var a;
+console.log(a); // 30
+```
+
+Example - 1 (Hoisting Functions)
+
+One of the advantages of JavaScript putting function declarations into the memory before it executes any code segment is that it allows you to use a function before you declare it in your code but if we initialize a function in variable what do you expect ?
+
+##### Code
+``` javascript
+test(); // Hello World
+function test(){
+    console.log('Hello World');
+}
+
+test(); // TypeError test is not a function
+var test = function(){
+    console.log('Hello World');
+}
+```
+As we discuss above, In JavaScript all variables and functions declared at the top of the global scope. Its mean if we initialized function like example above then it was just hoisted in the scope not initialized.
+
+Example - 2 (Variable assignment over function declaration)
+
+Function declarations are hoisted over variable declarations but not over variable assignments.
+See the example below
+
+##### Code
+``` javascript
+
+var integer = 22;
+function integer(num) {
+  return (num*2);
+}
+console.log(typeof integer); // Output: number
+```
+
+Example - 3 (Function declarations over variable declarations)
+
+Even if we reversed the position of the declarations, the JavaScript interpreter consider integer as a function.
+
+##### Code
+``` javascript
+var integer;
+function integer(num) {
+  return (num*2);
+}
+console.log(typeof integer); // Output: function
+```
+
+### Conclusion:
+
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Inevitably, this means that no matter where functions and variables are declared, they are moved to the top of their scope regardless of whether their scope is global or local.
