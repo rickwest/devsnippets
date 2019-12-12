@@ -29,6 +29,7 @@
 - [Akshay Thakare](https://github.com/akshaythakare7)
 - [Giovanni Motterle](https://github.com/GiovanniCS)
 - [Cristian Garcia](https://github.com/criscros-garcia)
+- [Diego Domínguez](https://github.com/seniorglez)
 - [Akhil Surendran](https://github.com/akhillllldev)
 - [Lee Connelly](https://github.com/LeeConnelly12)
 - [Christian Dimas](https://github.com/kenanchristian)
