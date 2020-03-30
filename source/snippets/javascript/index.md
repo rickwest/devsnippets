@@ -13,6 +13,7 @@ section: content
 - [Strings](#strings)
 - [Dates](#dates)
 - [Promises](#promises)
+- [Async/Await](#asyncawait)
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 
@@ -531,6 +532,117 @@ async function asyncWay() {
     moreProcessing(newData.thingy);
 }
 ```
+---
+
+## Async/Await
+Introduced in ES8, async/await is a new way to write asynchronous code. One of its main advantanges over callbacks and Promises is that it makes asynchronous code look very much like synchronous code. There are two parts to this new function:
+
+#### 1) [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+Adding the Async keyword to a function will cause that function to return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise):
+##### Code
+```javascript
+async function sayHi() {
+  return 'hello';
+}
+console.log(sayHi()) //we will get [object Promise] { ... } instead of 'hello'
+
+//to display 'hello', we can do the following:
+sayHi()
+.then(res => console.log(res));
+```
+
+#### 2) [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+The Await operator is used to wait for a **Promise** to be resolved or rejected before resuming the rest of the **Async** function. Do note that **Await can only be used inside an Async function.**
+
+##### Code
+```javascript
+function resolveAfter2Seconds() {
+  return new Promise(res => {
+    setTimeout(function() { //we use setTimeout here to mimic a HTTP request
+      res('Promise resolved!!!');
+    }, 2000);
+  })
+}
+async function sayHi() {
+  const message = await resolveAfter2Seconds(); //waiting for Promise to resolve...
+  console.log(message); //this line will not run until await resolveAfter2Seconds() line returns with a fulfilled Promise
+}
+sayHi(); //'Promise resolved!!!' will be displayed after 2 seconds
+```
+
+The improved clarity and readability may not be that obvious from the above example because we are dealing with only a single Promise. Let's use Async/Await to handle multiple Promises:
+##### Code
+```javascript
+//let's use the Pokemon API to demonstrate this
+function getPokemon(ID) {
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
+}
+
+async function displayPokemon() {
+  const pokemon1 = await getPokemon(1);
+  const pokemon2 = await getPokemon(2);
+  const pokemon3 = await getPokemon(10);
+  console.log(pokemon1.name); 
+  console.log(pokemon2.name);
+  console.log(pokemon3.name);
+}
+displayPokemon();
+//output should be:
+//bulbasaur
+//ivysaur
+//caterpie
+```
+
+When it comes to handling multiple Promises, Async/Await provides a very clear advantage - you can read and understand the code as if it were synchronous despite it running asynchronously!
+
+### Caveat
+If you look carefully at the `displayPokemon()` function, the three asynchronous calls are actually being executed sequentially. This means `await getPokemon(2)` will only run after `await getPokemon(1)` is resolved and `await getPokemon(10)` will only run after `getPokemon(2)` is resolved; this results in our function taking a much longer time to return the output. Since all three values are independent of each other, they all should run at the same time. That's when we can bring `Promise.all` into the picture:
+
+```javascript
+function getPokemon(ID) {
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
+}
+async function displayPokemonParallel() {
+  //since we want to fetch the data in parallel, we don't need the await operator here
+  const getPokemon1 = getPokemon(1);
+  const getPokemon2 = getPokemon(2);
+  const getPokemon3 = getPokemon(10);
+  //Promise.all takes in an array of Promises and returns a single promise when all of them are resolved.
+  //By using await here, we are waiting for all three Promises to resolve and then use array destructuring to store the resolved values in its own variable
+  const [pokemon1, pokemon2, pokemon3] = await Promise.all([getPokemon1, getPokemon2, getPokemon3]);
+  console.log(pokemon1.name); 
+  console.log(pokemon2.name);
+  console.log(pokemon3.name);
+}
+displayPokemonParallel();
+//output should be:
+//bulbasaur
+//ivysaur
+//caterpie
+```
+So when using **Async/Await**, it is important to not accidentally run all your requests sequentially and slow down your application.
+
+### Handling errors
+If a Promise is rejected, the **await** expression throws the rejected value. Hence, one of the ways to handle errors when using **Async/Await** is using a try-catch block:
+#### Code
+```javascript
+function rejected() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function() {
+      reject('this is an error!!!');
+    }, 1000)
+  })
+}
+async function getPromise() {
+  try {
+    const value = await rejected(); //Promise is rejected. Await will throw the rejected value
+  } catch(err) { //catch rejected value here
+    console.log(err)
+  }
+}
+getPromise() //output: this is an error!!!
+```
+
 ---
 
 ## Useful functions
