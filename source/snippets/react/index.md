@@ -434,6 +434,23 @@ const jobs = ['Software Engineer', 'Tech Recruiter']
 );
 ```
 
+### Using Refs to access DOM properties
+
+```javascript
+class MyComponent extends Component {
+  componentDidMount() {
+    this.input.focus();
+  }
+  render() {
+    return (
+      <div>
+        <input ref={el => (this.input = el)} />
+      </div>
+    );
+  }
+}
+```
+
 ### Create a list by passing an array
 
 ```javascript
