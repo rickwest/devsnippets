@@ -22,7 +22,7 @@ class HelloMessage extends React.Component {
 
 ReactDOM.render(
   <HelloMessage name="Rick" />,
-  document.getElementById("hello-example")
+  document.getElementById('hello-example')
 );
 ```
 
@@ -56,7 +56,7 @@ class Timer extends React.Component {
   }
 }
 
-ReactDOM.render(<Timer />, document.getElementById("timer-example"));
+ReactDOM.render(<Timer />, document.getElementById('timer-example'));
 ```
 
 ### UseEffect & UseState Hook
@@ -67,13 +67,14 @@ Here is the above code snippet, using Hooks:
 
 ```javascript
 function Timer(props) {
+
   // declare your state variable, a function to modify it, and set an initial value
   const [seconds, setSeconds] = useState(0);
 
   const tick = () => {
     setSeconds(seconds + 1);
-  };
-
+  }
+  
   useEffect(() => {
     const interval = setInterval(() => {
       // this will run every second!
@@ -83,10 +84,17 @@ function Timer(props) {
     return () => clearInterval(interval);
   }, []);
 
-  return <div>Seconds: {seconds}</div>;
+  return (
+    <div>
+      Seconds: {seconds}
+    </div>
+  );
 }
 
-ReactDOM.render(<Timer />, document.getElementById("timer-example"));
+ReactDOM.render(
+  <Timer />,
+  document.getElementById('timer-example')
+);
 ```
 
 ### Context Provider Component
@@ -94,13 +102,13 @@ ReactDOM.render(<Timer />, document.getElementById("timer-example"));
 Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. A Context Provider Component allows all components rendered inside to access the value passed.
 
 ```javascript
-import React, { createContext } from "react";
+import React, { createContext } from 'react';
 
 const MyContext = React.createContext(defaultValue);
 
 class ContextProvider extends React.Component {
   state = {
-    key: "value"
+    key: 'value'
   };
   render() {
     return (
@@ -120,9 +128,9 @@ export default ContextProvider;
 Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The Context Consumer component allows access to the value in the provider via a 'render prop' pattern.
 
 ```javascript
-import React from "react";
+import React from 'react';
 
-import MyContext from "../ContextProvider";
+import MyContext from '../ContextProvider';
 
 class AnyComponent extends React.Component {
   render() {
@@ -144,18 +152,18 @@ export default AnyComponent;
 Here we use a similar context example as above. However instead of using a class based component, we use a functional component with the useState hook.
 
 ```javascript
-import React, { createContext, useState } from "react";
+import React, { createContext, useState } from 'react';
 
 export const MyContext = createContext();
 
 export const ContextProvider = props => {
-  const [state, setState] = useState({ key: "value" });
+  const [state, setState] = useState({ key: 'value' });
   return (
     <MyContext.Provider value={{ state, setState }}>
       {props.children}
     </MyContext.Provider>
-  );
-};
+  )
+}
 ```
 
 ### useContext Hook
@@ -163,9 +171,9 @@ export const ContextProvider = props => {
 Context is a way or providing global state to a React application. There are two parts to Context, a Provider and a Consumer. The useContext hook allows access to the value in function components.
 
 ```javascript
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 
-import MyContext from "../ContextProvider";
+import MyContext from '../ContextProvider';
 
 const AnyFunctionComponent = () => {
   const value = useContext(MyContext);
@@ -180,17 +188,18 @@ export default AnyFunctionComponent;
 Functional components are the simplest way to write components in React. They don't hold state, they don't fire lifecycle events; they simply take props and render a React Element.
 
 ```javascript
-function MyComponent({ name }) {
-  return <div className="message-box">Hello {name}</div>;
+function MyComponent ({ name }) {
+  return <div className='message-box'>
+    Hello {name}
+  </div>
 }
 ```
-
 Functional Components can be written with arraow functions.
 
 ```javascript
-const Greeting = (props) =>
+const Greeting = (props) => 
   <h1> Hello {props.name} </h1>;
-
+  
 ReactDOM.render() {
   <Greeting name="xyz" />;
   document.getElementById("root");
@@ -199,7 +208,7 @@ ReactDOM.render() {
 
 ### Hooks in Combination with setInterval()
 
-In comparison to stateful components in React, hooks let you use features like state without the neccessity of writing a class compoent.
+In comparison to stateful components in React, hooks let you use features like state without the neccessity of writing a class compoent.  
 
 ```javascript
 function useInterval(callback) {
@@ -220,10 +229,17 @@ function Timer() {
 
   useInterval(() => setSeconds(seconds + 1));
 
-  return <div>Seconds: {seconds}</div>;
+  return (
+    <div>
+      Seconds: {seconds}
+    </div>
+  );
 }
 
-ReactDOM.render(<Timer />, document.getElementById("timer-example"));
+ReactDOM.render(
+  <Timer />, 
+  document.getElementById("timer-example")
+);
 ```
 
 ### User Input Components
@@ -231,26 +247,24 @@ ReactDOM.render(<Timer />, document.getElementById("timer-example"));
 As the user types into the input field, we will store the input in our Component State and display it on the screen.
 
 ```javascript
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 class InputField extends Component {
   state = {
-    userInput: ""
-  };
+    userInput: ''
+  }
 
-  handleChange = e => {
+  handleChange = (e) => {
     this.setState({
       userInput: e.target.value
-    });
-  };
+    })
+  }
 
   render() {
     return (
-      <div style={{ paddingLeft: "5%" }}>
-        <input onChange={e => this.handleChange(e)} type="text" />
-        <p>
-          <strong>You have typed:</strong> {this.state.userInput}
-        </p>
+      <div style={{paddingLeft: '5%'}}>
+       <input onChange={(e) => this.handleChange(e)}type="text" />
+       <p><strong>You have typed:</strong> {this.state.userInput}</p>
       </div>
     );
   }
@@ -274,34 +288,39 @@ class Lock extends React.Component {
     this.setState(state => ({
       locked: !state.locked
     }));
-  };
+  }
   lock = () => {
-    // setState is an asynchronous function, so that there are times that, it can't return the mutate state
+    // setState is an asynchronous function, so that there are times that, it can't return the mutate state 
     // immediately, but using the second parameter in setState(), you can now access the new state value.
-    this.setState({ locked: true }, () => {
+    this.setState({locked: true}, () => {
       console.log(this.state.locked);
-    });
-  };
-
+    })
+  }
+  
   combinedSetState = () => {
-    // We can actually combined this ways :)
-    this.setState(
-      state => ({
-        locked: !state.locked
-      }),
-      () => {
-        console.log(this.state.locked);
-      }
-    );
-  };
+    // We can actually combined this ways :)  
+    this.setState(state => ({
+      locked: !state.locked
+    }), () => {
+      console.log(this.state.locked);
+    })
+  }
   componentDidMount() {
-    this.unlock();
+    this.unlock()
   }
   render() {
-    return <div>Is locked: {this.state.locked}</div>;
+    return (
+      <div>
+        Is locked: {this.state.locked}
+      </div>
+    );
   }
 }
-ReactDOM.render(<Lock />, document.getElementById("lock"));
+ReactDOM.render(
+  <Lock />,
+  document.getElementById('lock')
+);
+
 ```
 
 ### Hook for throttling value change
@@ -309,7 +328,7 @@ ReactDOM.render(<Lock />, document.getElementById("lock"));
 A custom hook to help throttling changes to variables. Especially useful when automatically queriying api's based on user text-input
 
 ```javascript
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from 'react';
 
 const useThrottle = (value, limit = 300) => {
   const [throttledValue, setThrottledValue] = useState();
@@ -330,6 +349,7 @@ const useThrottle = (value, limit = 300) => {
 
   return throttledValue;
 };
+
 ```
 
 ### Hook for debouncing value change
@@ -337,7 +357,7 @@ const useThrottle = (value, limit = 300) => {
 A similar custom hook to help debouncing changes to variables.
 
 ```javascript
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react';
 
 function useDebounce(value, delay) {
   const [debouncedValue, setDebouncedValue] = useState(value);
@@ -351,19 +371,21 @@ function useDebounce(value, delay) {
   }, [delay, value]);
   return debouncedValue;
 }
+
 ```
+
 
 ### Rendering your react component to the DOM
 
-Render your react element into the DOM. The id belongs to the element in which the react application will mount.
+Render your react element into the DOM. The id belongs to the element in which the react application will mount.  
 
 ```javascript
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-import App from "./app";
+import App from './app'
 
-ReactDOM.render(<App />, document.getElementById("foo-bar"));
+ReactDOM.render(<App />, document.getElementById('foo-bar'))
 ```
 
 ### Rendering component for each array item
@@ -371,14 +393,16 @@ ReactDOM.render(<App />, document.getElementById("foo-bar"));
 Let's supose that you have to create component that renders a job list.
 
 1. JobContent component
-
 ```javascript
-const JobContent = ({ children }) => <ul>{children}</ul>;
+const JobContent = ({ children }) => (
+  <ul>
+    {children}
+  </ul>
+);
 export default JobContent;
 ```
 
 2. JobItem component
-
 ```javascript
 const JobItem = ({{name}}) => (
   <li>
@@ -389,14 +413,12 @@ export default JobItem;
 ```
 
 3. Map
-
 ```javascript
 const renderJobItems = jobs => {
   jobs.map(jobItem => (
     <JobItem name={jobItem.name} />
   ));
 }
-
 const RenderJobs = ({jobs}) => (
   <JobContent>
     {renderJobItems(jobs)}
@@ -406,28 +428,10 @@ export const RenderJobs;
 ```
 
 4. Just pass jobs array to RenderJobs
-
 ```javascript
 const jobs = ['Software Engineer', 'Tech Recruiter']
 <RenderJobs jobs={jobs} />
 );
-```
-
-### Using Refs to access DOM properties
-
-```javascript
-class MyComponent extends Component {
-  componentDidMount() {
-    this.input.focus();
-  }
-  render() {
-    return (
-      <div>
-        <input ref={el => (this.input = el)} />
-      </div>
-    );
-  }
-}
 ```
 
 ### Create a list by passing an array
