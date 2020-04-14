@@ -83,7 +83,6 @@ function test(){
   console.log(MY_VARIABLE);
 }
 ```
-
 The fact that the value of a `const` cannot be changed, only applies for **Primitive** types (numbers, strings, booleans, null, undefined). However, they don't apply for **Non-Primitive** types (objects, functions and arrays)
 
 ##### Code
@@ -94,13 +93,11 @@ console.log(obj.a); // 20
 obj.a = 30;
 console.log(obj.a); // 30
 ```
-
 ---
 
 ## Arrays
 
 ### find, findIndex, map, filter, and reduce
-
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
 Find() and filter() are used to select values from an array that meet some condition.
@@ -118,22 +115,20 @@ If more than one item meets the condition, then the first item satisfying the co
 **Find returns a single value from the array, or null if no matching value is found.**
 
 #### When to use find()
-
 When you want to find the **first** value in an array that meets some condition.
 
 #### Example: finding an odd number in an array
-
 This is how you would use find to find the first odd number in an array of numbers
 
 ##### Code
 
 ```javascript
-const numbers = [2, 4, 6, 5, 6, 7];
+const numbers = [2,4,6,5,6,7];
 
-let firstOddNumber = numbers.find(number => number % 2 === 1);
+let firstOddNumber = numbers.find((number) => number % 2 === 1);
 
 console.log(firstOddNumber); // 5
-````
+```
 
 ### Using the findIndex() Method
 
@@ -144,7 +139,6 @@ If more than one item meets the condition, it will only return the fist one and 
 **Find returns the index of the first matching value, or -1 if no matching value is found.**
 
 #### When to use findIndex()
-
 When you want to find the **first** index of a value inside an array that meets some condition
 
 #### Example: finding the index of an object inside an array
@@ -152,9 +146,9 @@ When you want to find the **first** index of a value inside an array that meets 
 ##### Code
 
 ```javascript
-const arrayOfObjects = [{ foo: "bar", baz: "qux" }, { bar: "foo", baz: "qux" }];
+const arrayOfObjects = [{foo: "bar", baz: "qux"}, {bar: "foo", baz: "qux"}]
 
-let objectIndex = arrayOfObjects.findIndex(object => object.bar === "foo");
+let objectIndex = arrayOfObjects.findIndex((object) => object.bar === "foo")
 
 console.log(objectIndex); // 1
 ```
@@ -166,15 +160,12 @@ console.log(objectIndex); // 1
 **Filter returns an array with all values that meet the condition, or an empty array if no value meet the condition.**
 
 #### When to use filter()
-
 Use filter when you want **all the values** from an array that meet some condition.
 
 #### Example: filter all even numbers in a numeric array
-
 This is how you would use filter() to get all even numbers in an array of numbers.
 
 ##### Code
-
 ```javascript
 const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -191,15 +182,12 @@ It does this by running a callback function on each element in the array, and re
 **Map returns an array that is the same length as the original array.**
 
 #### When to use map()
-
 When you want to apply some function on all elements of an array.
 
 #### Example: doubling the values in a numeric array
-
 This is how you would use map() to return a new array with the values in the original array doubled.
 
 ##### Code
-
 ```javascript
 const original = [1, 2, 3, 4];
 
@@ -214,11 +202,9 @@ Just like map(), [Array.prototype.reduce()](https://developer.mozilla.org/en-US/
 **Reduce returns a single value that is some accumulation of values in the array.**
 
 #### When to use reduce()
-
 Use reduce() when you want to accumulate the values in an array into a single value.
 
 #### Example - accumulating student scores from an array of objects
-
 In this example, we want the sum of all student scores from the given array of objects.
 
 ##### Code
@@ -249,10 +235,7 @@ const students = [
   }
 ];
 
-const totalScore = students.reduce(
-  (total, student) => total + student.score,
-  0
-); // 0 is used as the initial value for total
+const totalScore = students.reduce((total, student) => total + student.score, 0); // 0 is used as the initial value for total
 
 console.log(totalScore); // 165
 ```
@@ -262,11 +245,9 @@ console.log(totalScore); // 165
 The [join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) method will join all the elements of an array into a string. It has an optional _separator_ parameter. If no parameter is given, the elements are separated with a comma.
 
 #### When to use join()
-
 Use join() when you want to represent the values in an array as a single, delimited string.
 
 ##### Code
-
 ```javascript
 const arr = ["Lions", "tigers", "bears."];
 
@@ -278,17 +259,16 @@ console.log(str); //"Lions and tigers and bears."
 ### List items from an array until a specific string is found
 
 ##### Code
-
 ```javascript
-let cards = ["Diamond", "Spade", "Heart", "Club"];
+let cards = ['Diamond', 'Spade', 'Heart', 'Club'];
 
-let currentCard = "Heart";
+let currentCard = 'Heart';
 
-while (currentCard !== "Spade") {
-  console.log(currentCard);
-  currentCard = cards[Math.floor(Math.random() * 4)];
-}
-console.log("found a spade");
+while (currentCard !== 'Spade') {
+       	console.log(currentCard);
+  			currentCard = cards[Math.floor(Math.random() * 4)];
+       }
+console.log('found a spade');
 ```
 
 ---
@@ -301,62 +281,48 @@ You can use objects to store functions, other objects and properties, so you can
 
 ```javascript
 const car = {
-  name: "Ferrari",
-  year: 2015,
-  horsepower: 670,
-  isCar: true
-};
-console.log(
-  `The ${car.name} of ${car.year} has a hoserpower of ${
-    car.horsepower
-  } and is really a car ? ${car.isCar}`
-);
+    name: 'Ferrari',
+    year: 2015,
+    horsepower: 670,
+    isCar: true
+}
+console.log(`The ${car.name} of ${car.year} has a hoserpower of ${car.horsepower} and is really a car ? ${car.isCar}`)
 
 //Another example with functions
 
 const calc = {
-  sum: function(a, b) {
-    return a + b;
-  },
-  subtraction: function(a, b) {
-    return a - b;
-  }
-};
+    sum: function(a,b){
+        return a+b;
+    },
+    subtraction: function(a,b){
+        return a-b;
+    }
+}
 
-console.log(
-  `The sum of 5 plus 4 is ${calc.sum(
-    5,
-    4
-  )} and the subtraction is ${calc.subtraction(5, 4)}`
-);
+console.log(`The sum of 5 plus 4 is ${calc.sum(5,4)} and the subtraction is ${calc.subtraction(5,4)}`)
+
 
 //An example with nested objects and functions
 
-const computer = {
-  monitor: "Acer",
-  cpu: {
-    name: "FX-6300",
-    core: 6,
-    socket: "AM3 +"
-  },
-  gpu: {
-    name: "GTX-950",
-    memory: 2
-  },
-  ram: {
-    name: "Hyperx",
-    gb: 8
-  },
-  printDetails: function() {
-    console.log(
-      `My computer has a monitor ${computer.monitor}, a cpu ${
-        computer.cpu.name
-      } with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${
-        computer.ram.gb
-      } of ram.`
-    );
-  }
-};
+const computer ={
+    monitor: 'Acer',
+    cpu: {
+        name: 'FX-6300',
+        core: 6,
+        socket: 'AM3 +'
+    },
+    gpu:{
+        name: 'GTX-950',
+        memory: 2
+    },
+    ram:{
+        name: 'Hyperx',
+        gb: 8
+    },
+    printDetails: function() {
+        console.log(`My computer has a monitor ${computer.monitor}, a cpu ${computer.cpu.name} with ${computer.cpu.core} cores, GPU ${computer.gpu.name} and ${computer.ram.gb} of ram.`)
+    }
+}
 
 computer.printDetails();
 ```
@@ -368,34 +334,22 @@ computer.printDetails();
 Instead of using string concatenation, we can use a template string, or string interpolation, to include interpreted values in strings.
 
 #### Example: using template strings to print values
-
 You can use template strings to print variable values, or the results of functions - anything that can be interpreted by javascript.
 
 ### Code
-
 ```javascript
-const name = "Cristian";
-const age = 20;
+const name = 'Cristian'
+const age = 20
 
-function myCountry() {
-  return "Brazil";
+function myCountry(){
+  return 'Brazil'
 }
 
 // Using concatenation:
-console.log(
-  "My name is " +
-    name +
-    " and i am " +
-    age +
-    " years old and i live in " +
-    myCountry() +
-    "."
-);
+console.log('My name is '+name+' and i am '+age+' years old and i live in '+myCountry()+'.')
 
 // Using template string:
-console.log(
-  `My name is ${name} and I am ${age} years old and I live in ${myCountry()}.`
-);
+console.log(`My name is ${name} and I am ${age} years old and I live in ${myCountry()}.`)
 ```
 
 #### split() method
@@ -433,7 +387,6 @@ console.log(arr); //["dogs", "cats", "goldfish"]
 #### Using split(), reverse() and join() to reverse the letters of a string.
 
 ##### Code
-
 ```javascript
 const str = "abcde";
 
@@ -448,20 +401,14 @@ console.log(rev); //"edcba"
 #### Using map(), split(), reverse() and join() to reverse the letters of each word in a string.
 
 ##### Code
-
 ```javascript
-const str = "All work and no play makes Jack a dull boy";
+const str = "All work and no play makes Jack a dull boy"
 
 // First the string is split into an array:
 const arr = str.split(" ");
 
 // Then the letters of each word/element in the array are reversed
-const arr2 = arr.map(x =>
-  x
-    .split("")
-    .reverse()
-    .join("")
-);
+const arr2 = arr.map((x) => x.split("").reverse().join(""));
 // ["llA", "krow", "dna", "on", "yalp", "sekam", "kcaJ", "a", "llud", "yob"]
 
 // Then join each element together again, making sure to use a separator.
@@ -482,36 +429,32 @@ replace(pattern|matchString, replaceString|function)
 
 Where the first parameter "pattern" can be a regular expression, or a string and the second parameter can be a string that you want to replace with or a function that can be called for a matched pattern/string.
 
-You can strip the html tags from any string with the regular expression: `/<(?:.|\n)*?>/gi`
+You can strip the html tags from any string with the regular expression: ```/<(?:.|\n)*?>/gi```
 
 #### Example: Strip html tags from an h1 header
-
 This is how you could use replace with the regular expression above to strip the h1 tags from a string.
 
 ##### Code
-
 ```javascript
-function stripHtmlTags(htmlText) {
-  if (htmlText && htmlText.length) {
-    return htmlText.replace(/<(?:.|\n)*?>/gi, ""); // g is for global replace, i for ignore case.
-  }
-  return htmlText;
+function stripHtmlTags(htmlText){
+	if(htmlText && htmlText.length){
+		return htmlText.replace(/<(?:.|\n)*?>/gi, ''); // g is for global replace, i for ignore case.
+	}
+	return htmlText;
 }
 const str = "<h1>replace() method in javascript is really powerful.</h1>";
 
 console.log(stripHtmlTags(str)); // "replace() method in javascript is really powerful."
+
 ```
 
 #### Using the match() method
-
 The [match()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match) method is similar to replace(), but it simply returns an array with all values from the string that match the expression given.
 
 #### Example: finding all vowels in a string using match()
-
 To find all vowels in a string we can use match() as shown here.
 
 ##### Code
-
 ```javascript
 let input = "A fox runs fast. Oh, how fast it runs!";
 
@@ -524,7 +467,6 @@ In this example, `vowels` is an array containing all of the vowels:
 console.log(vowels);
 // [ 'A', 'o', 'u', 'a', 'O', 'o', 'a', 'i', 'u' ]
 ```
-
 ---
 
 ## Dates
@@ -569,11 +511,9 @@ The [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 When we pass multiple promises to the Promise.race method, it executes the callback for the first promise that resolves/rejects.
 
 #### Example: demonstrating Promise.race() with setTimeout
-
 This trivial example will just demonstrate how Promise.race() works using setTimeout.
 
 #### Code
-
 ```javascript
 const firstPromise = new Promise((res, rej) => {
   setTimeout(res, 500, "one");
@@ -586,75 +526,66 @@ const secondPromise = new Promise((res, rej) => {
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 ```
 
-### Using async/await to simplify control flow
-
+### Using async/await to simplify control flow 
 Async/await can help with code readability and executing Promises after another.
-
 ```javascript
 function thenWay() {
-  loadData().then(data => {
-    if (data) {
-      // Do something in case data is null
-    }
-    process(data);
-    moreProcessing(data.thingy);
-    loadMoreData().then(data => {
-      process(data);
-      moreProcessing(data.thingy);
+    loadData().then(data=>{
+        if(data) {
+            // Do something in case data is null
+        } 
+        process(data);
+        moreProcessing(data.thingy);
+        loadMoreData().then(data => {
+            process(data);
+            moreProcessing(data.thingy);
+        })
     });
-  });
 }
 
 async function asyncWay() {
-  const data = await loadData();
-  if (data) {
-    // Do something in case data is null
-  }
-  process(data);
-  moreProcessing(data.thingy);
+    const data = await loadData();
+    if(data) {
+        // Do something in case data is null
+    } 
+    process(data);
+    moreProcessing(data.thingy);
 
-  const newData = loadMoreData();
-  process(newData);
-  moreProcessing(newData.thingy);
+    const newData = loadMoreData();
+    process(newData);
+    moreProcessing(newData.thingy);
 }
 ```
-
 ---
 
 ## Async/Await
-
 Introduced in ES8, async/await is a new way to write asynchronous code. One of its main advantanges over callbacks and Promises is that it makes asynchronous code look very much like synchronous code. There are two parts to this new function:
 
 #### 1) [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
-
 Adding the Async keyword to a function will cause that function to return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise):
-
 ##### Code
-
 ```javascript
 async function sayHi() {
-  return "hello";
+  return 'hello';
 }
-console.log(sayHi()); //we will get [object Promise] { ... } instead of 'hello'
+console.log(sayHi()) //we will get [object Promise] { ... } instead of 'hello'
 
 //to display 'hello', we can do the following:
-sayHi().then(res => console.log(res));
+sayHi()
+.then(res => console.log(res));
 ```
 
 #### 2) [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
-
 The Await operator is used to wait for a **Promise** to be resolved or rejected before resuming the rest of the **Async** function. Do note that **Await can only be used inside an Async function.**
 
 ##### Code
-
 ```javascript
 function resolveAfter2Seconds() {
   return new Promise(res => {
-    setTimeout(function() {
-      //we use setTimeout here to mimic a HTTP request
-      res("Promise resolved!!!");
+    setTimeout(function() { //we use setTimeout here to mimic a HTTP request
+      res('Promise resolved!!!');
     }, 2000);
-  });
+  })
 }
 async function sayHi() {
   const message = await resolveAfter2Seconds(); //waiting for Promise to resolve...
@@ -664,22 +595,18 @@ sayHi(); //'Promise resolved!!!' will be displayed after 2 seconds
 ```
 
 The improved clarity and readability may not be that obvious from the above example because we are dealing with only a single Promise. Let's use Async/Await to handle multiple Promises:
-
 ##### Code
-
 ```javascript
 //let's use the Pokemon API to demonstrate this
 function getPokemon(ID) {
-  return fetch("https://pokeapi.co/api/v2/pokemon/" + ID).then(res =>
-    res.json()
-  );
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
 }
 
 async function displayPokemon() {
   const pokemon1 = await getPokemon(1);
   const pokemon2 = await getPokemon(2);
   const pokemon3 = await getPokemon(10);
-  console.log(pokemon1.name);
+  console.log(pokemon1.name); 
   console.log(pokemon2.name);
   console.log(pokemon3.name);
 }
@@ -693,14 +620,11 @@ displayPokemon();
 When it comes to handling multiple Promises, Async/Await provides a very clear advantage - you can read and understand the code as if it were synchronous despite it running asynchronously!
 
 ### Caveat
-
 If you look carefully at the `displayPokemon()` function, the three asynchronous calls are actually being executed sequentially. This means `await getPokemon(2)` will only run after `await getPokemon(1)` is resolved and `await getPokemon(10)` will only run after `getPokemon(2)` is resolved; this results in our function taking a much longer time to return the output. Since all three values are independent of each other, they all should run at the same time. That's when we can bring `Promise.all` into the picture:
 
 ```javascript
 function getPokemon(ID) {
-  return fetch("https://pokeapi.co/api/v2/pokemon/" + ID).then(res =>
-    res.json()
-  );
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
 }
 async function displayPokemonParallel() {
   //since we want to fetch the data in parallel, we don't need the await operator here
@@ -709,12 +633,8 @@ async function displayPokemonParallel() {
   const getPokemon3 = getPokemon(10);
   //Promise.all takes in an array of Promises and returns a single promise when all of them are resolved.
   //By using await here, we are waiting for all three Promises to resolve and then use array destructuring to store the resolved values in its own variable
-  const [pokemon1, pokemon2, pokemon3] = await Promise.all([
-    getPokemon1,
-    getPokemon2,
-    getPokemon3
-  ]);
-  console.log(pokemon1.name);
+  const [pokemon1, pokemon2, pokemon3] = await Promise.all([getPokemon1, getPokemon2, getPokemon3]);
+  console.log(pokemon1.name); 
   console.log(pokemon2.name);
   console.log(pokemon3.name);
 }
@@ -724,32 +644,27 @@ displayPokemonParallel();
 //ivysaur
 //caterpie
 ```
-
 So when using **Async/Await**, it is important to not accidentally run all your requests sequentially and slow down your application.
 
 ### Handling errors
-
 If a Promise is rejected, the **await** expression throws the rejected value. Hence, one of the ways to handle errors when using **Async/Await** is using a try-catch block:
-
 #### Code
-
 ```javascript
 function rejected() {
   return new Promise((resolve, reject) => {
     setTimeout(function() {
-      reject("this is an error!!!");
-    }, 1000);
-  });
+      reject('this is an error!!!');
+    }, 1000)
+  })
 }
 async function getPromise() {
   try {
     const value = await rejected(); //Promise is rejected. Await will throw the rejected value
-  } catch (err) {
-    //catch rejected value here
-    console.log(err);
+  } catch(err) { //catch rejected value here
+    console.log(err)
   }
 }
-getPromise(); //output: this is an error!!!
+getPromise() //output: this is an error!!!
 ```
 
 ---
@@ -761,7 +676,6 @@ getPromise(); //output: this is an error!!!
 Checks provided keys in reqInput are in whiteList or not
 
 ##### Code
-
 ```javascript
 /**
 * @param  		{*} 		        reqInput  {data input to check white list on}
@@ -783,7 +697,6 @@ whiteChecker(reqInput, whiteList) {
 Returns a random number between provided min and max numbers
 
 ##### Code
-
 ```javascript
 /**
 * @param  		{!number} 		  min       {Minimum number to be GTE in output number}
@@ -799,7 +712,6 @@ generateRandomNumber(min, max) => {
 Using reduce, you can convert an array of objects to an object keyed by a value within the objects, or the index of the object.
 
 ##### Code
-
 ```javascript
 function convertListToObject(list, keyBy) {
   return list.reduce((newObject, listItem, index) => {
@@ -811,14 +723,10 @@ function convertListToObject(list, keyBy) {
   }, {});
 }
 
-const foods = [
-  { food: "bacon", id: "1234 " },
-  { food: "eggs", id: "1345" },
-  { food: "toast", id: "1456" }
-];
-const clothes = [{ type: "socks" }, { type: "jacket" }, { type: "shoes" }];
+const foods = [{ food: 'bacon', id: '1234 '}, { food: 'eggs', id: '1345' }, { food: 'toast', id: '1456'}];
+const clothes = [{ type: 'socks' }, { type: 'jacket' }, { type: 'shoes' }];
 
-console.log(convertListToObject(foods, "id"));
+console.log(convertListToObject(foods, 'id'));
 /*
  * {
  *   '1345': { food: 'eggs', id: '1345' },
@@ -838,9 +746,7 @@ console.log(convertListToObject(clothes));
 ```
 
 #### Grab URL Query Parameters By Name
-
 Grabs the value of a url query parameter based on its name
-
 ```javascript
 /**
 * @param      {!string}     name      {Parameter name to search for in the URL}
@@ -877,7 +783,6 @@ function deepCopyObject(obj){
   return newObject;
 }
 ```
-
 ---
 
 ## Closures
@@ -908,7 +813,7 @@ init(); // hello world
 
 // name — is a local variable created by init function
 // displayName() — is the nested function.
-````
+```
 
 #### Explanation
 
