@@ -34,3 +34,4 @@
 - [Christian Dimas](https://github.com/kenanchristian)
 - [Gabe Rose](https://github.com/roseg43)
 - [Augusto Scher](https://github.com/augustoscher)
+- [Subbu Swaroop](https://github.com/SubbuSwaroop)
