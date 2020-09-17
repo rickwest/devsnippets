@@ -11,7 +11,7 @@ description: CSS Snippets
 
 ```
 @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
-    
+
 }
 ```
 
@@ -36,4 +36,22 @@ For device specific media queries check out this page on [CSS Tricks](https://cs
 
 ```
 
+### Adding variables in CSS3
 
+Variables, that are introduced in CSS3, can be used to define certain values beforehand, so that it can be used through out the file.
+
+```
+:root {
+    --bg-color: orangered;
+    --general-border: 2px solid white;
+    --font-size-large: 18px;
+}
+
+#div1 {
+    font-size: var(--font-size-large);
+    background-color: var(--bg-color);
+    border: var(--general-border);
+}
+```
+
+---

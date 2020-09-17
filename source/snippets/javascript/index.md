@@ -83,7 +83,16 @@ function test(){
   console.log(MY_VARIABLE);
 }
 ```
+The fact that the value of a `const` cannot be changed, only applies for **Primitive** types (numbers, strings, booleans, null, undefined). However, they don't apply for **Non-Primitive** types (objects, functions and arrays)
 
+##### Code
+
+````javascript
+const obj = {a: 20, b: 30}
+console.log(obj.a); // 20
+obj.a = 30;
+console.log(obj.a); // 30
+```
 ---
 
 ## Arrays
@@ -476,6 +485,21 @@ function addSecond(date, seconds) {
 expired = addSecond(new Date(), 60);
 ```
 
+#### Display current date format as DD/MM/YYYY
+
+```javascript
+var d = new Date();
+
+var date = d.getDate();
+var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+var year = d.getFullYear();
+date = (date < 10 ? "0" : "") + date;
+month = (month < 10 ? "0" : "") + month;
+
+var dateStr = date + "/" + month + "/" + year;
+console.log(dateStr); // Displays current date in DD/MM/YYYY format
+```
+
 ---
 
 ## Promises
@@ -738,6 +762,27 @@ getParameterByName(name, url = window.location.href) => {
 }
 
 ```
+
+#### Perform deep copy on an object
+
+Can be used to copy one object into another when an object has nested objects.
+
+````javascript
+function deepCopyObject(obj){
+  const keys = Object.keys(obj);
+  const newObject = {}
+
+  for(let i=0; i<keys.length; i++) {
+    const key = keys[i];
+    if ( typeof obj[key] === 'object' ) {
+      newObject[key] = deepCopyObject(obj[key]);
+    } else {
+      newObject[key] = obj[key];
+    }
+  }
+  return newObject;
+}
+```
 ---
 
 ## Closures
@@ -800,6 +845,23 @@ When file execute a code, A self calling function execute and initialized a loca
 1+1 = 2
 2+1 = 3
 and so on…
+
+#### **IIFE (Immediately Invoked Function Expressions)**
+
+An **IIFE** is a JavaScript function that runs as soon as it is defined. It is another example of how **Closures** work in Javascript.
+
+Example
+
+```javascript
+var result = (function() {
+  var name = "Dev Snippets";
+  return name;
+})();
+// Immediately creates the output:
+console.log(result); // "Dev Snippets"
+```
+
+Assigning an IIFE to a variable will store the value that the function return and not the function definition. Also, variables declared inside IIFE **will not be accessible** outside elsewhere.
 
 ### Conclusion:
 

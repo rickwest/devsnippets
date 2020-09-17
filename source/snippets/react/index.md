@@ -414,11 +414,11 @@ export default JobItem;
 
 3. Map
 ```javascript
-const renderJobItems = jobs =>
+const renderJobItems = jobs => {
   jobs.map(jobItem => (
     <JobItem name={jobItem.name} />
   ));
-
+}
 const RenderJobs = ({jobs}) => (
   <JobContent>
     {renderJobItems(jobs)}
@@ -433,3 +433,46 @@ const jobs = ['Software Engineer', 'Tech Recruiter']
 <RenderJobs jobs={jobs} />
 );
 ```
+
+### Using Refs to access DOM properties
+
+```javascript
+class MyComponent extends Component {
+  componentDidMount() {
+    this.input.focus();
+  }
+  render() {
+    return (
+      <div>
+        <input ref={el => (this.input = el)} />
+      </div>
+    );
+  }
+}
+```
+
+### Create a list by passing an array
+
+```javascript
+class AnimalsList extends Component {
+  render() {
+    const { animals } = this.props.animals; // Array of animals
+
+    return (
+      <ul>
+        {animals.map(animal => (
+          <Animal name={animal} key={animals.key} />
+        ))}
+      </ul>
+    );
+  }
+}
+```
+
+### Create an element without using JSX
+
+```javascript
+React.createElement("div", { className: "maindiv" });
+```
+
+---
