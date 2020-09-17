@@ -97,7 +97,79 @@ console.log(obj.a); // 30
 
 ## Arrays
 
+Arrays are data types used for storing sequences of values. An array is written as a list of comma-separated values inside a pair of square brackets. Any data type can be put into an array including other arrays.
+
+##### Code
+```JavaScript
+const numbers = [1, 2, 3, 4, 5];
+const strings = ["apple", "window", "puppy", "cup"];
+const arrays = [[45, 19, 6], ["hello", "bye"]];
+const objects = [
+  {
+    name: "David",
+    age: 29
+  },
+  {
+    name: "Heather",
+    age: 45
+  },
+  {
+    name: "James",
+    age: 37
+  }
+];
+```
+
+### shift, unshift, push, pop
+The unshift() and push() methods are for adding elements to the beginning and end of an array respectively, while the shift() and pop() methods are for removing elements from arrays in the same way.
+
+#### unshift()
+[Array.prototype.unshift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift) is the method used to add new elements to the beginning of an array. When used, it returns the new length of the array.
+
+##### Code
+```JavaScript
+const letters = ["c", "d", "e"];
+
+console.log(letters.unshift("a", "b")); // Output: 5
+console.log(letters); // Output: Array ["a", "b", "c", "d", "e"]
+```
+
+#### shift()
+[Array.prototype.shift()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift) is the method used to remove the first element of an array.
+
+##### Code
+```JavaScript
+const nums = ["one", "two", "three"];
+const firstElement = nums.shift();
+
+console.log(nums); // Output: Array ["two", "three"]
+console.log(firstElement); // Output: "one"
+```
+
+#### push()
+[Array.prototype.push()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/push) is a method used to add elements to the end of an array.
+
+##### Code
+```JavaScript
+const cities = ["London", "Amsterdam", "Berlin"];
+
+cities.push("Copenhagen", "Geneva");
+console.log(cities); // Output: Array ["London", "Amsterdam", "Berlin", "Copenhagen", "Geneva"]
+```
+
+#### pop()
+[Array.prototype.pop()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/pop) is a method used to remove the last element of an array. The removed element is returned.
+
+##### Code
+```JavaScript
+const sports = ["football", "cricket", "rugby", "baseball", "basketball"];
+
+sports.pop();
+console.log(sports); // Output: Array ["football", "cricket", "rugby", "baseball"]
+```
+
 ### find, findIndex, map, filter, and reduce
+
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
 Find() and filter() are used to select values from an array that meet some condition.
