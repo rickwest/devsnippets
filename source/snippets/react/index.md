@@ -387,3 +387,92 @@ import App from './app'
 
 ReactDOM.render(<App />, document.getElementById('foo-bar'))
 ```
+
+### Rendering component for each array item
+
+Let's supose that you have to create component that renders a job list.
+
+1. JobContent component
+```javascript
+const JobContent = ({ children }) => (
+  <ul>
+    {children}
+  </ul>
+);
+export default JobContent;
+```
+
+2. JobItem component
+```javascript
+const JobItem = ({{name}}) => (
+  <li>
+    <h4{name}</h4>
+  </li>
+);
+export default JobItem;
+```
+
+3. Map
+```javascript
+const renderJobItems = jobs => {
+  jobs.map(jobItem => (
+    <JobItem name={jobItem.name} />
+  ));
+}
+const RenderJobs = ({jobs}) => (
+  <JobContent>
+    {renderJobItems(jobs)}
+  </JobContent>
+)
+export const RenderJobs;
+```
+
+4. Just pass jobs array to RenderJobs
+```javascript
+const jobs = ['Software Engineer', 'Tech Recruiter']
+<RenderJobs jobs={jobs} />
+);
+```
+
+### Using Refs to access DOM properties
+
+```javascript
+class MyComponent extends Component {
+  componentDidMount() {
+    this.input.focus();
+  }
+  render() {
+    return (
+      <div>
+        <input ref={el => (this.input = el)} />
+      </div>
+    );
+  }
+}
+```
+
+### Create a list by passing an array
+
+```javascript
+class AnimalsList extends Component {
+  render() {
+    const { animals } = this.props.animals; // Array of animals
+
+    return (
+      <ul>
+        {animals.map(animal => (
+          <Animal name={animal} key={animals.key} />
+        ))}
+      </ul>
+    );
+  }
+}
+```
+
+### Create an element without using JSX
+
+```javascript
+React.createElement("div", { className: "maindiv" });
+```
+
+---

@@ -96,3 +96,33 @@ Basic Vue Component Scaffold.
   }
 </script>
 ```
+
+### Component with conditional template
+
+```html
+<template>
+  <div id="app">
+    <div>
+      Click the button to show/hide the text!
+    </div>
+    <p v-if="show">Hey I'm visible</p>
+    <button @click="toggleShow"></button>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'App',
+    data() {
+      return {
+        show: true,
+      };
+    },
+    methods:{
+      toggleShow(){
+        this.show = !this.show
+      }
+    }
+  }
+</script>
+```

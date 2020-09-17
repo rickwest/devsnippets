@@ -13,6 +13,7 @@ section: content
 - [Strings](#strings)
 - [Dates](#dates)
 - [Promises](#promises)
+- [Async/Await](#asyncawait)
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 
@@ -82,7 +83,16 @@ function test(){
   console.log(MY_VARIABLE);
 }
 ```
+The fact that the value of a `const` cannot be changed, only applies for **Primitive** types (numbers, strings, booleans, null, undefined). However, they don't apply for **Non-Primitive** types (objects, functions and arrays)
 
+##### Code
+
+````javascript
+const obj = {a: 20, b: 30}
+console.log(obj.a); // 20
+obj.a = 30;
+console.log(obj.a); // 30
+```
 ---
 
 ## Arrays
@@ -158,10 +168,13 @@ sports.pop();
 console.log(sports); // Output: Array ["football", "cricket", "rugby", "baseball"]
 ```
 
-### find, map, filter, and reduce
+### find, findIndex, map, filter, and reduce
+
 All of these array methods provide a declarative programming alternative to writing a loop. Each performs some block of code, given in a callback function, to some or all elements of an array.
 
 Find() and filter() are used to select values from an array that meet some condition.
+
+FindIndex() is similar to the Find() method but instead of returning the object, it only return the index of the first item that matches the condition
 
 Map() is used to apply a transformation to all elements of an array, and reduce() is used to apply some accumulation to the values in an array.
 
@@ -189,14 +202,37 @@ let firstOddNumber = numbers.find((number) => number % 2 === 1);
 console.log(firstOddNumber); // 5
 ```
 
+### Using the findIndex() Method
+
+[Array.prototype.findIndex()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/findIndex) is a builtin function in JavaScript that returns the index of the first item that matches the provided condition.
+
+If more than one item meets the condition, it will only return the fist one and the processing stops there. If there's no item that meets the condition then it will return -1
+
+**Find returns the index of the first matching value, or -1 if no matching value is found.**
+
+#### When to use findIndex()
+When you want to find the **first** index of a value inside an array that meets some condition
+
+#### Example: finding the index of an object inside an array
+
+##### Code
+
+```javascript
+const arrayOfObjects = [{foo: "bar", baz: "qux"}, {bar: "foo", baz: "qux"}]
+
+let objectIndex = arrayOfObjects.findIndex((object) => object.bar === "foo")
+
+console.log(objectIndex); // 1
+```
+
 #### Using the filter() method
 
-[Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is a built in JavaScript function that returns a subset of the original array in which all of the values match some condition. Like with find, the callback function passed to filter returns either true or false. If it returns true then filter adds that element to the return array, and if it returns false the element is not included. 
+[Array.prototype.filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter) is a built in JavaScript function that returns a subset of the original array in which all of the values match some condition. Like with find, the callback function passed to filter returns either true or false. If it returns true then filter adds that element to the return array, and if it returns false the element is not included.
 
 **Filter returns an array with all values that meet the condition, or an empty array if no value meet the condition.**
 
 #### When to use filter()
-Use filter when you want **all the values** from an array that meet some condition. 
+Use filter when you want **all the values** from an array that meet some condition.
 
 #### Example: filter all even numbers in a numeric array
 This is how you would use filter() to get all even numbers in an array of numbers.
@@ -218,7 +254,7 @@ It does this by running a callback function on each element in the array, and re
 **Map returns an array that is the same length as the original array.**
 
 #### When to use map()
-When you want to apply some function on all elements of an array. 
+When you want to apply some function on all elements of an array.
 
 #### Example: doubling the values in a numeric array
 This is how you would use map() to return a new array with the values in the original array doubled.
@@ -241,7 +277,7 @@ Just like map(), [Array.prototype.reduce()](https://developer.mozilla.org/en-US/
 Use reduce() when you want to accumulate the values in an array into a single value.
 
 #### Example - accumulating student scores from an array of objects
-In this example, we want the sum of all student scores from the given array of objects. 
+In this example, we want the sum of all student scores from the given array of objects.
 
 ##### Code
 
@@ -313,9 +349,9 @@ console.log('found a spade');
 
 You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
 
-### Code 
+### Code
 
-```javascript 
+```javascript
 const car = {
     name: 'Ferrari',
     year: 2015,
@@ -521,6 +557,21 @@ function addSecond(date, seconds) {
 expired = addSecond(new Date(), 60);
 ```
 
+#### Display current date format as DD/MM/YYYY
+
+```javascript
+var d = new Date();
+
+var date = d.getDate();
+var month = d.getMonth() + 1; // Since getMonth() returns month from 0-11 not 1-12
+var year = d.getFullYear();
+date = (date < 10 ? "0" : "") + date;
+month = (month < 10 ? "0" : "") + month;
+
+var dateStr = date + "/" + month + "/" + year;
+console.log(dateStr); // Displays current date in DD/MM/YYYY format
+```
+
 ---
 
 ## Promises
@@ -545,6 +596,147 @@ const secondPromise = new Promise((res, rej) => {
 });
 
 Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+```
+
+### Using async/await to simplify control flow 
+Async/await can help with code readability and executing Promises after another.
+```javascript
+function thenWay() {
+    loadData().then(data=>{
+        if(data) {
+            // Do something in case data is null
+        } 
+        process(data);
+        moreProcessing(data.thingy);
+        loadMoreData().then(data => {
+            process(data);
+            moreProcessing(data.thingy);
+        })
+    });
+}
+
+async function asyncWay() {
+    const data = await loadData();
+    if(data) {
+        // Do something in case data is null
+    } 
+    process(data);
+    moreProcessing(data.thingy);
+
+    const newData = loadMoreData();
+    process(newData);
+    moreProcessing(newData.thingy);
+}
+```
+---
+
+## Async/Await
+Introduced in ES8, async/await is a new way to write asynchronous code. One of its main advantanges over callbacks and Promises is that it makes asynchronous code look very much like synchronous code. There are two parts to this new function:
+
+#### 1) [Async](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
+Adding the Async keyword to a function will cause that function to return a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise):
+##### Code
+```javascript
+async function sayHi() {
+  return 'hello';
+}
+console.log(sayHi()) //we will get [object Promise] { ... } instead of 'hello'
+
+//to display 'hello', we can do the following:
+sayHi()
+.then(res => console.log(res));
+```
+
+#### 2) [Await](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/await)
+The Await operator is used to wait for a **Promise** to be resolved or rejected before resuming the rest of the **Async** function. Do note that **Await can only be used inside an Async function.**
+
+##### Code
+```javascript
+function resolveAfter2Seconds() {
+  return new Promise(res => {
+    setTimeout(function() { //we use setTimeout here to mimic a HTTP request
+      res('Promise resolved!!!');
+    }, 2000);
+  })
+}
+async function sayHi() {
+  const message = await resolveAfter2Seconds(); //waiting for Promise to resolve...
+  console.log(message); //this line will not run until await resolveAfter2Seconds() line returns with a fulfilled Promise
+}
+sayHi(); //'Promise resolved!!!' will be displayed after 2 seconds
+```
+
+The improved clarity and readability may not be that obvious from the above example because we are dealing with only a single Promise. Let's use Async/Await to handle multiple Promises:
+##### Code
+```javascript
+//let's use the Pokemon API to demonstrate this
+function getPokemon(ID) {
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
+}
+
+async function displayPokemon() {
+  const pokemon1 = await getPokemon(1);
+  const pokemon2 = await getPokemon(2);
+  const pokemon3 = await getPokemon(10);
+  console.log(pokemon1.name); 
+  console.log(pokemon2.name);
+  console.log(pokemon3.name);
+}
+displayPokemon();
+//output should be:
+//bulbasaur
+//ivysaur
+//caterpie
+```
+
+When it comes to handling multiple Promises, Async/Await provides a very clear advantage - you can read and understand the code as if it were synchronous despite it running asynchronously!
+
+### Caveat
+If you look carefully at the `displayPokemon()` function, the three asynchronous calls are actually being executed sequentially. This means `await getPokemon(2)` will only run after `await getPokemon(1)` is resolved and `await getPokemon(10)` will only run after `getPokemon(2)` is resolved; this results in our function taking a much longer time to return the output. Since all three values are independent of each other, they all should run at the same time. That's when we can bring `Promise.all` into the picture:
+
+```javascript
+function getPokemon(ID) {
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(res => res.json());
+}
+async function displayPokemonParallel() {
+  //since we want to fetch the data in parallel, we don't need the await operator here
+  const getPokemon1 = getPokemon(1);
+  const getPokemon2 = getPokemon(2);
+  const getPokemon3 = getPokemon(10);
+  //Promise.all takes in an array of Promises and returns a single promise when all of them are resolved.
+  //By using await here, we are waiting for all three Promises to resolve and then use array destructuring to store the resolved values in its own variable
+  const [pokemon1, pokemon2, pokemon3] = await Promise.all([getPokemon1, getPokemon2, getPokemon3]);
+  console.log(pokemon1.name); 
+  console.log(pokemon2.name);
+  console.log(pokemon3.name);
+}
+displayPokemonParallel();
+//output should be:
+//bulbasaur
+//ivysaur
+//caterpie
+```
+So when using **Async/Await**, it is important to not accidentally run all your requests sequentially and slow down your application.
+
+### Handling errors
+If a Promise is rejected, the **await** expression throws the rejected value. Hence, one of the ways to handle errors when using **Async/Await** is using a try-catch block:
+#### Code
+```javascript
+function rejected() {
+  return new Promise((resolve, reject) => {
+    setTimeout(function() {
+      reject('this is an error!!!');
+    }, 1000)
+  })
+}
+async function getPromise() {
+  try {
+    const value = await rejected(); //Promise is rejected. Await will throw the rejected value
+  } catch(err) { //catch rejected value here
+    console.log(err)
+  }
+}
+getPromise() //output: this is an error!!!
 ```
 
 ---
@@ -587,6 +779,82 @@ generateRandomNumber(min, max) => {
 }
 ```
 
+### Converting an Array to a Keyed Object
+
+Using reduce, you can convert an array of objects to an object keyed by a value within the objects, or the index of the object.
+
+##### Code
+```javascript
+function convertListToObject(list, keyBy) {
+  return list.reduce((newObject, listItem, index) => {
+    const key = keyBy ? listItem[keyBy] : index.toString();
+    return {
+      ...newObject,
+      [key]: listItem
+    };
+  }, {});
+}
+
+const foods = [{ food: 'bacon', id: '1234 '}, { food: 'eggs', id: '1345' }, { food: 'toast', id: '1456'}];
+const clothes = [{ type: 'socks' }, { type: 'jacket' }, { type: 'shoes' }];
+
+console.log(convertListToObject(foods, 'id'));
+/*
+ * {
+ *   '1345': { food: 'eggs', id: '1345' },
+ *   '1456': { food: 'toast', id: '1456' },
+ *   '1234 ': { food: 'bacon', id: '1234 ' }
+ * }
+ */
+
+console.log(convertListToObject(clothes));
+/*
+ * {
+ *   '0': { type: 'socks' },
+ *   '1': { type: 'jacket' },
+ *   '2': { type: 'shoes' }
+ * }
+ */
+```
+
+#### Grab URL Query Parameters By Name
+Grabs the value of a url query parameter based on its name
+```javascript
+/**
+* @param      {!string}     name      {Parameter name to search for in the URL}
+* @param      {string}      url       {The url to check, if not the currently active URL}
+*/
+getParameterByName(name, url = window.location.href) => {
+  name = name.replace(/[\[\]]/g, '\\$&');
+  const regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+  if (!results) return null;
+  if (!results[2]) return '';
+  return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+```
+
+#### Perform deep copy on an object
+
+Can be used to copy one object into another when an object has nested objects.
+
+````javascript
+function deepCopyObject(obj){
+  const keys = Object.keys(obj);
+  const newObject = {}
+
+  for(let i=0; i<keys.length; i++) {
+    const key = keys[i];
+    if ( typeof obj[key] === 'object' ) {
+      newObject[key] = deepCopyObject(obj[key]);
+    } else {
+      newObject[key] = obj[key];
+    }
+  }
+  return newObject;
+}
+```
 ---
 
 ## Closures
@@ -649,6 +917,23 @@ When file execute a code, A self calling function execute and initialized a loca
 1+1 = 2
 2+1 = 3
 and so on…
+
+#### **IIFE (Immediately Invoked Function Expressions)**
+
+An **IIFE** is a JavaScript function that runs as soon as it is defined. It is another example of how **Closures** work in Javascript.
+
+Example
+
+```javascript
+var result = (function() {
+  var name = "Dev Snippets";
+  return name;
+})();
+// Immediately creates the output:
+console.log(result); // "Dev Snippets"
+```
+
+Assigning an IIFE to a variable will store the value that the function return and not the function definition. Also, variables declared inside IIFE **will not be accessible** outside elsewhere.
 
 ### Conclusion:
 
