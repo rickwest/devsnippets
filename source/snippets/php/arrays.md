@@ -108,3 +108,68 @@ $marks = array(
 );
 //print_r($marks)
 ```
+
+
+### Merge Arrays
+```php
+$colorsOne = ['Green', 'Black', 'Blue'];
+$colorsTwo = ['Red', 'Yellow', 'Purple'];
+$allColors = array_merge( $colorsOne, $colorsTwo);
+
+//print_r($allColors)
+```
+
+### Get Array Keys
+```php
+$cars = [
+    'name' => 'Gol',
+    'maker' => 'Volkswagen'
+];
+
+$keys = array_keys( $cars );
+//print_r($keys)
+```
+
+### Get Array Values
+```php
+$cars = [
+    'name' => 'Gol',
+    'maker' => 'Volkswagen'
+];
+
+$values = array_values( $cars );
+//print_r($values)
+```
+
+### Checks if array has a value
+```php
+$carsOnGarage = ['Ferrari', 'Camaro', 'Mustang', 'Dodge Dart', 'Ford Torino Cobra'];
+$newCar = 'Toyota Prius';
+
+if( in_array( $newCar, $carsOnGarage )){
+    echo "$newCar is on Garage";
+}else{
+    echo "$newCar is not on Garage";
+}
+//result= Toyota Prius is not on Garage
+```
+
+
+### Filter an array
+```php
+$numbers = [1,2,3,4,5,6,7,8,9,10];
+
+$oddNumbers = array_filter( $numbers, function( $arrayElement){
+    return $arrayElement % 2 === 0;
+});
+
+print_r( $oddNumbers )
+/* Array
+(
+    [1] => 2
+    [3] => 4
+    [5] => 6
+    [7] => 8
+    [9] => 10
+) */
+```
