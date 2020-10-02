@@ -65,6 +65,7 @@ You can compile C/C++ programs using makefile. For more details, you can check o
 
 # C++ function for Binary search in an array
 
+```
 int binarySearch(int array[], int left, int right, int element)
 {
    while (left <= right) {
@@ -86,11 +87,11 @@ int binarySearch(int array[], int left, int right, int element)
    // If element is not present
    return -1;
 }
-
+```
 
 # C++ function to efficiently check if a number is prime or not
 
-
+```
 bool isPrime(int n)
 {
 
@@ -110,9 +111,11 @@ bool isPrime(int n)
 
     return true;
 }
+```
 
 # C++ function to merge sort an array
 
+```
 // Merges two subarrays of arr[].
 // First subarray is arr[l..m]
 // Second subarray is arr[m+1..r]
@@ -188,3 +191,4 @@ void mergeSort(int arr[], int l, int r)
         merge(arr, l, m, r);
     }
 }
+```
