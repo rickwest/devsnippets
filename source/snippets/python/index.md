@@ -150,6 +150,16 @@ print(reverse_test_string)
 ```
 Output: "gnirts tset"
 
+## Useful Function -  Convert two lists into a dictionary
+```python
+def convert_to_dictionary(keys, values):
+    return dict(zip(keys, values))
+
+keys = [1, 2, 3]
+values = ['X', 'Y', 'Z']
+print(convert_to_dictionary(keys, values)) # {1: 'X', 2: 'Y', 3: 'Z'}
+```
+
 
 ## Iteration
 
