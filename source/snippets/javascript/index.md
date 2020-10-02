@@ -16,6 +16,7 @@ section: content
 - [Async/Await](#asyncawait)
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
+- [Destructuring](#destructuring)
 
 ## Variables
 
@@ -938,3 +939,79 @@ Assigning an IIFE to a variable will store the value that the function return an
 ### Conclusion:
 
 The key to remember is that when a function gets declared, it contains a function definition and a closure. The closure is a collection of all the variables in scope at the time of creation of the function.
+
+---
+
+## Destructuring
+[Destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) allows the extraction of values from arrays and properties from objects into their own variables using a pretty terse, yet clear syntax.
+
+### Destructuring Arrays
+Before destructuring, the way to access items in an array looks something like this:
+
+#### Code
+```javascript
+const items = ['car', 'computer', 'wallet'];
+const itemA = items[0];
+const itemB = items[1];
+const itemC = items[2];
+```
+
+With destructuring, this becomes a one-liner:
+
+#### Code
+```javascript
+const items = ['car', 'computer', 'wallet'];
+const [ itemA, itemB, itemC ] = items; //assign individual variables to the corresponding item in the array
+console.log(itemB) //'computer'
+```
+
+You can also choose to ignore items in an array by 'skipping' its variable assigment:
+
+#### Code
+```javascript
+const items = ['car', 'computer', 'wallet'];
+const [ itemA, , itemC] = items; //'computer' is being ignored
+console.log(itemC) //'wallet'
+```
+
+And you can also choose to unpack only some values and assign the remaining to a variable using the [rest (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) syntax:
+
+#### Code
+```javascript
+const items = ['car', 'computer', 'wallet'];
+const [ itemA, ...rest] = items; //extract first item and assign the remaining items to the 'rest' variable
+console.log(itemA) //'car'
+console.log(rest) //['computer', 'wallet']
+```
+
+### Destructuring Objects
+
+Destructuring objects allows us to store its properties in variables like so:
+
+#### Code
+```javascript
+const obj = {name: 'Foo', age: 31};
+const {name, age} = obj; //extract the 'name' and 'age' properties into variables. Notice how the variable names match the properties
+console.log(name) // 'Foo'
+console.log(age) // 31
+```
+
+We can also extract the properties and assign them to new variable names:
+
+#### Code
+```javascript
+const obj = {name: 'Foo', age: 31};
+const {name: newName, age: newAge} = obj; //extract the 'name' and 'age' properties and assign them to new variables - newName and newAge - respectively
+console.log(newName) // 'Foo'
+console.log(newAge) // 31
+```
+
+Using the [rest (...)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/rest_parameters) syntax in Object destructuring:
+
+#### Code
+```javascript
+const obj = {name: 'Foo', age: 31, hobby: 'coding'};
+const {name, ...rest} = obj; //extract 'name' property and assign the remaining properties to the 'rest' variable
+console.log(name) // 'Foo'
+console.log(rest) // {age: 31, hobby: 'coding'}
+```
