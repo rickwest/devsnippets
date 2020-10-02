@@ -36,3 +36,4 @@
 - [Gabe Rose](https://github.com/roseg43)
 - [Augusto Scher](https://github.com/augustoscher)
 - [Subbu Swaroop](https://github.com/SubbuSwaroop)
+- [Bhaskar Gupta](https://github.com/guptabhaskar)

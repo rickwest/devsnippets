@@ -167,5 +167,19 @@ def count_substring(string, sub_string):
 count_substring('hello', 'l')
 ```
 
+## While Loop
+
+The following example uses a while loop to find the factorial on an integer n.
+
+```python
+def factorial(n):
+    result = 1
+    while(n >= 1):
+        result = result * n
+        n = n - 1
+    return result
+factorial(5)
+```
+
 #### Note :
 As a python developer, be careful with Python indentation. sometimes even if lines look visually indented, from python perspective they maybe are not indented & causes errors. IDEs like PyCharm are useful for debugging and avoiding common errors such as this.
