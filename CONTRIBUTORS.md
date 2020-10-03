@@ -37,3 +37,4 @@
 - [Augusto Scher](https://github.com/augustoscher)
 - [Subbu Swaroop](https://github.com/SubbuSwaroop)
 - [Bhaskar Gupta](https://github.com/guptabhaskar)
+- [Rabin Khatiwada](https://github.com/rabinkhatiwada)
