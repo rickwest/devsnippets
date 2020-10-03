@@ -150,6 +150,16 @@ print(reverse_test_string)
 ```
 Output: "gnirts tset"
 
+## Useful Function -  Convert two lists into a dictionary
+```python
+def convert_to_dictionary(keys, values):
+    return dict(zip(keys, values))
+
+keys = [1, 2, 3]
+values = ['X', 'Y', 'Z']
+print(convert_to_dictionary(keys, values)) # {1: 'X', 2: 'Y', 3: 'Z'}
+```
+
 
 ## Iteration
 
@@ -165,6 +175,20 @@ def count_substring(string, sub_string):
             count += 1
     return count
 count_substring('hello', 'l')
+```
+
+## While Loop
+
+The following example uses a while loop to find the factorial on an integer n.
+
+```python
+def factorial(n):
+    result = 1
+    while(n >= 1):
+        result = result * n
+        n = n - 1
+    return result
+factorial(5)
 ```
 
 #### Note :
