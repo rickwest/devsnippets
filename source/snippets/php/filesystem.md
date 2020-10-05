@@ -5,7 +5,7 @@ extends: _layouts.documentation
 section: content
 ---
 
-# PHP File System
+# File System
 
 ## Get (Human Readable) File Size 
 
@@ -25,6 +25,6 @@ Example
 echo MakeReadable(120030005.12);
 ```
 
-```php
+```bash
 114.47MB
 ```
