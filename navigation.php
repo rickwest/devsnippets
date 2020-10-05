@@ -26,7 +26,8 @@ return [
         'children' => [
             'DateTime' => 'snippets/php/datetime',
             'Tooling' => 'snippets/php/tools',
-            'Arrays' => 'snippets/php/arrays'
+            'Arrays' => 'snippets/php/arrays',
+            'File System' => 'snippets/php/filesystem'
         ]
     ],
     'Python' => 'snippets/python',
