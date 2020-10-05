@@ -52,6 +52,22 @@ Examples:
 
 Here are some simple examples. Two days is P2D. Two seconds is PT2S. Six years and five minutes is P6YT5M.
 
+# Loop through DateInterval
+```php
+$installments = 18;
+        
+//current date
+$now = new DateTime();
+//30 days interval between each installment
+$interval = new DateInterval('P30D');
+
+//period
+$period = new DatePeriod($now, $interval, $installments, DatePeriod::EXCLUDE_START_DATE);
+
+foreach ($period as $date)
+	echo $date->format("Y-m-d"), '<br>';
+```
+
 # Create a Date From a String
 
 ### Here, we will be using PHP's strtotime()
