@@ -39,3 +39,4 @@
 - [Bhaskar Gupta](https://github.com/guptabhaskar)
 - [Rabin Khatiwada](https://github.com/rabinkhatiwada)
 - [Adrian Hernandez-Lopez](https://github.com/AdrianHL)
+- [Juan Benitez](https://github.com/juanbenitez)
