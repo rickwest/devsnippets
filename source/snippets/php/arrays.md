@@ -173,3 +173,25 @@ print_r( $oddNumbers )
     [9] => 10
 ) */
 ```
+
+
+### Get an array from a JSON string
+```php
+$jsonString = '{
+	"apple": "red",
+	"orange": "orange",
+	"banana": "yellow"
+}';
+
+$array = json_decode( $jsonString, true );
+
+print_r( $array );
+/*
+Array
+(
+    [apple] => red
+    [orange] => orange
+    [banana] => yellow
+)
+*/
+```
