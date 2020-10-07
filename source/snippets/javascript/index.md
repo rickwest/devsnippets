@@ -344,6 +344,63 @@ while (currentCard !== 'Spade') {
 console.log('found a spade');
 ```
 
+### every, includes and some
+These methods test whether one or all elements of an array past the tests provided. These methods return Boolean values true or false.
+
+**Note: This method returns true for any condition put on an empty array.**
+
+#### Using Array.every() Method
+
+[Array.prototype.every()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/every) - this method tests whether all elements in an array pass the test provided by the function.
+
+##### Example: is every number in the array is divisible by 3
+
+##### Code
+``` javascript
+function divisbleByThree(currentValue) {
+  return ( currentValue % 3 ) === 0;
+}
+
+var numbers = [3, 30, 36, 99, 102, 132];
+
+console.log(numbers.every(divisbleByThree));
+// output: true
+```
+
+#### Using Array.includes() Method
+
+[Array.prototype.includes()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/includes) - this method determines whether an array contains a value amongst its elements.
+
+#### Example: does this array have oranges amongst its values
+
+##### Code
+``` javascript
+var fruits = ['apples', 'bananas', 'cherries', 'dates'];
+
+console.log(fruits.includes('oranges'));
+// output: false
+```
+
+#### Using Array.some() Method
+
+[Array.prototype.some()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) - this method tests whether at least one element in an array pass the test provided by the function.
+
+**Note: This method returns false for any condition put on an empty array.**
+
+#### Example: does this array have >= 1 number that is divisible by 3
+
+##### Code
+``` javascript
+function divisbleByThree(currentValue) {
+  return ( currentValue % 3 ) === 0;
+}
+
+var numbers = [1, 31, 35, 98, 103, 131];
+
+console.log(numbers.some(divisbleByThree));
+// output: false
+```
+
 ---
 
 ### Objects
