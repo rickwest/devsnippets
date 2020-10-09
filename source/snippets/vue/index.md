@@ -159,8 +159,6 @@ Basic Vue Component with Vue 3 Composition API.
 
 ### Component using Vue 3 Composition API with click event and data binding
 
-Basic Vue Component with Vue 3 Composition API.
-
 ```html
 <template>
   <div id="app">
