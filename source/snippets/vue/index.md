@@ -126,3 +126,67 @@ Basic Vue Component Scaffold.
   }
 </script>
 ```
+
+### Component using Vue 3 Composition API
+
+Basic Vue Component with Vue 3 Composition API.
+
+```html
+<template>
+  <div id="app">
+    Hello {{name}}!
+  </div>
+</template>
+
+<script>
+  import { ref } from 'vue';
+
+  export default {
+    name: 'App',
+    setup(props, context) {
+      const name = ref('world');
+      return {
+        name
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
+```
+
+### Component using Vue 3 Composition API with click event and data binding
+
+```html
+<template>
+  <div id="app">
+    <button type="button" @click="onClick">Increment (Clicked: {{clicks}})</button>
+  </div>
+</template>
+
+<script>
+  import { ref } from 'vue';
+
+  export default {
+    name: 'App',
+    setup(props, context) {
+      const clicks = ref(0);
+
+      function onClick() {
+        clicks.value++;
+      }
+
+      return {
+        clicks,
+        onClick
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
+```

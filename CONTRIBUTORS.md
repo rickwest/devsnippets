@@ -40,3 +40,4 @@
 - [Rabin Khatiwada](https://github.com/rabinkhatiwada)
 - [Adrian Hernandez-Lopez](https://github.com/AdrianHL)
 - [Juan Benitez](https://github.com/juanbenitez)
+- [Chaiyapat Tantiworachot](https://github.com/pixelart7)
