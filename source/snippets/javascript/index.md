@@ -313,6 +313,33 @@ const totalScore = students.reduce((total, student) => total + student.score, 0)
 console.log(totalScore); // 165
 ```
 
+#### Using the some() method
+
+Just like find(), [Array.prototype.find()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/find).
+[Array.prototype.some()] (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/some) is the built-in function in JavaScript.The some() method checks if any of the element in an array pass a test (provided as a function).
+
+**Some returns a boolean value.**
+
+#### When to use some()
+Use `some()` when you want to check at least one value in an array.
+If it finds an element then the function returns a true value and does not check the remaining values.
+Otherwise it returns false.
+
+#### Example - Check if any values in the ages array are 18 or over
+In this example, we want to check is there any age which is over 18 from the given array of ages. 
+
+##### Code
+
+We have an array of ages. We can use `some()` to find any adult age exist and return true|false result as shown here.
+
+```javascript
+const ages = [3, 10, 18, 20];
+
+const isAdultAgeExist = ages.some(age => age >= 18);
+
+console.log(isAdultAgeExist); // true
+```
+
 #### Using the join() method
 
 The [join()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/join) method will join all the elements of an array into a string. It has an optional _separator_ parameter. If no parameter is given, the elements are separated with a comma.
