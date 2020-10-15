@@ -202,6 +202,139 @@ print("The ASCII value of '" + c + "' is", ord(c))
 OUTPUT:The ASCII value of g is 42
 
 ```
+### Quick Math
+
+This script is used to add (or multiply or divide or subtract) multiple numbers in a single command line.
+```python
+
+import math
+import sys
+
+if len(sys.argv) < 4:
+    print("Usage: quickmath.py <add|mul|div|sub|avg> <num01> <num02> [num03..num99]")
+    exit(1)
+
+w_addition = {"+", "add", "addition", "plus"}
+w_subtraction = {"-", "sub", "subtraction", "minus"}
+w_multiply = {"*", "x", "mul", "multiply"}
+w_divide = {"/", "div", "divide"}
+
+for counter in range(2, len(sys.argv)):
+    if not sys.argv[counter].isdigit():
+        print("Usage: quickmath.py <add|mul|div|sub|avg> <num01> <num02> [num03..num99]")
+        exit(1)
+
+result = float(sys.argv[2])
+
+if sys.argv[1] in w_addition:
+    for counter in range(3, len(sys.argv)):
+        result = result + float(sys.argv[counter])
+elif sys.argv[1] in w_subtraction:
+    for counter in range(3, len(sys.argv)):
+        result = result - float(sys.argv[counter])
+elif sys.argv[1] in w_multiply:
+    for counter in range(3, len(sys.argv)):
+        result = result * float(sys.argv[counter])
+elif sys.argv[1] in w_divide:
+    for counter in range(3, len(sys.argv)):
+        result = result / float(sys.argv[counter])
+else:
+    print("Usage: quickmath.py <add|mul|div|sub|avg> <num01> <num02> [num03..num99]")
+    exit(1)
+
+print(str(result))
+```
+### Validate JSON
+
+This script will read a file and either pass the file as being a valid JSON file, or die a horrible death.
+```python
+#!/usr/bin/env python3
+
+import os
+import sys
+import json
+
+if len(sys.argv) > 1:
+    if os.path.exists(sys.argv[1]):
+        file = open(sys.argv[1], "r")
+        json.load(file)
+        file.close()
+        print("Validate JSON!")
+    else:
+        print(sys.argv[1] + " not found")
+else:
+    print("Usage: checkjson.py <file>")
+```
+
+### Generate Random Password
+
+This script will generate random password with following rules:
+1. 6-20 characters
+2. at least one uppercase character
+3. at least one lowercase character
+4. at least one digit
+5. at least one special character (!, @, #, $, %, ^, &, *)
+6. no more than 2 characters repeating consecutively 
+ 
+```python
+import random
+
+LOWERCASE_CHARS = tuple(map(chr, xrange(ord('a'), ord('z')+1)))
+UPPERCASE_CHARS = tuple(map(chr, xrange(ord('A'), ord('Z')+1)))
+DIGITS = tuple(map(str, range(0, 10)))
+SPECIALS = ('!', '@', '#', '$', '%', '^', '&', '*')
+
+SEQUENCE = (LOWERCASE_CHARS,
+            UPPERCASE_CHARS,
+            DIGITS,
+            SPECIALS,
+            )
+
+def generate_random_password(total, sequences):
+    r = _generate_random_number_for_each_sequence(total, len(sequences))
+
+    password = []
+    for (population, k) in zip(sequences, r):
+        n = 0
+        while n < k:
+            position = random.randint(0, len(population)-1)
+            password += population[position]
+            n += 1
+    random.shuffle(password)
+    
+    while _is_repeating(password):
+        random.shuffle(password)
+        
+    return ''.join(password)
+
+def _generate_random_number_for_each_sequence(total, sequence_number):
+    """ Generate random sequence with numbers (greater than 0).
+        The number of items equals to 'sequence_number' and
+        the total number of items equals to 'total'
+    """
+    current_total = 0
+    r = []
+    for n in range(sequence_number-1, 0, -1):
+        current = random.randint(1, total - current_total - n)
+        current_total += current
+        r.append(current)
+    r.append(total - sum(r))
+    random.shuffle(r)
+
+    return r
+
+def _is_repeating(password):
+    """ Check if there is any 2 characters repeating consecutively """
+    n = 1
+    while n < len(password):
+        if password[n] == password[n-1]:
+            return True
+        n += 1
+    return False
+
+if __name__ == '__main__':
+    print generate_random_password(random.randint(6, 30), SEQUENCE)
+```
 
 
 #### Note :
