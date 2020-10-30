@@ -97,7 +97,99 @@ Basic Vue Component Scaffold.
 </script>
 ```
 
-<!-- ## Slots in Vue -->
+### Component with conditional template
+
+```html
+<template>
+  <div id="app">
+    <div>
+      Click the button to show/hide the text!
+    </div>
+    <p v-if="show">Hey I'm visible</p>
+    <button @click="toggleShow"></button>
+  </div>
+</template>
+
+<script>
+  export default {
+    name: 'App',
+    data() {
+      return {
+        show: true,
+      };
+    },
+    methods:{
+      toggleShow(){
+        this.show = !this.show
+      }
+    }
+  }
+</script>
+```
+
+### Component using Vue 3 Composition API
+
+Basic Vue Component with Vue 3 Composition API.
+
+```html
+<template>
+  <div id="app">
+    Hello {{name}}!
+  </div>
+</template>
+
+<script>
+  import { ref } from 'vue';
+
+  export default {
+    name: 'App',
+    setup(props, context) {
+      const name = ref('world');
+      return {
+        name
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
+```
+
+### Component using Vue 3 Composition API with click event and data binding
+
+```html
+<template>
+  <div id="app">
+    <button type="button" @click="onClick">Increment (Clicked: {{clicks}})</button>
+  </div>
+</template>
+
+<script>
+  import { ref } from 'vue';
+
+  export default {
+    name: 'App',
+    setup(props, context) {
+      const clicks = ref(0);
+
+      function onClick() {
+        clicks.value++;
+      }
+
+      return {
+        clicks,
+        onClick
+      }
+    }
+  }
+</script>
+
+<style>
+
+</style>
+```
 
 ### Slots in Vue
 
