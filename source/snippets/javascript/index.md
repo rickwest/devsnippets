@@ -17,6 +17,7 @@ section: content
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 - [Destructuring](#destructuring)
+- [Prototypes](#prototypes)]
 
 ## Variables
 
@@ -1015,3 +1016,24 @@ const {name, ...rest} = obj; //extract 'name' property and assign the remaining 
 console.log(name) // 'Foo'
 console.log(rest) // {age: 31, hobby: 'coding'}
 ```
+
+---
+
+## Prototypes
+[Destructuring](https://https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes) Prototypes are the mechanism by which JavaScript objects inherit features from one another.All JavaScript objects inherit properties and methods from a prototype.
+
+
+#### Code
+```javascript
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+var myFather = new Person("John", "Doe", 50, "blue");
+var myMother = new Person("Sally", "Rally", 48, "green");
+```
+
+
+
