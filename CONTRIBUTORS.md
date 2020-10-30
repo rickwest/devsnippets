@@ -41,3 +41,4 @@
 - [Adrian Hernandez-Lopez](https://github.com/AdrianHL)
 - [Juan Benitez](https://github.com/juanbenitez)
 - [Chaiyapat Tantiworachot](https://github.com/pixelart7)
+- [Hamza Nasim](https://github.com/HamzaNasim)
