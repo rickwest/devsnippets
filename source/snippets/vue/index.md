@@ -96,6 +96,7 @@ Basic Vue Component Scaffold.
   }
 </script>
 ```
+
 <!-- ## Slots in Vue -->
 
 ### Slots in Vue
