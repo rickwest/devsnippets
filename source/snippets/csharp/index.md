@@ -25,3 +25,19 @@ private void Shuffle(string[] e)
 	}
 }
 ```
+
+# C&#35;
+
+## Creating List
+
+Code snippet adds items to the list.
+
+```csharp
+List<string> AuthorList = new List<string>();    
+
+AuthorList.Add("Mahesh Chand");    
+AuthorList.Add("Praveen Kumar");    
+AuthorList.Add("Raj Kumar");    
+AuthorList.Add("Nipun Tomar");    
+AuthorList.Add("Dinesh Beniwal"); 
+```
