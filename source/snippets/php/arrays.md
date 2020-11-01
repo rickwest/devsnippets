@@ -174,6 +174,18 @@ print_r( $oddNumbers )
 ) */
 ```
 
+### Map a multidimensional array into an associative array
+```php
+$multi = [['key' => 'height', 'value' => '1080'],['key' => 'width', 'value' => '1920']];
+
+$assoc = array_columns($multi, 'value', 'key');
+
+/*Array
+(
+	'height' => '1080'
+	'width' => '1920'
+)*/
+```
 
 ### Get an array from a JSON string
 ```php
