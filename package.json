@@ -14,7 +14,7 @@
         "docsearch.js": "^2.6.2",
         "extra-watch-webpack-plugin": "^1.0.3",
         "hasbin": "^1.2.3",
-        "highlight.js": "^9.13.1",
+        "highlight.js": "^10.1.2",
         "laravel-mix": "^5.0.5",
         "laravel-mix-purgecss": "^3.0.0",
         "node-cmd": "^3.0.0",
