@@ -17,6 +17,8 @@ section: content
 - [Useful Functions](#useful-functions)
 - [Closures](#closures)
 - [Destructuring](#destructuring)
+- [Prototypes](#prototypes)]
+- [Hoisting](#hoisting)]
 
 ## Variables
 
@@ -1015,3 +1017,41 @@ const {name, ...rest} = obj; //extract 'name' property and assign the remaining 
 console.log(name) // 'Foo'
 console.log(rest) // {age: 31, hobby: 'coding'}
 ```
+
+---
+
+## Prototypes
+[Destructuring](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Objects/Object_prototypes) Prototypes are the mechanism by which JavaScript objects inherit features from one another.All JavaScript objects inherit properties and methods from a prototype.
+
+
+#### Code
+```javascript
+function Person(first, last, age, eyecolor) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eyecolor;
+}
+var myFather = new Person("John", "Doe", 50, "blue");
+var myMother = new Person("Sally", "Rally", 48, "green");
+```
+
+
+---
+
+## Hoisting
+[Hoisting](https://developer.mozilla.org/en-US/docs/Glossary/Hoisting) Hoisting suggests that variable and function declarations are physically moved to the top of your code, but this is not in fact what happens. Instead, the variable and function declarations are put into memory during the compile phase, but stay exactly where you typed them in your code.A variable can be declared after it has been used.
+
+
+#### Code
+```javascript
+x = 5; // Assign 5 to x
+
+elem = document.getElementById("demo"); // Find an element
+elem.innerHTML = x;                     // Display x in the element
+
+var x; // Declare x
+```
+
+
+
