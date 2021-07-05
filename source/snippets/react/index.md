@@ -323,6 +323,142 @@ ReactDOM.render(
 
 ```
 
+When it comes it handling state, it is important to **never mutate it directly**. This is mentioned in the official [docs](https://reactjs.org/docs/react-component.html#state): 
+> Never mutate this.state directly, as calling `setState()` afterwards may replace the mutation you made. Treat `this.state` as if it were immutable.
+
+Here are some approaches to treat state as immutable (without using libraries):
+
+#### Arrays
+
+```javascript
+//using .concat() 
+state = {
+  fruits: ['apples', 'oranges', 'bananas'],
+}
+handleAdd = () => {
+  //add a new item to an existing array WITHOUT mutating it.
+  const newState = this.state.fruits.concat('watermelon');
+  console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+  console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+}
+```
+```javascript
+//using slice() 
+state = {
+  fruits: ['apples', 'oranges', 'bananas'],
+}
+handleAdd = () => {
+  //clone the existing array so the original is left untouched
+  const newState = this.state.fruits.slice();
+  //add a new item to the end of the cloned array
+  newState.push('watermelon');
+  console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+  console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+}
+```
+```javascript
+//using the spread operator(...) 
+state = {
+  fruits: ['apples', 'oranges', 'bananas'],
+}
+handleAdd = () => {
+  //spread out the items of the original array and add a new item to the end
+  const newState = [...this.state.fruits, 'watermelon'];
+  console.log(this.state.fruits); //['apples', 'oranges', 'bananas']
+  console.log(newState); //['apples', 'oranges', 'bananas', 'watermelon'],
+}
+```
+
+#### Objects
+
+```javascript
+//using Object.assign()  
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
+  }
+}
+handleChange = () => {
+  //clone the original object and change the name property 
+  const newPerson = Object.assign({}, {...this.state.person, name: 'Bar'});
+  console.log(this.state.person) //{name: 'Foo', age: 31}
+  console.log(newPerson) //{name: 'Bar', age: 31}
+}
+```
+```javascript
+//using the spread operator(...)  
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
+  }
+}
+handleChange = () => {
+  //clone the original object and change the name property 
+  const newPerson = {...this.state.person, name: 'Bar'}
+  console.log(this.state.person) //{name: 'Foo', age: 31}
+  console.log(newPerson) //{name: 'Bar', age: 31}
+}
+```
+
+If you have nested objects, be sure to clone them as well:
+
+#### Wrong
+
+```javascript
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
+    children: {
+      name: 'FooChild',
+    }
+  }
+}
+handleChange = () => {
+  //without cloning the nested object
+  const withoutNestedClone = {
+    ...this.state.person,
+    name: 'Bar',
+    //nested children object is not cloned. It is now prone to mutation!
+  }
+
+  withoutNestedClone.children.name = 'BarChild';
+  console.log(this.state.person) //{name: 'Foo', age: 31, children: {name: 'BarChild'}} the name property of children got mutated!
+  console.log(withoutNestedClone) //{name: 'Bar', age: 31, children: {name: 'BarChild'}}
+}
+```
+
+#### Correct
+
+```javascript
+state = {
+  person: {
+    name: 'Foo',
+    age: 31,
+    children: {
+      name: 'FooChild',
+    }
+  }
+}
+handleChange = () => {
+  //cloning the nested object
+  const nestedClone = {
+    ...this.state.person, 
+    name: 'Bar',
+    children: {
+      //clone the nested children object and change the name property
+      ...this.state.children,
+    }
+  }
+
+  nestedClone.children.name = 'BarChild'
+  console.log(this.state.person) //{name: 'Foo', age: 31, children: {name: 'FooChild'}} the name property of Children is not affected!
+  console.log(nestedClone) //{name: 'Bar', age: 31, children: {name: 'BarChild'}}
+}
+```
+
 ### Hook for throttling value change
 
 A custom hook to help throttling changes to variables. Especially useful when automatically queriying api's based on user text-input
