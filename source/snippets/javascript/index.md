@@ -577,6 +577,64 @@ console.log(dateStr); // Displays current date in DD/MM/YYYY format
 
 ## Promises
 
+[Promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) are used to handle asynchronous operations in a way that is more elegant and readable. In the past, we would look to Callbacks to handle more than one asynchronous task because the data from the previous request is needed for the next. This will quickly lead to what we call "Callback Hell". Here is how it looks like:
+
+#### Code
+```javascript
+//Task: Use the PokemonAPI to retrieve the first 3 Pokemons 
+//and output a comma separated list e.g., Pokemon1, Pokemon2, Pokemon3
+let poke1, poke2, poke3;
+
+function getPokemon(ID, callback) {
+  //let's use jQuery's $.getJSON to perform the HTTP request
+  return $.getJSON('https://pokeapi.co/api/v2/pokemon/' + ID, callback);
+}
+
+getPokemon(1, function(dataFromFirstRequest) { //retrieve first Pokemon
+  poke1 = dataFromFirstRequest.name //store the name of the first Pokemon to the poke1 var
+  getPokemon(2, function(dataFromSecondRequest) { //retrieve second Pokemon
+    poke2 = dataFromSecondRequest.name  //store the name of the second Pokemon to the poke2 var
+    getPokemon(3, function(dataFromThirdRequest) { //retrieve third Pokemon
+      poke3 = dataFromThirdRequest.name //store the name of the third Pokemon to the poke3 var
+      console.log(`${poke1}, ${poke2}, ${poke3}`); //log out them
+    }).fail(errorFromThirdRequest => console.log(errorFromThirdRequest))
+  }).fail(errorFromSecondRequest => console.log(errorFromSecondRequest))
+}).fail(errorFromFirstRequest => console.log(errorFromFirstRequest))
+```
+As you can see, nested Callbacks can quickly make your code look like a 'pyramid' aka 'Callback Hell'. Imagine if we want to retrieve 10 Pokemons! Error handling also gets messy as we need to create a handler for every request. 
+
+This is where Promises shine. Let's refactor the above:
+
+#### Code
+```javascript
+//Task: Use the PokemonAPI to retrieve the first 3 Pokemons 
+//and output a comma separated list e.g., Pokemon1, Pokemon2, Pokemon3
+let poke1, poke2, poke3;
+
+function getPokemon(ID) {
+  //we will use the fetch() API which returns a Promise
+  return fetch('https://pokeapi.co/api/v2/pokemon/' + ID).then(response => response.json());
+}
+
+getPokemon(1) //retrieve the first Pokemon
+.then(dataFromFirstFetch => {
+  poke1 = dataFromFirstFetch.name; //store the name of the first Pokemon to the poke1 var
+  return getPokemon(2); //retrieve the second Pokemon and return that Promise
+})
+.then(dataFromSecondFetch => {
+  poke2 = dataFromSecondFetch.name;
+  return getPokemon(3); //retrieve the third Pokemon and return that Promise
+})
+.then(datafromThirdFetch => {
+  poke3 = datafromThirdFetch.name;
+  console.log(`${poke1}, ${poke2}, ${poke3}`); //log them out
+})
+.catch(err => {
+  console.log(err) //catch any errors and log them out
+})
+```
+With Promises, we have removed the need for nested Callbacks. Instead, we use `then()` to chain mulitple requests. Error handling also becomes a breeze as we only require one `catch()` to catch any error, regardless from which requests.
+
 #### Using the Promise.race() method
 
 The [Promise.race()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/race) method is used to act on the first promise in a group of promises that resolves or rejects.
