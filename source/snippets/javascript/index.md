@@ -18,7 +18,7 @@ section: content
 - [Closures](#closures)
 - [Destructuring](#destructuring)
 
-## Variables
+## <a id="variables"></a> Variables
 
 ### Scopes
 
@@ -96,7 +96,7 @@ console.log(obj.a); // 30
 ```
 ---
 
-## Arrays
+## <a id="arrays" name="arrays"></a> Arrays
 
 Arrays are data types used for storing sequences of values. An array is written as a list of comma-separated values inside a pair of square brackets. Any data type can be put into an array including other arrays.
 
@@ -346,7 +346,7 @@ console.log('found a spade');
 
 ---
 
-### Objects
+### <a name="objects" id="objects"></a> Objects
 
 You can use objects to store functions, other objects and properties, so you can create more descriptive code. Objects are easy and widely used in javascript.
 
@@ -400,7 +400,7 @@ const computer ={
 computer.printDetails();
 ```
 
-## Strings
+## <a name="strings" id="strings"></a> Strings
 
 ### Template strings (string interpolation)
 
@@ -542,7 +542,7 @@ console.log(vowels);
 ```
 ---
 
-## Dates
+## <a name="dates" id="dates"></a> Dates
 
 #### Add/Sub time period to/from a Date variable
 
@@ -575,7 +575,7 @@ console.log(dateStr); // Displays current date in DD/MM/YYYY format
 
 ---
 
-## Promises
+## <a name="promises" id="promises"></a> Promises
 
 #### Using the Promise.race() method
 
@@ -742,7 +742,7 @@ getPromise() //output: this is an error!!!
 
 ---
 
-## Useful functions
+## <a name="useful-functions" id="useful-functions"></a> Useful functions
 
 #### Whitelist Checker
 
@@ -858,7 +858,7 @@ function deepCopyObject(obj){
 ```
 ---
 
-## Closures
+## <a name="closures" id="closures"></a> Closures
 
 #### Why we use closures?
 
