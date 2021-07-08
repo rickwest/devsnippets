@@ -344,6 +344,16 @@ while (currentCard !== 'Spade') {
 console.log('found a spade');
 ```
 
+### Converts elements from an array as comma-separated values
+
+##### Code
+```javascript
+const arrayToCSV = (arr, delimiter = ',') =>
+  arr.map(v => v.map(x => `"${x}"`).join(delimiter)).join('\n');
+  
+arrayToCSV([['a', 'b'], ['c', 'd']]); // '"a","b"\n"c","d"'
+arrayToCSV([['a', 'b'], ['c', 'd']], ';'); // '"a";"b"\n"c";"d"'
+```
 ---
 
 ### Objects
