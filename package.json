@@ -8,7 +8,7 @@
         "watch": "npm run local -- --watch"
     },
     "devDependencies": {
-        "browser-sync": "^2.26.12",
+        "browser-sync": "^2.27.10",
         "browser-sync-webpack-plugin": "^2.0.1",
         "cross-env": "^3.2.3",
         "docsearch.js": "^2.6.2",
